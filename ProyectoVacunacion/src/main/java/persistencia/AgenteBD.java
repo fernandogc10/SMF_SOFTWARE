@@ -12,7 +12,7 @@ public class AgenteBD {
 		throw new UnsupportedOperationException();
 	}
 
-	public ResultSet<Object> select(String aSql) {
+	public ResultSet select(String aSql) {
 		throw new UnsupportedOperationException();
 	}
 
