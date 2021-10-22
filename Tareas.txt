@@ -1,0 +1,14 @@
+1 - Realizar la planificación de acuerdo a una metodología de desarrollo ágil (iterativa e incremental) y la capacidad de seguir dicha planificación por sprints.
+    En nuestro caso usaremos la metodología Scrum ¿En qué se basa la metodología Scrum? Scrum se basa en aspectos como: 
+          - La flexibilidad en la adopción de cambios y nuevos requisitos durante un proyecto complejo. 
+          - El factor humano.
+          - La colaboración e interacción con el cliente. 
+          - El desarrollo iterativo como forma de asegurar buenos resultados.
+          
+2 - Codificación.
+
+3 - Creación de un plan de gestión de configuración.
+
+4 - Implementación y distribución del trabajo y la gestión del trabajo.
+
+5 - Uso de Maven para gestionar la construcción del software.
