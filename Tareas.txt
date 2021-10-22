@@ -12,3 +12,5 @@
 4 - Implementación y distribución del trabajo y la gestión del trabajo.
 
 5 - Uso de Maven para gestionar la construcción del software.
+
+Actualizar .gitignore
