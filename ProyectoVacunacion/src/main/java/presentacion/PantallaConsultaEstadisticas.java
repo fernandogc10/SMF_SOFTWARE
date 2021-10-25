@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.AttributeSet.ColorAttribute;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -50,7 +52,8 @@ public class PantallaConsultaEstadisticas extends JFrame {
 	 * Create the frame.
 	 */
 	public PantallaConsultaEstadisticas() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaConsultaEstadisticas.class.getResource("/presentacion/images/Logo.png")));
+		setTitle("SMF_SOFTWARE");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaConsultaEstadisticas.class.getResource("/presentacion/images/LogoSMF.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 795, 473);
 		contentPane = new JPanel();
@@ -61,25 +64,28 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon(PantallaConsultaEstadisticas.class.getResource("/presentacion/images/Logo.png")));
-		lblLogo.setBounds(451, 41, 100, 100);
+		lblLogo.setBounds(10, 11, 100, 100);
 		contentPane.add(lblLogo);
 		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setIcon(new ImageIcon(PantallaConsultaEstadisticas.class.getResource("/presentacion/images/Fondo.png")));
 		lblFondo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFondo.setBounds(0, -53, 206, 487);
+		lblFondo.setBounds(569, 0, 210, 434);
 		contentPane.add(lblFondo);
 		
 		JButton btnSNS = new JButton("SNS");
 		btnSNS.setAutoscrolls(true);
 		btnSNS.setBackground(Color.WHITE);
+		
 		btnSNS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
+		
 		btnSNS.setForeground(Color.BLACK);
 		btnSNS.setFont(new Font("Roboto Medium", Font.PLAIN, 17));
-		btnSNS.setBounds(404, 163, 188, 52);
+		btnSNS.setBounds(253, 161, 188, 52);
 		contentPane.add(btnSNS);
 		
 		JButton btnSRS = new JButton("SRS");
@@ -90,7 +96,7 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		btnSRS.setForeground(Color.BLACK);
 		btnSRS.setFont(new Font("Roboto Medium", Font.PLAIN, 17));
 		btnSRS.setBackground(Color.WHITE);
-		btnSRS.setBounds(404, 260, 188, 52);
+		btnSRS.setBounds(253, 224, 188, 52);
 		contentPane.add(btnSRS);
 	}
 }
