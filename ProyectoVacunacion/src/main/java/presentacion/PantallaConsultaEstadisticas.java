@@ -23,6 +23,7 @@ import java.awt.MouseInfo;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Panel;
 
 
 public class PantallaConsultaEstadisticas extends JFrame {
@@ -53,42 +54,46 @@ public class PantallaConsultaEstadisticas extends JFrame {
 	 */
 	public PantallaConsultaEstadisticas() {
 		setTitle("SMF_SOFTWARE");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaConsultaEstadisticas.class.getResource("/presentacion/images/LogoSMF.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaConsultaEstadisticas.class.getResource("/presentacion/images/IconoApp.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 795, 473);
 		contentPane = new JPanel();
+		contentPane.setForeground(new Color(64, 224, 208));
 		contentPane.setBackground(new Color(136, 212, 234));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(PantallaConsultaEstadisticas.class.getResource("/presentacion/images/Logo.png")));
-		lblLogo.setBounds(10, 11, 100, 100);
-		contentPane.add(lblLogo);
+		JLabel lblNewLabel = new JLabel("Elige una opcion");
+		lblNewLabel.setBackground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Roboto Medium", Font.PLAIN, 18));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(173, 130, 255, 35);
+		contentPane.add(lblNewLabel);
 		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setIcon(new ImageIcon(PantallaConsultaEstadisticas.class.getResource("/presentacion/images/Fondo.png")));
 		lblFondo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFondo.setBounds(569, 0, 210, 434);
+		lblFondo.setBounds(591, 0, 188, 434);
 		contentPane.add(lblFondo);
 		
-		JButton btnSNS = new JButton("SNS");
+		JButton btnSNS = new JButton("Sistema Nacional de Salud");
+		btnSNS.setOpaque(false);
 		btnSNS.setAutoscrolls(true);
 		btnSNS.setBackground(Color.WHITE);
 		
 		btnSNS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				//frame.setVisible(true);
 			}
 		});
 		
 		btnSNS.setForeground(Color.BLACK);
 		btnSNS.setFont(new Font("Roboto Medium", Font.PLAIN, 17));
-		btnSNS.setBounds(253, 161, 188, 52);
+		btnSNS.setBounds(173, 190, 255, 41);
 		contentPane.add(btnSNS);
 		
-		JButton btnSRS = new JButton("SRS");
+		JButton btnSRS = new JButton("Sistema Regional de Salud");
 		btnSRS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -96,7 +101,12 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		btnSRS.setForeground(Color.BLACK);
 		btnSRS.setFont(new Font("Roboto Medium", Font.PLAIN, 17));
 		btnSRS.setBackground(Color.WHITE);
-		btnSRS.setBounds(253, 224, 188, 52);
+		btnSRS.setBounds(173, 242, 255, 35);
 		contentPane.add(btnSRS);
+		
+		JButton btnNewButton = new JButton("Consulta de Estadisticas");
+		btnNewButton.setFont(new Font("Roboto Medium", Font.PLAIN, 17));
+		btnNewButton.setBounds(173, 288, 255, 35);
+		contentPane.add(btnNewButton);
 	}
 }
