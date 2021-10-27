@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class PantallaGestionSistemaRegionalSalud1 extends JFrame {
+public class PantallaGestionSistemaRegionalSalud extends JFrame {
 
 	private JPanel contentPane;
 
@@ -18,7 +18,7 @@ public class PantallaGestionSistemaRegionalSalud1 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PantallaGestionSistemaRegionalSalud1 frame = new PantallaGestionSistemaRegionalSalud1();
+					PantallaGestionSistemaRegionalSalud frame = new PantallaGestionSistemaRegionalSalud();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class PantallaGestionSistemaRegionalSalud1 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PantallaGestionSistemaRegionalSalud1() {
+	public PantallaGestionSistemaRegionalSalud() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
