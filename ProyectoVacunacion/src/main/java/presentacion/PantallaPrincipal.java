@@ -57,9 +57,9 @@ public class PantallaPrincipal extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnConEst = new JButton("Consultar estadísticas");
-		btnConEst.setForeground(new Color(0, 0, 0));
-		btnConEst.setFont(new Font("Roboto Medium", Font.PLAIN, 16));
-		btnConEst.setBackground(new Color(99, 165, 21));
+		btnConEst.setForeground(Color.WHITE);
+		btnConEst.setFont(new Font("Tw Cen MT", Font.BOLD, 18));
+		btnConEst.setBackground(new Color(19,98,143));
 		
 		btnConEst.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -70,18 +70,20 @@ public class PantallaPrincipal extends JFrame {
 		contentPane.add(btnConEst);
 		
 		JButton btnSRS = new JButton("Sistema Regional de Salud");
+		btnSRS.setForeground(Color.WHITE);
 		btnSRS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnSRS.setBackground(new Color(99, 165, 21));
-		btnSRS.setFont(new Font("Roboto Medium", Font.PLAIN, 16));
+		btnSRS.setBackground(new Color(19,98,143));
+		btnSRS.setFont(new Font("Tw Cen MT", Font.BOLD, 18));
 		btnSRS.setBounds(266, 259, 266, 41);
 		contentPane.add(btnSRS);
 		
 		JButton btnSNS = new JButton("Sistema Nacional de Salud");
-		btnSNS.setBackground(new Color(99, 165, 21));
-		btnSNS.setFont(new Font("Roboto Medium", Font.PLAIN, 16));
+		btnSNS.setForeground(Color.WHITE);
+		btnSNS.setBackground(new Color(19,98,143));
+		btnSNS.setFont(new Font("Tw Cen MT", Font.BOLD, 18));
 		btnSNS.setBounds(266, 207, 266, 41);
 		contentPane.add(btnSNS);
 		
@@ -99,7 +101,7 @@ public class PantallaPrincipal extends JFrame {
 		lblTitulo.setForeground(new Color(19, 98, 143));
 		lblTitulo.setBackground(new Color(0, 0, 0));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitulo.setFont(new Font("Roboto Medium", Font.BOLD, 26));
+		lblTitulo.setFont(new Font("Tw Cen MT", Font.BOLD, 26));
 		lblTitulo.setBounds(271, 53, 261, 53);
 		contentPane.add(lblTitulo);
 		
