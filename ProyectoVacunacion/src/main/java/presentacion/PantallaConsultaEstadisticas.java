@@ -43,6 +43,7 @@ public class PantallaConsultaEstadisticas extends JFrame {
 	 * Create the frame.
 	 */
 	public PantallaConsultaEstadisticas() {
+		setResizable(false);
 		setTitle("Consulta de Estadisticas");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(".\\src\\main\\resources\\LogoAPP.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

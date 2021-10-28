@@ -17,6 +17,8 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class PantallaPrincipal extends JFrame {
@@ -57,6 +59,15 @@ public class PantallaPrincipal extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnConEst = new JButton("Consultar estadísticas");
+		btnConEst.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PantallaConsultaEstadisticas pantallaconsultaestadisticas = new PantallaConsultaEstadisticas();
+				pantallaconsultaestadisticas.setVisible(true);
+				//this.dispose();
+			}
+
+		});
 		btnConEst.setForeground(Color.WHITE);
 		btnConEst.setFont(new Font("Tw Cen MT", Font.BOLD, 18));
 		btnConEst.setBackground(new Color(19,98,143));
