@@ -1,5 +1,7 @@
 package presentacion;
 
+
+import java.io.*;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -102,7 +104,7 @@ public class PantallaPrincipal extends JFrame {
 		contentPane.add(lblTitulo);
 		
 		JLabel lblLogoAbajo = new JLabel("");
-		lblLogoAbajo.setIcon(new ImageIcon("..\\resources\\LOGO_SMF.png"));
+		lblLogoAbajo.setIcon(new ImageIcon(".\\src\\main\\resources\\LOGO_SMF.png"));
 		lblLogoAbajo.setBounds(360, 348, 64, 41);
 		contentPane.add(lblLogoAbajo);
 		
