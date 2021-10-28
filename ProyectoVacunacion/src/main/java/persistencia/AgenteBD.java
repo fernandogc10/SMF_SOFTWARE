@@ -38,27 +38,27 @@ public class AgenteBD {
 		connection.close();
 	}
 
-	public int insert(String SQL) throws SQLException, Exception {
+	public ResultSet insert(String SQL) throws SQLException, Exception {
 		conectar();
 		PreparedStatement stmt = connection.prepareStatement(SQL);
-		int res = stmt.executeUpdate();
+		ResultSet res = stmt.executeQuery();
 		stmt.close();
 		desconectar();
 		return res;
 	}
 
-	public int delete(String SQL) throws SQLException, Exception {
+	public ResultSet delete(String SQL) throws SQLException, Exception {
 		PreparedStatement stmt = connection.prepareStatement(SQL);
-		int res = stmt.executeUpdate();
+		ResultSet res = stmt.executeQuery();
 		stmt.close();
 		desconectar();
 		return res;
 	}
 
-	public int update(String SQL) throws SQLException, Exception {
+	public ResultSet update(String SQL) throws SQLException, Exception {
 		conectar();
 		PreparedStatement stmt = connection.prepareStatement(SQL);
-		int res = stmt.executeUpdate();
+		ResultSet res = stmt.executeQuery();
 		stmt.close();
 		desconectar();
 		return res;
