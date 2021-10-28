@@ -45,7 +45,7 @@ public class PantallaPrincipal extends JFrame {
 	public PantallaPrincipal() {
 		
 		setBackground(Color.GRAY);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\usuario\\WorkSpace-Sergio\\SMF_SOFTWARE\\ProyectoVacunacion\\src\\main\\resources\\IconoApp.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(".\\src\\main\\resources\\LogoAPP.png"));
 		setTitle("SMF_SOFTWARE");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -93,7 +93,7 @@ public class PantallaPrincipal extends JFrame {
 		contentPane.add(lblLogoEmpresa);
 		
 		JLabel lbl_Img_Izq = new JLabel("");
-		lbl_Img_Izq.setIcon(new ImageIcon("C:\\Users\\usuario\\WorkSpace-Sergio\\SMF_SOFTWARE\\ProyectoVacunacion\\src\\main\\resources\\PicsArt_10-27-11.36.30.png"));
+		lbl_Img_Izq.setIcon(new ImageIcon(".\\src\\main\\resources\\sani_1.png"));
 		lbl_Img_Izq.setBounds(63, 134, 165, 311);
 		contentPane.add(lbl_Img_Izq);
 		
@@ -111,8 +111,8 @@ public class PantallaPrincipal extends JFrame {
 		contentPane.add(lblLogoAbajo);
 		
 		JLabel lbl_Img_Der = new JLabel("");
-		lbl_Img_Der.setIcon(new ImageIcon("..\\SMF_SOFTWARE\\ProyectoVacunacion\\src\\main\\resources\\PicsArt_10-27-11.36.58.png"));
-		lbl_Img_Der.setBounds(585, 81, 271, 367);
+		lbl_Img_Der.setIcon(new ImageIcon(".\\src\\main\\resources\\sani_2.png"));
+		lbl_Img_Der.setBounds(578, 86, 271, 365);
 		contentPane.add(lbl_Img_Der);
 	}
 }
