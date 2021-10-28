@@ -28,14 +28,10 @@ public class AgenteBD {
 		return instance;
 	}
 
-<<<<<<< HEAD
-	public ResultSet select(String aSql) {
-		throw new UnsupportedOperationException();
-=======
+
 	private void conectar() throws Exception {
 		Class.forName(driver);
 		connection = DriverManager.getConnection(url);
->>>>>>> branch 'master' of https://github.com/fernandogc10/SMF_SOFTWARE.git
 	}
 
 	public void desconectar() throws Exception {
