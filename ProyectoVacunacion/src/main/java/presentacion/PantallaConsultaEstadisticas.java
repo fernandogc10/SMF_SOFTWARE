@@ -1,31 +1,22 @@
 
 package presentacion;
 
+import java.io.*;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.text.AttributeSet.ColorAttribute;
-
-import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.ImageIcon;
 import java.awt.Toolkit;
-import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
-
-import java.awt.AWTException;
-import java.awt.MouseInfo;
+import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Panel;
-
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 public class PantallaConsultaEstadisticas extends JFrame {
 
@@ -53,7 +44,7 @@ public class PantallaConsultaEstadisticas extends JFrame {
 	 */
 	public PantallaConsultaEstadisticas() {
 		setTitle("Consulta de Estadisticas");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaConsultaEstadisticas.class.getResource("/presentacion/images/IconoApp.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(".\\src\\main\\resources\\LogoAPP.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 795, 473);
 		contentPane = new JPanel();
@@ -62,11 +53,5 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JLabel lblFondo = new JLabel("");
-		lblFondo.setIcon(new ImageIcon(PantallaConsultaEstadisticas.class.getResource("/presentacion/images/Fondo.png")));
-		lblFondo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFondo.setBounds(591, 0, 188, 434);
-		contentPane.add(lblFondo);
 	}
 }
