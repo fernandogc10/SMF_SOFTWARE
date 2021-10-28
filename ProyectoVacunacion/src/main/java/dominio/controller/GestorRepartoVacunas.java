@@ -11,9 +11,17 @@ public class GestorRepartoVacunas {
 		throw new UnsupportedOperationException();
 		
 		
+		
 	}
 
 	public List<EntregaVacunas> calcularEntregasRegion() {
 		throw new UnsupportedOperationException();
+	}
+	
+	
+	public static void main (String [] args) {
+		
+		
+		
 	}
 }

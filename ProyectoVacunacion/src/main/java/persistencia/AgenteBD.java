@@ -9,7 +9,7 @@ public class AgenteBD {
 
 	protected static Connection connection = null;;
 
-	private static String url;
+	private static String url = "jdbc:mysql://localhost/iso II";
 
 	private static String driver = "com.mysql.jdbc.Driver";
 
@@ -31,7 +31,7 @@ public class AgenteBD {
 
 	private void conectar() throws Exception {
 		Class.forName(driver);
-		connection = DriverManager.getConnection(url);
+		connection = DriverManager.getConnection(url, "root", "password");
 	}
 
 	public void desconectar() throws Exception {
