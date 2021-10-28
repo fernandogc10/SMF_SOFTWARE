@@ -62,8 +62,8 @@ public class PantallaPrincipal extends JFrame {
 		btnConEst.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				PantallaConsultaEstadisticas pantallaconsultaestadisticas = new PantallaConsultaEstadisticas();
-				pantallaconsultaestadisticas.setVisible(true);
+				PantallaConsultaEstadisticas estadisticas = new PantallaConsultaEstadisticas();
+				estadisticas.setVisible(true);
 				dispose();
 			}
 
@@ -81,6 +81,14 @@ public class PantallaPrincipal extends JFrame {
 		contentPane.add(btnConEst);
 		
 		JButton btnSRS = new JButton("Sistema Regional de Salud");
+		btnSRS.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PantallaGestionSistemaRegionalSalud regional = new PantallaGestionSistemaRegionalSalud();
+				regional.setVisible(true);
+				dispose();
+			}
+		});
 		btnSRS.setForeground(Color.WHITE);
 		btnSRS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
