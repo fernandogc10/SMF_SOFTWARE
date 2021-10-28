@@ -9,6 +9,8 @@ public class GestorRepartoVacunas {
 
 	public void altaNuevoLoteVacunas(Date aFecha, String aTipo, int aCantidad) {
 		throw new UnsupportedOperationException();
+		
+		
 	}
 
 	public List<EntregaVacunas> calcularEntregasRegion() {
