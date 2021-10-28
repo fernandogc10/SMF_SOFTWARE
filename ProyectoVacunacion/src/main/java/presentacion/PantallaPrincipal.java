@@ -64,7 +64,7 @@ public class PantallaPrincipal extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				PantallaConsultaEstadisticas pantallaconsultaestadisticas = new PantallaConsultaEstadisticas();
 				pantallaconsultaestadisticas.setVisible(true);
-				//this.dispose();
+				dispose();
 			}
 
 		});
