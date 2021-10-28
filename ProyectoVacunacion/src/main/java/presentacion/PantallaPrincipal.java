@@ -102,12 +102,12 @@ public class PantallaPrincipal extends JFrame {
 		contentPane.add(lblTitulo);
 		
 		JLabel lblLogoAbajo = new JLabel("");
-		lblLogoAbajo.setIcon(new ImageIcon("C:\\Users\\usuario\\WorkSpace-Sergio\\SMF_SOFTWARE\\ProyectoVacunacion\\src\\main\\resources\\LOGOFINAL.png"));
+		lblLogoAbajo.setIcon(new ImageIcon("..\\resources\\LOGO_SMF.png"));
 		lblLogoAbajo.setBounds(360, 348, 64, 41);
 		contentPane.add(lblLogoAbajo);
 		
 		JLabel lbl_Img_Der = new JLabel("");
-		lbl_Img_Der.setIcon(new ImageIcon("C:\\Users\\usuario\\WorkSpace-Sergio\\SMF_SOFTWARE\\ProyectoVacunacion\\src\\main\\resources\\PicsArt_10-27-11.36.58.png"));
+		lbl_Img_Der.setIcon(new ImageIcon("..\\SMF_SOFTWARE\\ProyectoVacunacion\\src\\main\\resources\\PicsArt_10-27-11.36.58.png"));
 		lbl_Img_Der.setBounds(585, 81, 271, 367);
 		contentPane.add(lbl_Img_Der);
 	}
