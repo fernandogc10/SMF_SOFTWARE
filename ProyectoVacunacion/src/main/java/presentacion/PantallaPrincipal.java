@@ -100,6 +100,14 @@ public class PantallaPrincipal extends JFrame {
 		contentPane.add(btnSRS);
 		
 		JButton btnSNS = new JButton("Sistema Nacional de Salud");
+		btnSNS.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PantallaGestionSistemaSaludNacional nacional = new PantallaGestionSistemaSaludNacional();
+				nacional.setVisible(true);
+				dispose();
+			}
+		});
 		btnSNS.setForeground(Color.WHITE);
 		btnSNS.setBackground(new Color(19,98,143));
 		btnSNS.setFont(new Font("Tw Cen MT", Font.BOLD, 18));

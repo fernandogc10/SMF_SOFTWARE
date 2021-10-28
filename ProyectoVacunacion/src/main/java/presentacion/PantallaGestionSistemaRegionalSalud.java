@@ -30,8 +30,8 @@ public class PantallaGestionSistemaRegionalSalud extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PantallaConsultaEstadisticas frame = new PantallaConsultaEstadisticas();
-					frame.setVisible(true);
+					PantallaGestionSistemaRegionalSalud regional = new PantallaGestionSistemaRegionalSalud();
+					regional.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
