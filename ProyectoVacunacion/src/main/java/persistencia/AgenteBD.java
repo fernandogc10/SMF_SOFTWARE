@@ -9,10 +9,10 @@ public class AgenteBD {
 
 	protected static Connection connection = null;;
 
-	private static String url = "jdbc:mysql://localhost/iso II";
+	private static String url = "jdbc:mysql://127.0.0.1:3306/repartovacunas";
 
-	private static String driver = "com.mysql.jdbc.Driver";
-
+	private static String driver = "com.mysql.cj.jdbc.Driver";
+	
 	// Constructor
 	private AgenteBD() throws Exception {
 		conectar();
@@ -38,10 +38,10 @@ public class AgenteBD {
 		connection.close();
 	}
 
-	public ResultSet insert(String SQL) throws SQLException, Exception {
+	public int insert(String SQL) throws SQLException, Exception {
 		conectar();
 		PreparedStatement stmt = connection.prepareStatement(SQL);
-		ResultSet res = stmt.executeQuery();
+		int res = stmt.executeUpdate();
 		stmt.close();
 		desconectar();
 		return res;
