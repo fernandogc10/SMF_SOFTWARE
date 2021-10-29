@@ -10,4 +10,14 @@ public class TipoVacuna {
 	public Vector<Vacunacion> _unnamed_Vacunacion_ = new Vector<Vacunacion>();
 	public EntregaVacunas _unnamed_EntregaVacunas_;
 	public LoteVacunas _unnamed_LoteVacunas_;
+	
+	
+	
+	public TipoVacuna (String nombre, String farmaceutica, String fechaAprobacion) {
+		
+		this._nombre= nombre;
+		this._farmaceutica = farmaceutica;
+		this._fechaAprobacion = fechaAprobacion;
+				
+	}
 }

@@ -11,6 +11,9 @@ public class GestorVacunacion {
 	}
 
 	public void registrarVacunacion(Date aFecha, String aNombre, String aApellidos, String aNif, TipoVacuna aTipo) {
-		throw new UnsupportedOperationException();
+		
+		
+		
+		
 	}
 }
