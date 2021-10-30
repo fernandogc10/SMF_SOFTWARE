@@ -11,10 +11,10 @@ import dominio.entitymodel.LoteVacunas;
 
 public class GestorRepartoVacunas {
 
-	public static void altaNuevoLoteVacunas(String id, Date fecha, int cantidad, String farmaceutica) throws Exception {
+	public static void altaNuevoLoteVacunas(Date fecha, String tipo, int cantidad) throws Exception {
 
 		
-		LoteVacunas lote = new LoteVacunas (id, fecha, cantidad, farmaceutica);
+		LoteVacunas lote = new LoteVacunas (fecha, tipo, cantidad);
 		
 		lote.altaNuevoLoteVacunas(lote);
 		

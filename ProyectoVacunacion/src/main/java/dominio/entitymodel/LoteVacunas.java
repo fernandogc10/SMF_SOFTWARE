@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 import java.util.Vector;
 import dominio.entitymodel.EntregaVacunas;
 import persistencia.LoteVacunasDAO;
@@ -13,19 +15,33 @@ public class LoteVacunas {
 	private Date _fecha;
 	private int _cantidad;
 	private String _farmaceutica;
-	public Vector<EntregaVacunas> _entregas = new Vector<EntregaVacunas>();
 	public TipoVacuna _tipo;
 	public LoteVacunasDAO _loteVacunasDao;
+	private int num;
+
+	public Vector<EntregaVacunas> _entregas = new Vector<EntregaVacunas>();
 	Vector<LoteVacunas> listalotes;
 
-	public LoteVacunas(String _id, Date _fecha, int _cantidad, String _farmaceutica) {
-		this._id = _id;
-		this._fecha = _fecha;
-		this._cantidad = _cantidad;
-		this._farmaceutica = _farmaceutica;
+	public enum Farmaceuticas {
+		PFIZER, ASTRAZENECA, MODERNA, JANSSEN;
 
+	}
+
+	public LoteVacunas(Date _fecha, String tipo, int _cantidad) {
+		this._fecha = _fecha;
+
+		this._cantidad = _cantidad;
+		Random r = new Random();
+		num = r.nextInt(4);
+		
+		this._farmaceutica = Farmaceuticas.values()[num].toString();
+		UUID idUnico = UUID.randomUUID();
+		this._id = idUnico.toString();
+		
+		
+		
 		_loteVacunasDao = new LoteVacunasDAO();
-		listalotes = new Vector<LoteVacunas>();
+
 	}
 
 	public static void altaNuevoLoteVacunas(LoteVacunas lote) throws Exception {
