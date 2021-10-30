@@ -12,4 +12,10 @@ public class EntregaVacunas {
 	public GrupoPrioridad _grupoPrioridad;
 	public LoteVacunas _lote;
 	public EntregaDAO _entregaDao;
+
+	public EntregaVacunas(Date fecha, int cantidad) {
+
+		this._fecha = fecha;
+		this._cantidad = cantidad;
+	}
 }

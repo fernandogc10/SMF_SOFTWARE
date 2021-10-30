@@ -6,7 +6,7 @@ import dominio.entitymodel.EntregaVacunas;
 
 public enum GrupoPrioridad {
 	
-	ALTA("Alta", 5), MEDIA("media", 4);
+	ALTA("Alta", 2), MEDIA("media", 1), BAJA("baja", 0);
 	
 	private String nombre;
 	private int prioridad;
