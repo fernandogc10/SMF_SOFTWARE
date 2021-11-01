@@ -13,25 +13,32 @@ public class GestorRepartoVacunas {
 
 	public static void altaNuevoLoteVacunas(Date fecha, String tipo, int cantidad) throws Exception {
 
-		
-		LoteVacunas lote = new LoteVacunas (fecha, tipo, cantidad);
-		
-		lote.altaNuevoLoteVacunas(lote);
-		
-		
+		LoteVacunas lote = new LoteVacunas(fecha, tipo, cantidad);
+
+		LoteVacunas.addLote(lote);
+
+		LoteVacunas.altaNuevoLoteVacunas(lote);
+
 	}
 
 	public List<EntregaVacunas> calcularEntregasRegion() {
-		throw new UnsupportedOperationException();
+
+		if (LoteVacunas.calculoLotes() == 0) {
+			System.out.println("No hay lotes para repartir");
+		} else {
+			
+			
+		}
+		return null;
+
 	}
-	
-	
-	public static void main (String [] args) throws Exception {
-		
-		java.util.Date date=new java.util.Date();
-		java.sql.Date sqlDate=new java.sql.Date(date.getTime());
-		
-		altaNuevoLoteVacunas("id1", sqlDate, 2, "farmaciaToledo");
-		
+
+	public static void main(String[] args) throws Exception {
+
+		java.util.Date date = new java.util.Date();
+		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+
+		//altaNuevoLoteVacunas("id1", sqlDate, 2, "farmaciaToledo");
+
 	}
 }

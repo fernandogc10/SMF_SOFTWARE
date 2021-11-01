@@ -20,7 +20,7 @@ public class LoteVacunas {
 	private int num;
 
 	public Vector<EntregaVacunas> _entregas = new Vector<EntregaVacunas>();
-	Vector<LoteVacunas> listalotes;
+	static Vector<LoteVacunas> listalotes;
 
 	public enum Farmaceuticas {
 		PFIZER, ASTRAZENECA, MODERNA, JANSSEN;
@@ -39,6 +39,10 @@ public class LoteVacunas {
 		this._id = idUnico.toString();
 		
 		
+		_tipo = new TipoVacuna(tipo, this._farmaceutica, _fecha.toString());
+		
+		
+		
 		
 		_loteVacunasDao = new LoteVacunasDAO();
 
@@ -49,7 +53,18 @@ public class LoteVacunas {
 		LoteVacunasDAO.insertarLoteVacunas(lote);
 
 	}
+	
+	public static int calculoLotes() {
+		
+		
+		
+		return listalotes.capacity();
+		
+	}
 
+	public static void addLote (LoteVacunas lote) {
+		listalotes.add(lote);
+	}
 	public String get_id() {
 		return _id;
 	}

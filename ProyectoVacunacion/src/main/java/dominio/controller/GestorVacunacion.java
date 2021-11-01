@@ -9,16 +9,14 @@ import dominio.entitymodel.TipoVacuna;
 
 public class GestorVacunacion {
 
-	public void altaEntregaVacunas(String aLote, Date aFecha, int aCantidad, int aPrioridad, String tipoVacuna,
-			String rgn ) {
+	public void altaEntregaVacunas(String aLote, Date aFecha, int aCantidad, int aPrioridad, String rgn) {
 
 		GrupoPrioridad grupo = seleccionarPrioridad(aPrioridad);
 
 		RegionEnum region = RegionEnum.valueOf(rgn);
-		
-		
 
-		//EntregaVacunas nuevaEntrega = new EntregaVacunas(aFecha, aCantidad,tipoVacuna, region, grupo);
+		// EntregaVacunas nuevaEntrega = new EntregaVacunas(aFecha,
+		// aCantidad,tipoVacuna, region, grupo);
 
 	}
 

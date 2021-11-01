@@ -13,16 +13,16 @@ public class EntregaVacunas {
 	public LoteVacunas _lote;
 	public EntregaDAO _entregaDao;
 
-	public EntregaVacunas(Date fecha, int cantidad, TipoVacuna tipo, RegionEnum region, 
-			GrupoPrioridad grupo, LoteVacunas lote) {
+	public EntregaVacunas(Date fecha, int cantidad, RegionEnum region, GrupoPrioridad grupo) {
+		
+		
 
 		this._fecha = fecha;
 		this._cantidad = cantidad;
-		this._tipo = tipo;
 		this._region = region;
 		this._grupoPrioridad = grupo;
-		this._lote = lote;
 		
+
 		_entregaDao = new EntregaDAO();
 	}
 }
