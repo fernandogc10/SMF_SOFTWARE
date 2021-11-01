@@ -17,6 +17,8 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PantallaConsultaEstadisticas extends JFrame {
 
@@ -54,5 +56,24 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JButton btnPrincipal = new JButton("Principal");
+		btnPrincipal.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PantallaPrincipal principal = new PantallaPrincipal();
+				principal.setVisible(true);
+				dispose();
+			}
+		});
+		btnPrincipal.setBackground(new Color(19,98,143));
+		btnPrincipal.setForeground(Color.WHITE);
+		btnPrincipal.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
+		btnPrincipal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnPrincipal.setBounds(672, 398, 97, 25);
+		contentPane.add(btnPrincipal);
 	}
 }
