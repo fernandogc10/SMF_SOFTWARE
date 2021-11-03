@@ -19,6 +19,7 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JComboBox;
 
 public class PantallaConsultaEstadisticas extends JFrame {
 
@@ -51,6 +52,7 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 795, 473);
 		contentPane = new JPanel();
+		contentPane.setToolTipText("Opncion 1\r\nOpcion 2");
 		contentPane.setForeground(new Color(64, 224, 208));
 		contentPane.setBackground(new Color(240,255,255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -75,5 +77,30 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		});
 		btnPrincipal.setBounds(672, 398, 97, 25);
 		contentPane.add(btnPrincipal);
+		
+		JLabel lblTitulo = new JLabel("Selecciones la opción que desea consultar");
+		lblTitulo.setFont(new Font("Tw Cen MT", Font.BOLD, 17));
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setBounds(179, 35, 354, 46);
+		contentPane.add(lblTitulo);
+		
+		JButton btnTotalVacunados = new JButton("Total vacunados");
+		btnTotalVacunados.setFont(new Font("Tw Cen MT", Font.BOLD, 17));
+		btnTotalVacunados.setBounds(144, 92, 193, 40);
+		contentPane.add(btnTotalVacunados);
+		
+		JButton btnTotalVacunadosPorRegion = new JButton("Total vacunados por Región");
+		btnTotalVacunadosPorRegion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnTotalVacunadosPorRegion.setFont(new Font("Tw Cen MT", Font.BOLD, 17));
+		btnTotalVacunadosPorRegion.setBounds(347, 92, 242, 40);
+		contentPane.add(btnTotalVacunadosPorRegion);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setToolTipText("");
+		comboBox.setBounds(347, 162, 179, 40);
+		contentPane.add(comboBox);
 	}
 }
