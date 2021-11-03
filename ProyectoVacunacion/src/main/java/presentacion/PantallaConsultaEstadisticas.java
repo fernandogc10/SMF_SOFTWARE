@@ -84,38 +84,66 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		
 		JComboBox comboBox_Regiones = new JComboBox();
 		comboBox_Regiones.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
-		comboBox_Regiones.setModel(new DefaultComboBoxModel(new String[] {"Andalucia", "Aragón", "Asturias", "Cantabria", "Castilla-La Mancha", "Castilla y León", "Cataluña", "Extremadura", "Galicia", "Islas Baleares", "Islas Canarias", "La Rioja", "Madrid", "Murcia", "Navarra", "País Vasco", "Valencia"}));
+		comboBox_Regiones.setModel(new DefaultComboBoxModel(new String[] {"            -- --", "Andalucia", "Aragón", "Asturias", "Cantabria", "Castilla-La Mancha", "Castilla y León", "Cataluña", "Extremadura", "Galicia", "Islas Baleares", "Islas Canarias", "La Rioja", "Madrid", "Murcia", "Navarra", "País Vasco", "Valencia"}));
 		comboBox_Regiones.setToolTipText("");
-		comboBox_Regiones.setBounds(410, 143, 179, 40);
+		comboBox_Regiones.setBounds(528, 142, 135, 38);
 		contentPane.add(comboBox_Regiones);
 		
 		comboBox_Regiones.setVisible(false);
 		
 		JLabel lblTitulo = new JLabel("Selecciones la opción que desea consultar");
-		lblTitulo.setFont(new Font("Tw Cen MT", Font.BOLD, 17));
+		lblTitulo.setFont(new Font("Tw Cen MT", Font.BOLD, 20));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitulo.setBounds(179, 35, 354, 46);
+		lblTitulo.setBounds(155, 35, 385, 46);
 		contentPane.add(lblTitulo);
 		
 		JButton btnTotalVacunados = new JButton("Total vacunados");
+		btnTotalVacunados.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				comboBox_Regiones.setVisible(false);
+			}
+		});
 		btnTotalVacunados.setFont(new Font("Tw Cen MT", Font.BOLD, 17));
-		btnTotalVacunados.setBounds(144, 92, 193, 40);
+		btnTotalVacunados.setBounds(181, 92, 337, 40);
 		contentPane.add(btnTotalVacunados);
 		
-		JButton btnTotalVacunadosPorRegion = new JButton("Total vacunados por Región");
-		btnTotalVacunadosPorRegion.addMouseListener(new MouseAdapter() {
+		JButton btnTotalVacunadosRegion = new JButton("Total vacunados por Región");
+		btnTotalVacunadosRegion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				comboBox_Regiones.setVisible(true);
 			}
 		});
-		btnTotalVacunadosPorRegion.addActionListener(new ActionListener() {
+		btnTotalVacunadosRegion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnTotalVacunadosPorRegion.setFont(new Font("Tw Cen MT", Font.BOLD, 17));
-		btnTotalVacunadosPorRegion.setBounds(347, 92, 242, 40);
-		contentPane.add(btnTotalVacunadosPorRegion);
+		btnTotalVacunadosRegion.setFont(new Font("Tw Cen MT", Font.BOLD, 17));
+		btnTotalVacunadosRegion.setBounds(181, 142, 337, 40);
+		contentPane.add(btnTotalVacunadosRegion);
+		
+		JButton btnPorcentajeVacunadosRecividas = new JButton("Porcentaje Vacunados sobre Recividas");
+		btnPorcentajeVacunadosRecividas.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				comboBox_Regiones.setVisible(false);
+			}
+		});
+		btnPorcentajeVacunadosRecividas.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
+		btnPorcentajeVacunadosRecividas.setBounds(181, 193, 341, 40);
+		contentPane.add(btnPorcentajeVacunadosRecividas);
+		
+		JButton btnNewButton = new JButton("Porcentaje Vacunados sobre recividas en región");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				comboBox_Regiones.setVisible(true);
+			}
+		});
+		btnNewButton.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
+		btnNewButton.setBounds(181, 244, 341, 39);
+		contentPane.add(btnNewButton);
 		
 
 		
