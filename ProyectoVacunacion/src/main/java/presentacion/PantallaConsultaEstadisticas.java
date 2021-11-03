@@ -20,6 +20,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class PantallaConsultaEstadisticas extends JFrame {
 
@@ -52,7 +53,7 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 795, 473);
 		contentPane = new JPanel();
-		contentPane.setToolTipText("Opncion 1\r\nOpcion 2");
+		contentPane.setToolTipText("");
 		contentPane.setForeground(new Color(64, 224, 208));
 		contentPane.setBackground(new Color(240,255,255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -99,6 +100,7 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		contentPane.add(btnTotalVacunadosPorRegion);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Galicia"}));
 		comboBox.setToolTipText("");
 		comboBox.setBounds(347, 162, 179, 40);
 		contentPane.add(comboBox);
