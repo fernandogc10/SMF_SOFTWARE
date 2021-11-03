@@ -47,6 +47,9 @@ public class PantallaConsultaEstadisticas extends JFrame {
 	 * Create the frame.
 	 */
 	public PantallaConsultaEstadisticas() {
+		
+		
+		
 		setResizable(false);
 		setTitle("Consulta de Estadisticas");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(".\\src\\main\\resources\\LogoAPP.png"));
@@ -79,6 +82,15 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		btnPrincipal.setBounds(672, 398, 97, 25);
 		contentPane.add(btnPrincipal);
 		
+		JComboBox comboBox_Regiones = new JComboBox();
+		comboBox_Regiones.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
+		comboBox_Regiones.setModel(new DefaultComboBoxModel(new String[] {"Andalucia", "Aragón", "Asturias", "Cantabria", "Castilla-La Mancha", "Castilla y León", "Cataluña", "Extremadura", "Galicia", "Islas Baleares", "Islas Canarias", "La Rioja", "Madrid", "Murcia", "Navarra", "País Vasco", "Valencia"}));
+		comboBox_Regiones.setToolTipText("");
+		comboBox_Regiones.setBounds(410, 143, 179, 40);
+		contentPane.add(comboBox_Regiones);
+		
+		comboBox_Regiones.setVisible(false);
+		
 		JLabel lblTitulo = new JLabel("Selecciones la opción que desea consultar");
 		lblTitulo.setFont(new Font("Tw Cen MT", Font.BOLD, 17));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -91,6 +103,12 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		contentPane.add(btnTotalVacunados);
 		
 		JButton btnTotalVacunadosPorRegion = new JButton("Total vacunados por Región");
+		btnTotalVacunadosPorRegion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				comboBox_Regiones.setVisible(true);
+			}
+		});
 		btnTotalVacunadosPorRegion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -99,10 +117,8 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		btnTotalVacunadosPorRegion.setBounds(347, 92, 242, 40);
 		contentPane.add(btnTotalVacunadosPorRegion);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Galicia"}));
-		comboBox.setToolTipText("");
-		comboBox.setBounds(347, 162, 179, 40);
-		contentPane.add(comboBox);
+
+		
+		
 	}
 }
