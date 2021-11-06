@@ -84,6 +84,8 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		contentPane.add(btnPrincipal);
 		
 		JComboBox comboBox_Regiones = new JComboBox();
+		comboBox_Regiones.setForeground(Color.WHITE);
+		comboBox_Regiones.setBackground(new Color(19,98,143));
 		comboBox_Regiones.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
 		comboBox_Regiones.setModel(new DefaultComboBoxModel(new String[] {"                 -- --", "Andalucia", "Aragón", "Asturias", "Cantabria", "Castilla-La Mancha", "Castilla y León", "Cataluña", "Extremadura", "Galicia", "Islas Baleares", "Islas Canarias", "La Rioja", "Madrid", "Murcia", "Navarra", "País Vasco", "Valencia"}));
 		comboBox_Regiones.setToolTipText("");
@@ -109,6 +111,8 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		contentPane.add(lblTitulo);
 		
 		JButton btnTotalVacunados = new JButton("Total vacunados");
+		btnTotalVacunados.setForeground(Color.WHITE);
+		btnTotalVacunados.setBackground(new Color(19,98,143));
 		btnTotalVacunados.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -121,6 +125,8 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		contentPane.add(btnTotalVacunados);
 		
 		JButton btnTotalVacunadosRegion = new JButton("Total vacunados por Región");
+		btnTotalVacunadosRegion.setForeground(Color.WHITE);
+		btnTotalVacunadosRegion.setBackground(new Color(19,98,143));
 		btnTotalVacunadosRegion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -137,6 +143,8 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		contentPane.add(btnTotalVacunadosRegion);
 		
 		JButton btnPorcentajeVacunadosRecibidas = new JButton("Porcentaje Vacunados sobre Recibidas");
+		btnPorcentajeVacunadosRecibidas.setForeground(Color.WHITE);
+		btnPorcentajeVacunadosRecibidas.setBackground(new Color(19,98,143));
 		btnPorcentajeVacunadosRecibidas.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -149,6 +157,8 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		contentPane.add(btnPorcentajeVacunadosRecibidas);
 		
 		JButton btnPorcentajeVacunadosRecibidasRegion = new JButton("Porcentaje Vacunados sobre recibidas en región");
+		btnPorcentajeVacunadosRecibidasRegion.setForeground(Color.WHITE);
+		btnPorcentajeVacunadosRecibidasRegion.setBackground(new Color(19,98,143));
 		btnPorcentajeVacunadosRecibidasRegion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
