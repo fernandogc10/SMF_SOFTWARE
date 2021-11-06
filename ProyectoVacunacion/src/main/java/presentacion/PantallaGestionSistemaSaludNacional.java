@@ -115,6 +115,16 @@ public class PantallaGestionSistemaSaludNacional extends JFrame {
 		textFieldCantidad.setColumns(10);
 		
 		JButton btnDarDeAlta = new JButton("Dar de alta el Lote");
+		btnDarDeAlta.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				textFieldCantidad.setText(null);
+				textFieldTipo.setText(null);
+				textFieldFecha.setText(null);
+			}
+		});
+		btnDarDeAlta.setForeground(Color.WHITE);
+		btnDarDeAlta.setBackground(new Color(19,98,143));
 		btnDarDeAlta.setFont(new Font("Tw Cen MT", Font.BOLD, 14));
 		btnDarDeAlta.setBounds(218, 295, 150, 35);
 		contentPane.add(btnDarDeAlta);
@@ -144,6 +154,8 @@ public class PantallaGestionSistemaSaludNacional extends JFrame {
 		lblResultadoCalcularEntregasRegion.setVisible(false);
 		
 		JButton btnCalcularEntregasRegion = new JButton("Calcular entregas región");
+		btnCalcularEntregasRegion.setForeground(Color.WHITE);
+		btnCalcularEntregasRegion.setBackground(new Color(19,98,143));
 		btnCalcularEntregasRegion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -166,6 +178,8 @@ public class PantallaGestionSistemaSaludNacional extends JFrame {
 		
 		
 		JButton btnDarDeAltaNuevoLoteDeVacunas = new JButton("Dar de alta nuevo lote de vacunas");
+		btnDarDeAltaNuevoLoteDeVacunas.setForeground(Color.WHITE);
+		btnDarDeAltaNuevoLoteDeVacunas.setBackground(new Color(19,98,143));
 		btnDarDeAltaNuevoLoteDeVacunas.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
