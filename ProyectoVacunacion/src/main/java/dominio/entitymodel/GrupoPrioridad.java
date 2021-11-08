@@ -16,6 +16,11 @@ public enum GrupoPrioridad {
 		this.prioridad=prioridad;
 	}
 	
+	
+	public int get_grupoPrioridad() {
+		return prioridad;
+	}
+	
 	public Vector<Paciente> _pacientes = new Vector<Paciente>();
 	public Vector<EntregaVacunas> _entregas = new Vector<EntregaVacunas>();
 }

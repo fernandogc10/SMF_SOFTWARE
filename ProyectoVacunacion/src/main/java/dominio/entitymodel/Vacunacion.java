@@ -13,12 +13,10 @@ public class Vacunacion {
 	
 	
 	
-	public Vacunacion (Date _fecha,boolean _isSegundaDosis,TipoVacuna _vacuna,
+	public Vacunacion (Date _fecha,String _vacuna,
 			Paciente _paciente) {
 		
 		this._fecha = _fecha;
-		this._isSegundaDosis = _isSegundaDosis;
-		this._vacuna= _vacuna;
 		this._paciente= _paciente;
 		
 	}

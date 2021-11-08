@@ -13,7 +13,7 @@ public class Paciente {
 	
 	
 	
-	public Paciente (String dni, String nombre, String apellidos, GrupoPrioridad grupo) {
+	public Paciente (String dni, String nombre, String apellidos) {
 		this._dni = dni;
 		this._nombre = nombre;
 		this._apellidos = apellidos;

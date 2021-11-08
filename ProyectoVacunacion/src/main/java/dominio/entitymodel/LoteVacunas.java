@@ -33,17 +33,13 @@ public class LoteVacunas {
 		this._cantidad = _cantidad;
 		Random r = new Random();
 		num = r.nextInt(4);
-		
+
 		this._farmaceutica = Farmaceuticas.values()[num].toString();
 		UUID idUnico = UUID.randomUUID();
 		this._id = idUnico.toString();
-		
-		
+
 		_tipo = new TipoVacuna(tipo, this._farmaceutica, _fecha.toString());
-		
-		
-		
-		
+
 		_loteVacunasDao = new LoteVacunasDAO();
 
 	}
@@ -53,18 +49,17 @@ public class LoteVacunas {
 		LoteVacunasDAO.insertarLoteVacunas(lote);
 
 	}
-	
+
 	public static int calculoLotes() {
-		
-		
-		
+
 		return listalotes.capacity();
-		
+
 	}
 
-	public static void addLote (LoteVacunas lote) {
+	public static void addLote(LoteVacunas lote) {
 		listalotes.add(lote);
 	}
+
 	public String get_id() {
 		return _id;
 	}
@@ -83,6 +78,10 @@ public class LoteVacunas {
 
 	public int get_cantidad() {
 		return _cantidad;
+	}
+
+	public TipoVacuna get_TipoVacunas() {
+		return _tipo;
 	}
 
 	public void set_cantidad(int _cantidad) {
