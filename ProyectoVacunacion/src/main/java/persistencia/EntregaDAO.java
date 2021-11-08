@@ -10,7 +10,12 @@ import dominio.entitymodel.RegionEnum;
 import dominio.entitymodel.EntregaVacunas;
 import dominio.entitymodel.LoteVacunas;
 
-public class EntregaDAO<E> extends AbstractEntityDAO<E> {
+public class EntregaDAO<E> extends AgenteBD {
+
+	public EntregaDAO() throws SQLException, ClassNotFoundException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public void insertarEntrega(EntregaVacunas aEntrega) throws SQLException, Exception {
 

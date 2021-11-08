@@ -5,7 +5,12 @@ import java.util.Vector;
 
 import dominio.entitymodel.LoteVacunas;
 
-public class LoteVacunasDAO {
+public class LoteVacunasDAO<E> extends AgenteBD {
+
+	public LoteVacunasDAO() throws SQLException, ClassNotFoundException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public static void insertarLoteVacunas(LoteVacunas aLote) throws SQLException, Exception {
 
