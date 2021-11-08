@@ -88,3 +88,23 @@ A continuación, se muestra un ejemplo del uso del Produck Backlog, Sprint Backl
 
 
 # Codificación
+
+A continuación, se muestran los bocetos realizados para llevar a cabo el desarrollo de la UI.
+
+PantallaPrincipal:
+
+![ImagenPantallaPrincipal](./Imagenes/PantallaPrincipal.jpg)
+
+PantallaConsultarEstadisticas:
+
+![ImagenPantallaConsultarEstadisticas](./Imagenes/PantallaConsultarEstadisticas.jpg)
+
+PantallaSistemaSaludNacional:
+
+![ImagenPantallaSistemaSaludNacional](./Imagenes/PantallaSistemaSaludNacional.jpg)
+
+PantallaSistemaSaludRegional:
+
+![ImagenPantallaSistemaSaludRegional](./Imagenes/PantallaSistemaSaludRegional.jpg)
+
+![Imagenlogo](./Imagenes/LogoSMF_SOFTWARE.png)
