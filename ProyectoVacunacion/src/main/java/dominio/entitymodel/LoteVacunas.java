@@ -27,7 +27,7 @@ public class LoteVacunas {
 
 	}
 
-	public LoteVacunas(Date _fecha, String tipo, int _cantidad) {
+	public LoteVacunas(Date _fecha, String tipo, int _cantidad) throws ClassNotFoundException, SQLException {
 		this._fecha = _fecha;
 
 		this._cantidad = _cantidad;

@@ -1,5 +1,6 @@
 package dominio.entitymodel;
 
+import java.sql.SQLException;
 import java.util.Date;
 
 import persistencia.EntregaDAO;
@@ -13,7 +14,7 @@ public class EntregaVacunas {
 	public LoteVacunas _lote;
 	public EntregaDAO _entregaDao;
 
-	public EntregaVacunas(Date fecha, int cantidad) {
+	public EntregaVacunas(Date fecha, int cantidad) throws ClassNotFoundException, SQLException {
 
 		this._fecha = fecha;
 		this._cantidad = cantidad;
@@ -21,14 +22,14 @@ public class EntregaVacunas {
 		_entregaDao = new EntregaDAO();
 	}
 
-	public EntregaVacunas(RegionEnum region) {
+	public EntregaVacunas(RegionEnum region) throws ClassNotFoundException, SQLException {
 
 		this._region = region;
 
 		_entregaDao = new EntregaDAO();
 	}
 
-	public EntregaVacunas() {
+	public EntregaVacunas() throws ClassNotFoundException, SQLException {
 
 		_entregaDao = new EntregaDAO();
 	}
