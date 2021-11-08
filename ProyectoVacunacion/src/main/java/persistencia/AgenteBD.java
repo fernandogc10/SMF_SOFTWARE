@@ -107,10 +107,11 @@ public class AgenteBD {
 				+ "cantidad integer not null,farmaceutica varchar(30),constraint primary_key primary key (id))";
 
 		String createSQL2 = "create table Entregas " + "(fecha date not null, cantidad integer not null,"
-				+ "loteVacunas varchar(50) not null,region varchar(30),tipoVacuna varchar(20) not null, GrupoPrioridad integer not null, constraint pr primary key (fecha))";
-		
-		String createSQL3 = "create table Vacunacion " + "(fecha date not null, Nº_Dosis integer not null,"
-				+ "paciente varchar(50) not null,tipoVacuna varchar(30),constraint pr2 primary key (fecha))";
+				+ "loteVacunas varchar(50) not null,region varchar(30),tipoVacuna varchar(20) not null, GrupoPrioridad integer not null, "
+				+ "constraint pr primary key (fecha))";
+
+		String createSQL3 = "create table Vacunacion " + "(fecha date not null, Dosis varchar(20) not null,"
+				+ "dni_paciente varchar(50) not null,tipoVacuna varchar(30),constraint pr2 primary key (fecha))";
 
 		try {
 
@@ -121,7 +122,6 @@ public class AgenteBD {
 			stmt.execute(createSQL);
 			stmt.execute(createSQL2);
 			stmt.execute(createSQL3);
-			
 
 			stmt.close();
 

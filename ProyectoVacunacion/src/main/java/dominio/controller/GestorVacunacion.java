@@ -20,90 +20,100 @@ public class GestorVacunacion {
 
 		Vector<Object> vector = new Vector<>();
 		EntregaVacunas nuevaEntrega = new EntregaVacunas(aFecha, aCantidad);
-		
+
 		java.util.Date date = new java.util.Date();
 		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
 		nuevaEntrega.set_grupoPrioridad(seleccionarPrioridad(aPrioridad));
 
-		
+		// vector = AgenteBD.getAgente().select("Select * from LoteVacunas where
+		// id='aLote'");
 
-		//vector = AgenteBD.getAgente().select("Select * from LoteVacunas where id='aLote'");
-		
-		/*if (vector.isEmpty()) {
-			
-			System.out.println("No hay lotes.");
-			
-			return;
-		}*/
+		/*
+		 * if (vector.isEmpty()) {
+		 * 
+		 * System.out.println("No hay lotes.");
+		 * 
+		 * return; }
+		 */
 
-		LoteVacunas lote = new LoteVacunas (sqlDate, "covid", 100);
-		
-		
-		//LoteVacunas lote = new LoteVacunas((Date) vector.elementAt(0), vector.elementAt(1).toString(),
-				//(int) vector.elementAt(2));
+		LoteVacunas lote = new LoteVacunas(sqlDate, "covid", 100);
+
+		// LoteVacunas lote = new LoteVacunas((Date) vector.elementAt(0),
+		// vector.elementAt(1).toString(),
+		// (int) vector.elementAt(2));
 
 		nuevaEntrega.setTipoVacuna(lote.get_TipoVacunas());
 
 		nuevaEntrega.setRegion(Region);
 
-		AgenteBD.getAgente().insert(
-				"Insert into Entregas (fecha, cantidad, loteVacunas, region, tipoVacuna, GrupoPrioridad) values"
+		AgenteBD.getAgente()
+				.insert("Insert into Entregas (fecha, cantidad, loteVacunas, region, tipoVacuna, GrupoPrioridad) values"
 						+ " ('" + nuevaEntrega.get_fecha().toString() + "'," + nuevaEntrega.get_cantidad() + ",'"
 						+ lote.get_id() + "', '" + Region + "','" + nuevaEntrega.get_tipo().get_Nombre() + "',"
 						+ nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() + ")");
 
 		vector = AgenteBD.getAgente().select("Select * from Entregas");
-		
-		
-		
+
 	}
-	
-	
-	public static void main (String [] args) throws SQLException, Exception {
-		
+
+	public static void main(String[] args) throws SQLException, Exception {
+
 		java.util.Date date = new java.util.Date();
 		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-		
-		AgenteBD agente = new AgenteBD();
-		
-		
-		altaEntregaVacunas("lote1", sqlDate, 5, 2, "MADRID");
-		
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	public void registrarVacunacion(Date aFecha, String aNombre, String aApellidos, String aNif, String aTipo) {
+		AgenteBD agente = new AgenteBD();
+
+		//altaEntregaVacunas("lote1", sqlDate, 5, 2, "MADRID");
+		
+		TipoVacuna tipoVacuna = new TipoVacuna("covid", "farmaciaToledo", "15/03/2021");
+		
+		registrarVacunacion(sqlDate, "Fernando", "Guerrero", "03962854T",tipoVacuna);
+
+	}
+
+	public static void registrarVacunacion(Date aFecha, String aNombre, String aApellidos, String aNif, TipoVacuna aTipo)
+			throws SQLException, Exception {
 
 		Paciente paciente = new Paciente(aNif, aNombre, aApellidos);
 
-		Vacunacion vacunacion = new Vacunacion(aFecha, aTipo, paciente);
+		Boolean isSegundaDosis = null;
+
+		Vector<Object> vector = new Vector<>();
+
+		vector = AgenteBD.getAgente()
+				.select("Select * from Vacunacion where dni_paciente ='" + paciente.get_dni() + "'");
+
+		if (vector.size() == 1) {
+
+			isSegundaDosis = true;
+
+		} else if (vector.size() == 0) {
+
+			System.out.println("Paciente 0 veces.");
+
+			isSegundaDosis = false;
+		} else {
+			System.out.println("Ya vacunado con 2 dosis.");
+			return;
+		}
+
+		Vacunacion nuevaVacunacion = new Vacunacion(aFecha, isSegundaDosis);
+
+		nuevaVacunacion.set_Paciente(paciente);
+
+		nuevaVacunacion.set_TipoVacuna(aTipo);
+
+		AgenteBD.getAgente().insert("Insert into Vacunacion (fecha, Dosis, dni_paciente, tipoVacuna) values" + "('"
+				+ nuevaVacunacion.get_fechaVacunacion().toString() + "','" + "" + nuevaVacunacion.get_isSegundaDosis().toString()
+				+ "','" + nuevaVacunacion.get_paciente().get_dni() + "','" + ""
+				+ nuevaVacunacion.get_tipoVacuna().get_Nombre() + "')");
+
+		vector = AgenteBD.getAgente().select("Select * from Vacunacion");
+		
+		System.out.println(vector);
 
 	}
-	
-	
-	
 
 	public static GrupoPrioridad seleccionarPrioridad(int prioridad) {
 

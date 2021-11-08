@@ -10,12 +10,15 @@ public class Paciente {
 	public Vector<Vacunacion> _unnamed_Vacunacion_ = new Vector<Vacunacion>();
 	public RegionEnum _region;
 	public GrupoPrioridad _grupo;
-	
-	
-	
-	public Paciente (String dni, String nombre, String apellidos) {
+
+	public Paciente(String dni, String nombre, String apellidos) {
 		this._dni = dni;
 		this._nombre = nombre;
 		this._apellidos = apellidos;
+	}
+
+	public String get_dni() {
+
+		return _dni;
 	}
 }
