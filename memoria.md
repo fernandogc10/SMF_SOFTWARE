@@ -1,8 +1,11 @@
 # Memoria Proyecto Ingeniería del Software II - SMF_Software
 
 ## Miembros de la empresa:
+
 Marcelino Díaz Alba
+
 Sergio Díaz de la Peña
+
 Fernando Guerrero Cano
 
 ## Gestión de la configuración
