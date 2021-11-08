@@ -2,11 +2,9 @@
 
 ## Miembros de la empresa:
 
-Marcelino Díaz Alba
-
-Sergio Díaz de la Peña
-
-Fernando Guerrero Cano
+    • Marcelino Díaz Alba
+    • Sergio Díaz de la Peña
+    • Fernando Guerrero Cano
 
 ## Gestión de la configuración
 
@@ -35,15 +33,15 @@ aprobados.
 
 ##### Terminos clave
 
-CCB (Configuration Control Board) Comité de Control de Configuración.
-CI (Configuration Item) elemento bajo gestión de Configuración.
-SCA (Software Change Authorization) Autorización de Cambio en el Software.
-SCM (Software Configuration Management) Gestión de Configuración del Software.
-SCMR (SCM Responsible) Responsable de SCM.
-SCR (System/Software Change Request) Petición de Cambio en el Sistema/Software.
-SQA (Software Quality Assurance) Aseguramiento de la Calidad del Software.
-SQAR (SQA Responsible) Responsable de SQA.
-VR (Verification Responsible) Responsable de verificación.
+    • CCB (Configuration Control Board) Comité de Control de Configuración.
+    • CI (Configuration Item) elemento bajo gestión de Configuración.
+    • SCA (Software Change Authorization) Autorización de Cambio en el Software.
+    • SCM (Software Configuration Management) Gestión de Configuración del Software.
+    • SCMR (SCM Responsible) Responsable de SCM.
+    • SCR (System/Software Change Request) Petición de Cambio en el Sistema/Software.
+    • SQA (Software Quality Assurance) Aseguramiento de la Calidad del Software.
+    • SQAR (SQA Responsible) Responsable de SQA.
+    • VR (Verification Responsible) Responsable de verificación.
 
 ### Uso de Maven
 
@@ -56,12 +54,13 @@ Tambien hemos utilizado Maven para gestionar las dependencias de nuestro proyect
 Lo hemos usado para crear la infraestructura de nuestro proyecto.
 
 El uso de Maven nos ha ayudado a:
-• Construcciones (Builds)
-• Documentación
-• Informes
-• Dependencias
-• Configuración del Software
-• Publicaciones (Releases)
+
+    • Construcciones (Builds)
+    • Documentación
+    • Informes
+    • Dependencias
+    • Configuración del Software
+    • Publicaciones (Releases)
 
 ## Planificación y gestión
 
