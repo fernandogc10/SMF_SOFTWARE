@@ -1,13 +1,16 @@
 package dominio.controller;
 
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
 import dominio.entitymodel.EntregaVacunas;
 import dominio.entitymodel.LoteVacunas;
+import persistencia.AgenteBD;
 
 public class GestorRepartoVacunas {
 
@@ -15,20 +18,20 @@ public class GestorRepartoVacunas {
 
 		LoteVacunas lote = new LoteVacunas(fecha, tipo, cantidad);
 
-		LoteVacunas.addLote(lote);
+		//LoteVacunas.addLote(lote);
 
 		LoteVacunas.altaNuevoLoteVacunas(lote);
 
 	}
 
-	public List<EntregaVacunas> calcularEntregasRegion() {
+	public static List<EntregaVacunas> calcularEntregasRegion() throws SQLException, Exception { //devuelve una lista donde se deberian de entregar
 
-		if (LoteVacunas.calculoLotes() == 0) {
-			System.out.println("No hay lotes para repartir");
-		} else {
-			
-			
-		}
+		
+		EntregaVacunas entrega = new EntregaVacunas();
+		
+		entrega._entregaDao.seleccionarEntregas();
+	
+		
 		return null;
 
 	}
@@ -37,8 +40,11 @@ public class GestorRepartoVacunas {
 
 		java.util.Date date = new java.util.Date();
 		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+		
+		AgenteBD agente = new AgenteBD();
 
-		//altaNuevoLoteVacunas("id1", sqlDate, 2, "farmaciaToledo");
+		altaNuevoLoteVacunas(sqlDate, "covid", 2);
+		calcularEntregasRegion();
 
 	}
 }

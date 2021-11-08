@@ -18,10 +18,6 @@ public enum RegionEnum {
 	}
 	
 	
-	public RegionEnum seleccionarRegion(String region) {
-		
-		for (int i = 0; i< )
-	}
 	
 	
 	public Vector<EntregaVacunas> _entregas = new Vector<EntregaVacunas>();

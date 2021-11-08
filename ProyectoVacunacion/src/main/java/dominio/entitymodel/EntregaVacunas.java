@@ -13,16 +13,33 @@ public class EntregaVacunas {
 	public LoteVacunas _lote;
 	public EntregaDAO _entregaDao;
 
-	public EntregaVacunas(Date fecha, int cantidad, RegionEnum region, GrupoPrioridad grupo) {
-		
-		
+	public EntregaVacunas(Date fecha, int cantidad) {
 
 		this._fecha = fecha;
 		this._cantidad = cantidad;
-		this._region = region;
-		this._grupoPrioridad = grupo;
-		
 
 		_entregaDao = new EntregaDAO();
+	}
+
+	public EntregaVacunas(RegionEnum region) {
+
+		this._region = region;
+
+		_entregaDao = new EntregaDAO();
+	}
+
+	public EntregaVacunas() {
+
+		_entregaDao = new EntregaDAO();
+	}
+
+	public void setRegion(String region) {
+
+		this._region = RegionEnum.valueOf(region);
+	}
+
+	public void setGrupoPrioridad(GrupoPrioridad grupo) {
+
+		this._grupoPrioridad = grupo;
 	}
 }

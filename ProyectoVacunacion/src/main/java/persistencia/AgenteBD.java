@@ -1,84 +1,140 @@
 package persistencia;
 
 import java.sql.*;
+import org.apache.derby.jdbc.EmbeddedDriver;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Vector;
 
 public class AgenteBD {
 
-	protected static AgenteBD instance = null;
+	protected static AgenteBD mInstancia = null;
 
-	protected static Connection connection = null;;
+	final static String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
+	final static String CONNECTION_STRING = "jdbc:derby:iso2_db;create=true";
+	final static String DBNAME = "iso2_db";
 
-	private static String url = "jdbc:mysql://127.0.0.1:3306/repartovacunas";
+	static Connection conn;
+	static PreparedStatement pstmt;
+	static Statement stmt;
+	static ResultSet rs = null;
 
-	private static String driver = "com.mysql.cj.jdbc.Driver";
-	
-	// Constructor
-	private AgenteBD() throws Exception {
-		conectar();
+	public AgenteBD() throws SQLException, ClassNotFoundException {
+		Class.forName(DRIVER);
 
+		crearBaseDatosSinoExiste();
+		// conectar();
 	}
-
-	// Implementacion del patron singleton
 
 	public static AgenteBD getAgente() throws Exception {
-		if (instance == null) {
-			instance = new AgenteBD();
+		if (mInstancia == null) {
+			mInstancia = new AgenteBD();
 		}
-		return instance;
+		return mInstancia;
 	}
 
+	public static Vector<Object> select(String SQL) throws SQLException {
 
-	private void conectar() throws Exception {
-		Class.forName(driver);
-		connection = DriverManager.getConnection(url, "root", "password");
-	}
+		Vector<Object> vectorDevuelto = new Vector<>();
 
-	public void desconectar() throws Exception {
-		connection.close();
-	}
+		Driver derbyEmbeddedDriver = new EmbeddedDriver();
+		DriverManager.registerDriver(derbyEmbeddedDriver);
 
-	public int insert(String SQL) throws SQLException, Exception {
-		conectar();
-		PreparedStatement stmt = connection.prepareStatement(SQL);
-		int res = stmt.executeUpdate();
-		stmt.close();
-		desconectar();
-		return res;
-	}
+		conn = DriverManager.getConnection(CONNECTION_STRING);
+		conn.setAutoCommit(false);
 
-	public ResultSet delete(String SQL) throws SQLException, Exception {
-		PreparedStatement stmt = connection.prepareStatement(SQL);
-		ResultSet res = stmt.executeQuery();
-		stmt.close();
-		desconectar();
-		return res;
-	}
+		stmt = conn.createStatement();
 
-	public ResultSet update(String SQL) throws SQLException, Exception {
-		conectar();
-		PreparedStatement stmt = connection.prepareStatement(SQL);
-		ResultSet res = stmt.executeQuery();
-		stmt.close();
-		desconectar();
-		return res;
-	}
+		try {
 
-	public Vector<Object> select(String SQL) throws SQLException, Exception {
+			rs = stmt.executeQuery(SQL);
 
-		Vector<Object> vectoradevolver = new Vector<Object>();
-		conectar();
-		Statement stmt = connection.createStatement();
-		ResultSet res = stmt.executeQuery(SQL);
-		while (res.next()) {
-			Vector<Object> v = new Vector<Object>();
-			v.add(res.getObject(1));
-			v.add(res.getObject(2));
-			vectoradevolver.add(v);
+			ResultSetMetaData rsmd = rs.getMetaData();
+
+			while (rs.next()) {
+
+				for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+
+					System.out.println(rs.getObject(i));
+
+					vectorDevuelto.add(rs.getObject(i));
+				}
+
+			}
+
+			conn.commit();
+		} catch (SQLException ex) {
+			System.out.println("in connection" + ex);
 		}
-		stmt.close();
-		desconectar();
-		return vectoradevolver;
+
+		return vectorDevuelto;
+	}
+
+	public void insert(String SQL) throws SQLException {
+
+		Driver derbyEmbeddedDriver = new EmbeddedDriver();
+		DriverManager.registerDriver(derbyEmbeddedDriver);
+
+		conn = DriverManager.getConnection(CONNECTION_STRING);
+		conn.setAutoCommit(false);
+
+		stmt = conn.createStatement();
+
+		try {
+
+			stmt.executeUpdate(SQL);
+			System.out.println("Se han insertado los registros.");
+
+			conn.commit();
+
+		} catch (SQLException ex) {
+			System.out.println("in connection" + ex);
+		}
 
 	}
+
+	public static void crearBaseDatosSinoExiste() throws SQLException {
+
+		Driver derbyEmbeddedDriver = new EmbeddedDriver();
+		DriverManager.registerDriver(derbyEmbeddedDriver);
+
+		conn = DriverManager.getConnection(CONNECTION_STRING);
+		conn.setAutoCommit(false);
+
+		String createSQL = "create table LoteVacunas " + "(id varchar(50) not null, fecha varchar(30) not null,"
+				+ "cantidad integer not null,farmaceutica varchar(30),constraint primary_key primary key (id))";
+
+		String createSQL2 = "create table Entregas " + "(fecha varchar(50) not null, cantidad integer not null,"
+				+ "loteVacunas varchar(50) not null,region varchar(30),constraint pr primary key (fecha))";
+
+		try {
+
+			stmt = conn.createStatement();
+			stmt.execute("drop table LoteVacunas");
+			stmt.execute("drop table Entregas");
+			stmt.execute(createSQL);
+			stmt.execute(createSQL2);
+
+			stmt.close();
+
+			conn.commit();
+
+		} catch (SQLException ex) {
+			System.out.println("in connectionhola" + ex);
+		}
+
+		try {
+			DriverManager.getConnection("jdbc:derby:;shutdown=true");
+		} catch (SQLException ex) {
+			if (((ex.getErrorCode() == 50000) && ("XJ015".equals(ex.getSQLState())))) {
+				// System.out.println("Derby shut down normally");
+			} else {
+				System.err.println("Derby did not shut down normally");
+				System.err.println(ex.getMessage());
+			}
+		}
+	}
+
 }
