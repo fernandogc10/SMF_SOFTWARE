@@ -82,11 +82,9 @@ A lo largo de esta primera etapa de desarrollo, hemos llevado a cabo varios spri
 Hemos realizado varias reuniones de planificacion, para determinar los elementos que iba a contener el Product Backlog y para la creación del Sprint Backlog. A su vez, diariamente hemos realizado una breve reunión. 
 Por último, al finalizar cada Sprint nos hemos reunido nuevamente para comentar sobre las tareas realizadas durante el Sprint...
 
-A continuación, se muestra un ejemplo del uso del Produck Backlog, Sprint Backlog, In progress y Done.
+A continuación, se muestra un ejemplo del uso del Produck Backlog, Sprint Backlog, In progress y Done. Haciendo uso de la metodología Scrum
 
-
-
-
+![ImagenScrum](./Imagenes/Scrum.png).
 
 
 # Codificación
