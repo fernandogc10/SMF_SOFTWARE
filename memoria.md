@@ -107,4 +107,10 @@ PantallaSistemaSaludRegional:
 
 ![ImagenPantallaSistemaSaludRegional](./Imagenes/PantallaSistemaSaludRegional.jpg)
 
+Respecto al diagrama UML hemos ralizado los siguientes cambios:
+
+Por un lado en la clase GestorVacunacion en el metodo altaEntregaVacunas hemos añadido un nuevo parametro llamado Region el cual es de tipo String, como se muestra a continuación:
+
+![ImagenClaseGestorVacunacion](./Imagenes/GestorVacunacion.JPG)
+
 ![Imagenlogo](./Imagenes/LogoSMF_SOFTWARE.png)
