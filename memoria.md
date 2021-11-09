@@ -1,25 +1,47 @@
 # Memoria Proyecto Ingeniería del Software II - SMF_Software
 
+---
+
 ## Miembros de la empresa:
+
+---
 
     • Marcelino Díaz Alba
     • Sergio Díaz de la Peña
     • Fernando Guerrero Cano
 
+---
+
+
 ## Gestión de la configuración
+
+---
+
 
 ### Plan de Gestión de la Configuración
 
+---
+
+
 #### Introducción
 
+---
+
+
 ##### Proposito del plan
+
+---
 
 Este documento describe las actividades de gestión de configuración de software que deben
 ser llevadas a cabo durante el proceso de desarrollo de nuestro proyecto. Aquí se definen tanto los
 productos que se pondrán bajo control de configuración como los procedimientos que deben
 ser seguidos por los integrantes del equipo de trabajo.
 
+---
+
 ##### Alcance del plan
+
+---
 
 El Plan de configuración está basado en algunos supuestos que se detallarán:
 
@@ -31,7 +53,11 @@ iteraciones. Resulta importante tener control sobre cada una de las iteraciones 
 fases, de los productos generados en estas y de los cambios surgidos, evaluados y
 aprobados.
 
+---
+
 ##### Terminos clave
+
+---
 
     • CCB (Configuration Control Board) Comité de Control de Configuración.
     • CI (Configuration Item) elemento bajo gestión de Configuración.
@@ -43,7 +69,11 @@ aprobados.
     • SQAR (SQA Responsible) Responsable de SQA.
     • VR (Verification Responsible) Responsable de verificación.
 
+---
+
 ### Uso de Maven
+
+---
 
 Hemos hecho uso de la herramienta Maven para desarrollar y automatizar el manejo de la creación del 
 formato de carpeta original, realizando el surtido y las pruebas y el empaquetado y despliegue de la 
@@ -62,7 +92,11 @@ El uso de Maven nos ha ayudado a:
     • Configuración del Software
     • Publicaciones (Releases)
 
+---
+
 ## Planificación y gestión
+
+---
 
 Hemos llevado a cabo una metodología agil llamada Scrum. Esta es una metodologia de Gestión de Proyectos.
 
@@ -84,33 +118,62 @@ Por último, al finalizar cada Sprint nos hemos reunido nuevamente para comentar
 
 A continuación, se muestra un ejemplo del uso del Produck Backlog, Sprint Backlog, In progress y Done. Haciendo uso de la metodología Scrum
 
-![ImagenScrum](./Imagenes/Scrum.png).
+![ImagenScrum](./Imagenes/Scrum.JPG)
 
+---
 
 # Codificación
 
+---
+
 A continuación, se muestran los bocetos realizados para llevar a cabo el desarrollo de la UI.
+
+---
 
 PantallaPrincipal:
 
 ![ImagenPantallaPrincipal](./Imagenes/PantallaPrincipal.jpg)
 
+---
+
 PantallaConsultarEstadisticas:
 
 ![ImagenPantallaConsultarEstadisticas](./Imagenes/PantallaConsultarEstadisticas.jpg)
+
+---
 
 PantallaSistemaSaludNacional:
 
 ![ImagenPantallaSistemaSaludNacional](./Imagenes/PantallaSistemaSaludNacional.jpg)
 
+---
+
 PantallaSistemaSaludRegional:
 
 ![ImagenPantallaSistemaSaludRegional](./Imagenes/PantallaSistemaSaludRegional.jpg)
 
+---
+
 Respecto al diagrama UML hemos ralizado los siguientes cambios:
+
+---
 
 Por un lado en la clase GestorVacunacion en el metodo altaEntregaVacunas hemos añadido un nuevo parametro llamado Region el cual es de tipo String, como se muestra a continuación:
 
 ![ImagenClaseGestorVacunacion](./Imagenes/GestorVacunacion.JPG)
+
+---
+
+Por otro lado, hemos eliminado la clase AbstractEntityDAO<E> y las generalizaciones que habia con las clases LoteVacunasDAO, EntregaDAO y VacunacionDAO las hemos dirigido a la clase AgenteBD, se muestra a continuación:
+
+
+![ImagenUml2](./Imagenes/Uml2.JPG)
+
+
+
+
+
+
+---
 
 ![Imagenlogo](./Imagenes/LogoSMF_SOFTWARE.png)
