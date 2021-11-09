@@ -12,9 +12,11 @@ import dominio.entitymodel.LoteVacunas;
 
 public class EntregaDAO<E> extends AgenteBD {
 
+	List<EntregaVacunas> listaEntregaVacunas = new ArrayList<>();
+
 	public EntregaDAO() throws SQLException, ClassNotFoundException {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public void insertarEntrega(EntregaVacunas aEntrega) throws SQLException, Exception {
@@ -29,11 +31,10 @@ public class EntregaDAO<E> extends AgenteBD {
 
 		EntregaVacunas entrega;
 
-		List<EntregaVacunas> listaEntregaVacunas = new ArrayList<>();
+		// String consulta = "INSERT INTO Entregas (fecha, cantidad, loteVacunas,region)
+		// VALUES ('10/03/2000',3,'lote1' , 'madrid')";
 
-		String consulta = "INSERT INTO Entregas (fecha, cantidad, loteVacunas,region) VALUES ('10/03/2000',3,'lote1' , 'madrid')";
-
-		AgenteBD.getAgente().insert(consulta);
+		// AgenteBD.getAgente().insert(consulta);
 
 		vector = AgenteBD.getAgente().select("Select region from Entregas");
 
@@ -50,7 +51,17 @@ public class EntregaDAO<E> extends AgenteBD {
 				}
 			}
 
+			if (vector.isEmpty()) {
+
+				entrega = new EntregaVacunas(region);
+
+				listaEntregaVacunas.add(entrega);
+
+			}
+
 		}
+
+		System.out.println(listaEntregaVacunas.get(0).get_region().toString());
 
 		return listaEntregaVacunas;
 

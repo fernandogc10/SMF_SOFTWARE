@@ -9,7 +9,7 @@ public class LoteVacunasDAO<E> extends AgenteBD {
 
 	public LoteVacunasDAO() throws SQLException, ClassNotFoundException {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public static void insertarLoteVacunas(LoteVacunas aLote) throws SQLException, Exception {
@@ -19,6 +19,7 @@ public class LoteVacunasDAO<E> extends AgenteBD {
 				+ aLote.get_farmaceutica() + "')";
 
 		AgenteBD.getAgente().insert(consulta);
+		
 
 		Vector<Object> vector = new Vector<>();
 

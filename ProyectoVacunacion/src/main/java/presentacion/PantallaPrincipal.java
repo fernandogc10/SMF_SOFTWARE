@@ -8,6 +8,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import persistencia.AgenteBD;
+
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -33,6 +36,7 @@ public class PantallaPrincipal extends JFrame {
 			public void run() {
 				try {
 					PantallaPrincipal frame = new PantallaPrincipal();
+					AgenteBD agente = new AgenteBD();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

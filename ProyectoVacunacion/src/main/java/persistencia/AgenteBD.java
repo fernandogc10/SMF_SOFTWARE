@@ -25,7 +25,6 @@ public class AgenteBD {
 		Class.forName(DRIVER);
 
 		crearBaseDatosSinoExiste();
-		// conectar();
 	}
 
 	public static AgenteBD getAgente() throws Exception {
@@ -57,8 +56,6 @@ public class AgenteBD {
 
 				for (int i = 1; i <= rsmd.getColumnCount(); i++) {
 
-					System.out.println(rs.getObject(i));
-
 					vectorDevuelto.add(rs.getObject(i));
 				}
 
@@ -85,7 +82,6 @@ public class AgenteBD {
 		try {
 
 			stmt.executeUpdate(SQL);
-			System.out.println("Se han insertado los registros.");
 
 			conn.commit();
 

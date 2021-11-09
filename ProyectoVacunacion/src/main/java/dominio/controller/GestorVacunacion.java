@@ -55,25 +55,12 @@ public class GestorVacunacion {
 
 		vector = AgenteBD.getAgente().select("Select * from Entregas");
 
-	}
-
-	public static void main(String[] args) throws SQLException, Exception {
-
-		java.util.Date date = new java.util.Date();
-		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-
-		AgenteBD agente = new AgenteBD();
-
-		//altaEntregaVacunas("lote1", sqlDate, 5, 2, "MADRID");
-		
-		TipoVacuna tipoVacuna = new TipoVacuna("covid", "farmaciaToledo", "15/03/2021");
-		
-		registrarVacunacion(sqlDate, "Fernando", "Guerrero", "03962854T",tipoVacuna);
+		System.out.println(vector);
 
 	}
 
-	public static void registrarVacunacion(Date aFecha, String aNombre, String aApellidos, String aNif, TipoVacuna aTipo)
-			throws SQLException, Exception {
+	public static void registrarVacunacion(Date aFecha, String aNombre, String aApellidos, String aNif,
+			TipoVacuna aTipo) throws SQLException, Exception {
 
 		Paciente paciente = new Paciente(aNif, aNombre, aApellidos);
 
@@ -90,11 +77,9 @@ public class GestorVacunacion {
 
 		} else if (vector.size() == 0) {
 
-			System.out.println("Paciente 0 veces.");
-
 			isSegundaDosis = false;
 		} else {
-			System.out.println("Ya vacunado con 2 dosis.");
+
 			return;
 		}
 
@@ -105,13 +90,9 @@ public class GestorVacunacion {
 		nuevaVacunacion.set_TipoVacuna(aTipo);
 
 		AgenteBD.getAgente().insert("Insert into Vacunacion (fecha, Dosis, dni_paciente, tipoVacuna) values" + "('"
-				+ nuevaVacunacion.get_fechaVacunacion().toString() + "','" + "" + nuevaVacunacion.get_isSegundaDosis().toString()
-				+ "','" + nuevaVacunacion.get_paciente().get_dni() + "','" + ""
-				+ nuevaVacunacion.get_tipoVacuna().get_Nombre() + "')");
-
-		vector = AgenteBD.getAgente().select("Select * from Vacunacion");
-		
-		System.out.println(vector);
+				+ nuevaVacunacion.get_fechaVacunacion().toString() + "','" + ""
+				+ nuevaVacunacion.get_isSegundaDosis().toString() + "','" + nuevaVacunacion.get_paciente().get_dni()
+				+ "','" + "" + nuevaVacunacion.get_tipoVacuna().get_Nombre() + "')");
 
 	}
 
