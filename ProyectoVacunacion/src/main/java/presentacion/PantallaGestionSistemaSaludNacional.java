@@ -97,10 +97,10 @@ public class PantallaGestionSistemaSaludNacional extends JFrame {
 		lblregioneslista.setBounds(378, 151, 328, 16);
 		contentPane.add(lblregioneslista);
 
-		JLabel lblTipo = new JLabel("Tipo:");
+		JLabel lblTipo = new JLabel("Tipo vacuna:");
 		lblTipo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTipo.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
-		lblTipo.setBounds(116, 162, 57, 35);
+		lblTipo.setBounds(57, 162, 116, 35);
 		contentPane.add(lblTipo);
 
 		textFieldTipo = new JTextField();

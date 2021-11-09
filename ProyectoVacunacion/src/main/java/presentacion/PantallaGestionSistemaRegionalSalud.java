@@ -108,7 +108,7 @@ public class PantallaGestionSistemaRegionalSalud extends JFrame {
 				}
 
 				if (textFieldLote.getText() != LoteVacunas.get_ListaLoteVacunas().elementAt(0).get_id().toString()) {
-					System.out.println("Lote introducido no encontrado.");
+					
 				} else {
 					java.util.Date date = new java.util.Date();
 					java.sql.Date sqlDate = new java.sql.Date(date.getTime());
