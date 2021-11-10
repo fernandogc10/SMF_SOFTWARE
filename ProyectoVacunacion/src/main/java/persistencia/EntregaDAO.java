@@ -31,11 +31,6 @@ public class EntregaDAO<E> extends AgenteBD {
 
 		EntregaVacunas entrega;
 
-		// String consulta = "INSERT INTO Entregas (fecha, cantidad, loteVacunas,region)
-		// VALUES ('10/03/2000',3,'lote1' , 'madrid')";
-
-		// AgenteBD.getAgente().insert(consulta);
-
 		vector = AgenteBD.getAgente().select("Select region from Entregas");
 
 		for (RegionEnum region : RegionEnum.values()) {
