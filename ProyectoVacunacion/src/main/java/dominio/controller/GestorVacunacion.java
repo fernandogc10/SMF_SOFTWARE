@@ -26,22 +26,7 @@ public class GestorVacunacion {
 
 		nuevaEntrega.set_grupoPrioridad(seleccionarPrioridad(aPrioridad));
 
-		// vector = AgenteBD.getAgente().select("Select * from LoteVacunas where
-		// id='aLote'");
-
-		/*
-		 * if (vector.isEmpty()) {
-		 * 
-		 * System.out.println("No hay lotes.");
-		 * 
-		 * return; }
-		 */
-
 		LoteVacunas lote = new LoteVacunas(sqlDate, "covid", 100);
-
-		// LoteVacunas lote = new LoteVacunas((Date) vector.elementAt(0),
-		// vector.elementAt(1).toString(),
-		// (int) vector.elementAt(2));
 
 		nuevaEntrega.setTipoVacuna(lote.get_TipoVacunas());
 

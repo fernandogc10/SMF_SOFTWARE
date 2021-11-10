@@ -112,26 +112,28 @@ public class AgenteBD {
 		try {
 
 			stmt = conn.createStatement();
-			stmt.execute("drop table LoteVacunas");
-			stmt.execute("drop table Entregas");
-			stmt.execute("drop table Vacunacion");
-			stmt.execute(createSQL);
+
+			/*stmt.execute(createSQL);
 			stmt.execute(createSQL2);
-			stmt.execute(createSQL3);
+			stmt.execute(createSQL3);*/
+			
+			/*stmt.execute("drop table LoteVacunas");
+			stmt.execute("drop table Entregas");
+			stmt.execute("drop table Vacunacion");*/
+
 
 			stmt.close();
 
 			conn.commit();
 
 		} catch (SQLException ex) {
-			System.out.println("in connectionhola" + ex);
+			System.out.println("in connection" + ex);
 		}
 
 		try {
 			DriverManager.getConnection("jdbc:derby:;shutdown=true");
 		} catch (SQLException ex) {
 			if (((ex.getErrorCode() == 50000) && ("XJ015".equals(ex.getSQLState())))) {
-				// System.out.println("Derby shut down normally");
 			} else {
 				System.err.println("Derby did not shut down normally");
 				System.err.println(ex.getMessage());
