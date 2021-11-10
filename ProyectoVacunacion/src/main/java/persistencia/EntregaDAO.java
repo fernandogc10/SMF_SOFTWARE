@@ -19,9 +19,9 @@ public class EntregaDAO<E> extends AgenteBD {
 
 	}
 
-	public void insertarEntrega(EntregaVacunas aEntrega) throws SQLException, Exception {
+	public void insertarEntrega(String consulta) throws SQLException, Exception {
 
-		// AgenteBD.getAgente().insert(consulta);
+		AgenteBD.getAgente().insert(consulta);
 
 	}
 
@@ -56,7 +56,7 @@ public class EntregaDAO<E> extends AgenteBD {
 
 		}
 
-		System.out.println(listaEntregaVacunas.get(0).get_region().toString());
+
 
 		return listaEntregaVacunas;
 

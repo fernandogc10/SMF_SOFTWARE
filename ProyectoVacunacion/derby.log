@@ -1,19 +1,13 @@
 ----------------------------------------------------------------
-Tue Nov 09 23:42:17 CET 2021:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-017d-06dd-c7ee-0000073809b8 
-on database directory C:\Users\sergi\WorkSpace-Sergio\SMF_SOFTWARE\ProyectoVacunacion\iso2_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@579bb367 
-Loaded from file:/C:/Users/sergi/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
-java.vendor=Oracle Corporation
-java.runtime.version=16.0.2+7-67
-user.dir=C:\Users\sergi\WorkSpace-Sergio\SMF_SOFTWARE\ProyectoVacunacion
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
+Wed Nov 10 13:51:41 CET 2021:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-017d-09e7-6d5a-000003384360 
+on database directory /Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/SMF_SOFTWARE/ProyectoVacunacion/iso2_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@799f7e29 
+Loaded from file:/Users/fernando/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=AdoptOpenJDK
+java.runtime.version=12.0.2+10
+user.dir=/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/SMF_SOFTWARE/ProyectoVacunacion
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.16
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Tue Nov 09 23:42:18 CET 2021: Shutting down Derby engine
-----------------------------------------------------------------
-Tue Nov 09 23:42:18 CET 2021:
-Shutting down instance a816c00e-017d-06dd-c7ee-0000073809b8 on database directory C:\Users\sergi\WorkSpace-Sergio\SMF_SOFTWARE\ProyectoVacunacion\iso2_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@579bb367 
-----------------------------------------------------------------

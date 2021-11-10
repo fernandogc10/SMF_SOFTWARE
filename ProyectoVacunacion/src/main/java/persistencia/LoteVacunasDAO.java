@@ -21,9 +21,5 @@ public class LoteVacunasDAO<E> extends AgenteBD {
 		AgenteBD.getAgente().insert(consulta);
 		
 
-		Vector<Object> vector = new Vector<>();
-
-		vector = AgenteBD.getAgente().select("Select * from LoteVacunas");
-
 	}
 }
