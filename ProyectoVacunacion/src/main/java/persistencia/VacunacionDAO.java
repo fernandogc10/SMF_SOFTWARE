@@ -11,11 +11,15 @@ public class VacunacionDAO<E> extends AgenteBD {
 
 	public VacunacionDAO() throws SQLException, ClassNotFoundException {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
-	public void insertarVacunacion(Vacunacion aVacunacion) {
-		throw new UnsupportedOperationException();
+	public void insertarVacunacion(Vacunacion nuevaVacunacion) throws SQLException, Exception {
+		
+		AgenteBD.getAgente().insert("Insert into Vacunacion (fecha, Dosis, dni_paciente, tipoVacuna) values" + "('"
+				+ nuevaVacunacion.get_fechaVacunacion().toString() + "','" + ""
+				+ nuevaVacunacion.get_isSegundaDosis().toString() + "','" + nuevaVacunacion.get_paciente().get_dni()
+				+ "','" + "" + nuevaVacunacion.get_tipoVacuna().get_Nombre() + "')");
 	}
 
 	public List<Vacunacion> seleccionarVacunaciones() {

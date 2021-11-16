@@ -28,19 +28,15 @@ public class GestorVacunacion {
 
 		LoteVacunas lote = new LoteVacunas(sqlDate, "covid", 100);
 
+
 		nuevaEntrega.setTipoVacuna(lote.get_TipoVacunas());
 
 		nuevaEntrega.setRegion(Region);
 
-		AgenteBD.getAgente()
-				.insert("Insert into Entregas (fecha, cantidad, loteVacunas, region, tipoVacuna, GrupoPrioridad) values"
+		nuevaEntrega._entregaDao.insertarEntrega("Insert into Entregas (fecha, cantidad, loteVacunas, region, tipoVacuna, GrupoPrioridad) values"
 						+ " ('" + nuevaEntrega.get_fecha().toString() + "'," + nuevaEntrega.get_cantidad() + ",'"
 						+ lote.get_id() + "', '" + Region + "','" + nuevaEntrega.get_tipo().get_Nombre() + "',"
 						+ nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() + ")");
-
-		vector = AgenteBD.getAgente().select("Select * from Entregas");
-
-		System.out.println(vector);
 
 	}
 
@@ -74,10 +70,7 @@ public class GestorVacunacion {
 
 		nuevaVacunacion.set_TipoVacuna(aTipo);
 
-		AgenteBD.getAgente().insert("Insert into Vacunacion (fecha, Dosis, dni_paciente, tipoVacuna) values" + "('"
-				+ nuevaVacunacion.get_fechaVacunacion().toString() + "','" + ""
-				+ nuevaVacunacion.get_isSegundaDosis().toString() + "','" + nuevaVacunacion.get_paciente().get_dni()
-				+ "','" + "" + nuevaVacunacion.get_tipoVacuna().get_Nombre() + "')");
+		nuevaVacunacion._vacunacionDao.insertarVacunacion(nuevaVacunacion);
 
 	}
 
