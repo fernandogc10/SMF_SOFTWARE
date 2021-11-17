@@ -14,10 +14,6 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-
-
-
 		<sonar.organization>smfsoftware</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
@@ -52,17 +48,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.8.5</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-integration</artifactId>
-			<version>1.2.1</version>
-		</dependency>
 		<dependency>
 			<groupId>net.avh4.util</groupId>
 			<artifactId>imagecomparison</artifactId>
