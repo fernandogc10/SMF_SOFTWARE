@@ -91,12 +91,12 @@ public class PantallaGestionSistemaRegionalSalud extends JFrame {
 		btnPrincipal.setBounds(672, 398, 97, 25);
 		contentPane.add(btnPrincipal);
 
-		JLabel lblAltaprimero = new JLabel("¡PRIMERO DEBE DE ESTAR DADO DE ALTA UN NUEVO LOTE!");
+		final JLabel lblAltaprimero = new JLabel("¡PRIMERO DEBE DE ESTAR DADO DE ALTA UN NUEVO LOTE!");
 		lblAltaprimero.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
 		lblAltaprimero.setBounds(54, 365, 326, 47);
 		contentPane.add(lblAltaprimero);
 
-		JButton btnDarDeAlta = new JButton("Dar de alta");
+		final JButton btnDarDeAlta = new JButton("Dar de alta");
 		btnDarDeAlta.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -146,12 +146,12 @@ public class PantallaGestionSistemaRegionalSalud extends JFrame {
 		btnDarDeAlta.setBounds(257, 334, 111, 35);
 		contentPane.add(btnDarDeAlta);
 
-		JLabel lblVacunacion = new JLabel("Se ha registrado la vacunación correctamente.");
+		final JLabel lblVacunacion = new JLabel("Se ha registrado la vacunación correctamente.");
 		lblVacunacion.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
 		lblVacunacion.setBounds(392, 379, 318, 16);
 		contentPane.add(lblVacunacion);
 
-		JButton btnRegistrar = new JButton("Registrar");
+		final JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -195,61 +195,61 @@ public class PantallaGestionSistemaRegionalSalud extends JFrame {
 		btnRegistrar.setBounds(546, 334, 91, 35);
 		contentPane.add(btnRegistrar);
 
-		JLabel lblSeleccioneLaOpcion = new JLabel("Seleccione la opcion que desee realizar");
+		final JLabel lblSeleccioneLaOpcion = new JLabel("Seleccione la opcion que desee realizar");
 		lblSeleccioneLaOpcion.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSeleccioneLaOpcion.setFont(new Font("Tw Cen MT", Font.BOLD, 17));
 		lblSeleccioneLaOpcion.setBounds(206, 49, 286, 43);
 		contentPane.add(lblSeleccioneLaOpcion);
 
-		JLabel lblCantidad = new JLabel("Cantidad:");
+		final JLabel lblCantidad = new JLabel("Cantidad:");
 		lblCantidad.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCantidad.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
 		lblCantidad.setBounds(89, 195, 91, 35);
 		contentPane.add(lblCantidad);
 
-		JLabel lblPrioridad = new JLabel("Prioridad:");
+		final JLabel lblPrioridad = new JLabel("Prioridad:");
 		lblPrioridad.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPrioridad.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
 		lblPrioridad.setBounds(89, 241, 91, 35);
 		contentPane.add(lblPrioridad);
 
-		JLabel lblRegion = new JLabel("Región:");
+		final JLabel lblRegion = new JLabel("Región:");
 		lblRegion.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRegion.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
 		lblRegion.setBounds(89, 288, 91, 35);
 		contentPane.add(lblRegion);
 
-		JLabel lblLote = new JLabel("Lote:");
+		final JLabel lblLote = new JLabel("Lote:");
 		lblLote.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLote.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
 		lblLote.setBounds(106, 150, 91, 35);
 		contentPane.add(lblLote);
 
-		JLabel lblNombre = new JLabel("Nombre:");
+		final JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNombre.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
 		lblNombre.setBounds(378, 150, 69, 35);
 		contentPane.add(lblNombre);
 
-		JLabel lblApellidos = new JLabel("Apellidos:");
+		final JLabel lblApellidos = new JLabel("Apellidos:");
 		lblApellidos.setHorizontalAlignment(SwingConstants.CENTER);
 		lblApellidos.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
 		lblApellidos.setBounds(378, 195, 69, 35);
 		contentPane.add(lblApellidos);
 
-		JLabel lblNIF = new JLabel("NIF:");
+		final JLabel lblNIF = new JLabel("NIF:");
 		lblNIF.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNIF.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
 		lblNIF.setBounds(378, 241, 69, 35);
 		contentPane.add(lblNIF);
 
-		JLabel lblTipo = new JLabel("Tipo:");
+		final JLabel lblTipo = new JLabel("Tipo:");
 		lblTipo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTipo.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
 		lblTipo.setBounds(378, 288, 69, 35);
 		contentPane.add(lblTipo);
 
-		JButton btnRegistrarVacunacion = new JButton("Registrar Vacunación");
+		final JButton btnRegistrarVacunacion = new JButton("Registrar Vacunación");
 		btnRegistrarVacunacion.setForeground(Color.WHITE);
 		btnRegistrarVacunacion.setBackground(new Color(19, 98, 143));
 		btnRegistrarVacunacion.addMouseListener(new MouseAdapter() {

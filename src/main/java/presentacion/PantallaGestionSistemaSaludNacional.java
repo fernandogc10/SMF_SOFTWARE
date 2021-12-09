@@ -88,16 +88,16 @@ public class PantallaGestionSistemaSaludNacional extends JFrame {
 		btnPrincipal.setBounds(672, 398, 97, 25);
 		contentPane.add(btnPrincipal);
 
-		JList listaRegiones = new JList();
+		final JList listaRegiones = new JList();
 		listaRegiones.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		listaRegiones.setBounds(448, 179, 192, 243);
 		contentPane.add(listaRegiones);
 		
-		JLabel lblregioneslista = new JLabel("Se deben realizar entregas a las siguientes regiones:");
+		final JLabel lblregioneslista = new JLabel("Se deben realizar entregas a las siguientes regiones:");
 		lblregioneslista.setBounds(378, 151, 328, 16);
 		contentPane.add(lblregioneslista);
 
-		JLabel lblTipo = new JLabel("Tipo vacuna:");
+		final JLabel lblTipo = new JLabel("Tipo vacuna:");
 		lblTipo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTipo.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
 		lblTipo.setBounds(57, 162, 116, 35);
@@ -108,11 +108,11 @@ public class PantallaGestionSistemaSaludNacional extends JFrame {
 		contentPane.add(textFieldTipo);
 		textFieldTipo.setColumns(10);
 		
-		JLabel lblloteEntregados = new JLabel("El lote de vacunas ha sido dado de alta correctamente.");
+		final JLabel lblloteEntregados = new JLabel("El lote de vacunas ha sido dado de alta correctamente.");
 		lblloteEntregados.setBounds(73, 304, 357, 16);
 		contentPane.add(lblloteEntregados);
 
-		JLabel lblCantidad = new JLabel("Cantidad:");
+		final JLabel lblCantidad = new JLabel("Cantidad:");
 		lblCantidad.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
 		lblCantidad.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCantidad.setBounds(94, 209, 68, 35);
@@ -123,7 +123,7 @@ public class PantallaGestionSistemaSaludNacional extends JFrame {
 		contentPane.add(textFieldCantidad);
 		textFieldCantidad.setColumns(10);
 
-		JButton btnDarDeAlta = new JButton("Dar de alta el Lote");
+		final JButton btnDarDeAlta = new JButton("Dar de alta el Lote");
 		btnDarDeAlta.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
