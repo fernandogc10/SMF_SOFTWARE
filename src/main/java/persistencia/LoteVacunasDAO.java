@@ -11,6 +11,7 @@ public class LoteVacunasDAO<E> extends AgenteBD {
 		super();
 
 	}
+	//
 
 	public static void insertarLoteVacunas(LoteVacunas aLote) throws SQLException, Exception {
 
