@@ -5,11 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>SMF-SOFTWARE</groupId>
-	<artifactId>ProyectoVacunacion</artifactId>
+	<artifactId>GestionVacunas</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
-	<name>ProyectoVacunacion</name>
+	<name>GestionVacunas</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
