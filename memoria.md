@@ -79,7 +79,7 @@ Hemos hecho uso de la herramienta Maven para desarrollar y automatizar el manejo
 formato de carpeta original, realizando el surtido y las pruebas y el empaquetado y despliegue de la 
 salida final.
 
-Tambien hemos utilizado Maven para gestionar las dependencias de nuestro proyecto
+Tambien hemos utilizado Maven para gestionar las dependencias de nuestro proyecto.
 
 Lo hemos usado para crear la infraestructura de nuestro proyecto.
 
