@@ -5,15 +5,19 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>SMF-SOFTWARE</groupId>
-	<artifactId>ProyectoVacunacion</artifactId>
+	<artifactId>SMF_SOFTWARE</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
-	<name>ProyectoVacunacion</name>
+	<name>SMF_SOFTWARE</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sonar.organization>smfsoftware</sonar.organization>
+  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.sources>./src/main/java</sonar.sources>
+		<sonar.binaries>./target/classes</sonar.binaries>
 	</properties>
 
 
@@ -23,7 +27,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>3.0</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
