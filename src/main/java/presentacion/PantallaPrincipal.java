@@ -27,7 +27,7 @@ import java.awt.event.MouseEvent;
 public class PantallaPrincipal extends JFrame {
 
 	private JPanel contentPane;
-
+//
 	/**
 	 * Launch the application.
 	 */

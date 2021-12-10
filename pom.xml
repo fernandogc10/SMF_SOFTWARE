@@ -14,9 +14,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<sonar.sources>/src/main/java</sonar.sources>
 		<sonar.organization>smfsoftware</sonar.organization>
-		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.sources>./src/main/java</sonar.sources>
+		<sonar.binaries>./target/classes</sonar.binaries>
 	</properties>
 
 
