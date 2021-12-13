@@ -21,4 +21,12 @@ public class Paciente {
 
 		return _dni;
 	}
+
+	public String get_Nombre() {
+		return _nombre;
+	}
+
+	public String get_Apellidos() {
+		return _apellidos;
+	}
 }

@@ -6,6 +6,8 @@ public class GestorEstadisticas {
 
 	public void consultarTotalVacunados() {
 		throw new UnsupportedOperationException();
+		
+		
 	}
 
 	public void consultarTotalVacunadosPorRegion(RegionEnum aRegion) {

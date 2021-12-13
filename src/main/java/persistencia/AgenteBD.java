@@ -107,19 +107,22 @@ public class AgenteBD {
 				+ "constraint pr primary key (fecha))";
 
 		String createSQL3 = "create table Vacunacion " + "(fecha date not null, Dosis varchar(20) not null,"
-				+ "dni_paciente varchar(50) not null,tipoVacuna varchar(30),constraint pr2 primary key (fecha))";
+				+ "dni_paciente varchar(50) not null, nombre_paciente varchar(30) not null, "
+				+ "apellidos_paciente varchar(50) not null, tipoVacuna varchar(30),constraint pr2 primary key (fecha))";
 
 		try {
 
 			stmt = conn.createStatement();
-
-			/*stmt.execute(createSQL);
-			stmt.execute(createSQL2);
-			stmt.execute(createSQL3);*/
 			
-			/*stmt.execute("drop table LoteVacunas");
+			stmt.execute("drop table LoteVacunas");
 			stmt.execute("drop table Entregas");
-			stmt.execute("drop table Vacunacion");*/
+			stmt.execute("drop table Vacunacion");
+
+			stmt.execute(createSQL);
+			stmt.execute(createSQL2);
+			stmt.execute(createSQL3);
+			
+			
 
 
 			stmt.close();

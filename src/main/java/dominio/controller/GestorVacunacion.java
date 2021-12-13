@@ -69,6 +69,8 @@ public class GestorVacunacion {
 		nuevaVacunacion.set_Paciente(paciente);
 
 		nuevaVacunacion.set_TipoVacuna(aTipo);
+		
+		System.out.println(nuevaVacunacion.get_paciente());
 
 		nuevaVacunacion._vacunacionDao.insertarVacunacion(nuevaVacunacion);
 
