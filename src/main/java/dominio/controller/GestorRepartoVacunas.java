@@ -1,17 +1,11 @@
 package dominio.controller;
 
-import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Vector;
 
 import dominio.entitymodel.EntregaVacunas;
 import dominio.entitymodel.LoteVacunas;
-import persistencia.AgenteBD;
 
 public class GestorRepartoVacunas {
 
@@ -23,7 +17,7 @@ public class GestorRepartoVacunas {
 
 	}
 
-	public static List<EntregaVacunas> calcularEntregasRegion() throws SQLException, Exception { // devuelve una lista
+	public static List<EntregaVacunas> calcularEntregasRegion() throws Exception { // devuelve una lista
 																									// donde se deberian
 																									// de entregar
 
