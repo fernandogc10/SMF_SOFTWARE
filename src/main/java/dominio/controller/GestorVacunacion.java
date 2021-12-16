@@ -26,7 +26,7 @@ public class GestorVacunacion {
 
 		nuevaEntrega.set_grupoPrioridad(seleccionarPrioridad(aPrioridad));
 
-		LoteVacunas lote = new LoteVacunas(sqlDate, "covid", 100);
+		LoteVacunas lote = new LoteVacunas(aLote,sqlDate, "covid", 100);
 
 
 		nuevaEntrega.setTipoVacuna(lote.get_TipoVacunas());

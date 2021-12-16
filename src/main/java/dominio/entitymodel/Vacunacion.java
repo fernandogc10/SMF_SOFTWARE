@@ -20,7 +20,7 @@ public class Vacunacion {
 
 	}
 	
-	public void consultarTotalVacunados() {
+	public void consultarTotalVacunados() throws Exception {
 		
 		_vacunacionDao.seleccionarVacunaciones();
 	}

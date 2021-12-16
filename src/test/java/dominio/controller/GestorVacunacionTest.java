@@ -1,24 +1,47 @@
 package dominio.controller;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import java.sql.SQLException;
+import java.util.Vector;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import persistencia.AgenteBD;
 
 public class GestorVacunacionTest {
+	
+	AgenteBD agenteBD;
 
-	@BeforeEach
+	@Before
 	public void setUp() throws Exception {
+		
+		agenteBD = new AgenteBD ();
+		
 	}
 
-	@AfterEach
+	@After
 	public void tearDown() throws Exception {
 	}
 
 	@Test
-	public void testAltaEntregaVacunas() {
-		fail("Not yet implemented");
+	public void testAltaEntregaVacunas() throws SQLException, Exception {
+		
+		java.util.Date date = new java.util.Date();
+		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+		
+		GestorVacunacion.altaEntregaVacunas("lote_0", sqlDate, 100, 1, "MADRID");
+		
+		Vector <Object> vector_comprobacion = new Vector <> ();
+		
+		vector_comprobacion = 
+				this.agenteBD.select("Select * from Entregas where loteVacunas= 'lote_0'");
+		
+		System.out.println(vector_comprobacion.get(2));
+		
+		assertEquals("lote_0", vector_comprobacion.get(2));
 	}
 
 	@Test
@@ -28,66 +51,6 @@ public class GestorVacunacionTest {
 
 	@Test
 	public void testSeleccionarPrioridad() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testObject() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetClass() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testHashCode() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testEquals() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testClone() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testNotify() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testNotifyAll() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWait() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWaitLong() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testWaitLongInt() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testFinalize() {
 		fail("Not yet implemented");
 	}
 

@@ -17,7 +17,7 @@ public class GestorRepartoVacunas {
 
 	public static void altaNuevoLoteVacunas(Date fecha, String tipo, int cantidad) throws Exception {
 
-		LoteVacunas lote = new LoteVacunas(fecha, tipo, cantidad);
+		LoteVacunas lote = new LoteVacunas(null, fecha, tipo, cantidad);
 
 		LoteVacunas.altaNuevoLoteVacunas(lote);
 
@@ -29,11 +29,11 @@ public class GestorRepartoVacunas {
 
 		EntregaVacunas entrega = new EntregaVacunas();
 
-		List<EntregaVacunas> lista = new ArrayList<>();
+		List<EntregaVacunas> listaentregas = new ArrayList<>();
 
-		lista.addAll(entrega._entregaDao.seleccionarEntregas());
+		listaentregas.addAll(entrega._entregaDao.seleccionarEntregas());
 
-		return lista;
+		return listaentregas;
 
 	}
 
