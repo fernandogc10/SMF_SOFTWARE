@@ -112,14 +112,16 @@ public class AgenteBD {
 		try {
 
 			stmt = conn.createStatement();
-
-			/*stmt.execute(createSQL);
-			stmt.execute(createSQL2);
-			stmt.execute(createSQL3);*/
 			
-			/*stmt.execute("drop table LoteVacunas");
+			stmt.execute("drop table LoteVacunas");
 			stmt.execute("drop table Entregas");
-			stmt.execute("drop table Vacunacion");*/
+			stmt.execute("drop table Vacunacion");
+
+			stmt.execute(createSQL);
+			stmt.execute(createSQL2);
+			stmt.execute(createSQL3);
+			
+			
 
 
 			stmt.close();

@@ -1,5 +1,6 @@
 package dominio.entitymodel;
 
+import java.sql.SQLException;
 import java.util.Date;
 
 import persistencia.VacunacionDAO;
@@ -11,10 +12,11 @@ public class Vacunacion {
 	public Paciente _paciente;
 	public VacunacionDAO _vacunacionDao;
 
-	public Vacunacion(Date _fecha, Boolean isSegundaDosis) {
+	public Vacunacion(Date _fecha, Boolean isSegundaDosis) throws ClassNotFoundException, SQLException {
 
 		this._fecha = _fecha;
 		this._isSegundaDosis = isSegundaDosis;
+		this._vacunacionDao = new VacunacionDAO();
 
 	}
 

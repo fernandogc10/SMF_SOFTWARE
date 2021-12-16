@@ -107,7 +107,7 @@ public class PantallaGestionSistemaRegionalSalud extends JFrame {
 					return;
 				}
 
-				if (textFieldLote.getText() != LoteVacunas.get_ListaLoteVacunas().elementAt(0).get_id().toString()) {
+				if (textFieldLote.getText().equals(LoteVacunas.get_ListaLoteVacunas().elementAt(0).get_id().toString())) {
 					
 				} else {
 					java.util.Date date = new java.util.Date();
