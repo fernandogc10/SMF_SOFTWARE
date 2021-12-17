@@ -108,7 +108,7 @@ public class AgenteBD {
 
 		String createSQL3 = "create table Vacunacion " + "(fecha date not null, Dosis varchar(20) not null,"
 				+ "dni_paciente varchar(50) not null, nombre_paciente varchar(30) not null, "
-				+ "apellidos_paciente varchar(50) not null, tipoVacuna varchar(30),constraint pr2 primary key (fecha))";
+				+ "apellidos_paciente varchar(50) not null, tipoVacuna varchar(30), Region varchar(30) not null, constraint pr2 primary key (fecha))";
 
 		try {
 

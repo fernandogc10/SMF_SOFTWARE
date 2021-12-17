@@ -27,7 +27,6 @@ public class PantallaConsultaEstadisticas extends JFrame {
 
 	private JPanel contentPane;
 	
-	//fernando guerrero
 
 	/**
 	 * Launch the application.

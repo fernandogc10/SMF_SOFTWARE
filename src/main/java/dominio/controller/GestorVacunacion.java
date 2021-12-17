@@ -14,6 +14,12 @@ import dominio.entitymodel.Vacunacion;
 import persistencia.AgenteBD;
 
 public class GestorVacunacion {
+	
+	public RegionEnum regionPaciente;
+	
+	public void set_regionPaciente(String Region) {
+		regionPaciente = RegionEnum.valueOf(Region.toUpperCase());
+	}
 
 	public static void altaEntregaVacunas(String aLote, Date aFecha, int aCantidad, int aPrioridad, String Region)
 			throws SQLException, Exception {
@@ -40,10 +46,11 @@ public class GestorVacunacion {
 
 	}
 
-	public static void registrarVacunacion(Date aFecha, String aNombre, String aApellidos, String aNif,
+	public void registrarVacunacion(Date aFecha, String aNombre, String aApellidos, String aNif,
 			TipoVacuna aTipo) throws SQLException, Exception {
 
 		Paciente paciente = new Paciente(aNif, aNombre, aApellidos);
+		paciente.set_Region(this.regionPaciente);
 
 		Boolean isSegundaDosis = null;
 

@@ -22,6 +22,14 @@ public class Paciente {
 		return _dni;
 	}
 
+	public void set_Region(RegionEnum region) {
+		this._region = region;
+	}
+
+	public RegionEnum get_Region() {
+		return this._region;s
+	}
+
 	public String get_Nombre() {
 		return _nombre;
 	}
