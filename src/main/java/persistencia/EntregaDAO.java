@@ -19,7 +19,7 @@ public class EntregaDAO<E> extends AgenteBD {
 
 	}
 
-	public void insertarEntrega(String consulta) throws SQLException, Exception {
+	public static void insertarEntrega(String consulta) throws SQLException, Exception {
 
 		AgenteBD.getAgente().insert(consulta);
 

@@ -56,7 +56,7 @@
 <a name="46" href="#46">46</a>  		
 <a name="47" href="#47">47</a>  		System.out.println(vector_comprobacion.get(2));
 <a name="48" href="#48">48</a>  		
-<a name="49" href="#49">49</a>  		assertEquals(<span class="jxr_string">"lote_0"</span>, vector_comprobacion.get(2));
+<a name="49" href="#49">49</a>  		assertEquals(<span class="jxr_string">"lote_0"</span>, <strong class="jxr_keyword">this</strong>.vector_comprobacion.get(2));
 <a name="50" href="#50">50</a>  	}
 <a name="51" href="#51">51</a>  
 <a name="52" href="#52">52</a>  	@Test
@@ -70,7 +70,7 @@
 <a name="60" href="#60">60</a>  		<strong class="jxr_keyword">this</strong>.vector_comprobacion = 
 <a name="61" href="#61">61</a>  				AgenteBD.select(<span class="jxr_string">"Select * from Vacunacion where dni_paciente= '03962854T'"</span>);
 <a name="62" href="#62">62</a>  		
-<a name="63" href="#63">63</a>  		assertEquals(<span class="jxr_string">"03962854T"</span>, <strong class="jxr_keyword">this</strong>.vector_comprobacion.get(2));
+<a name="63" href="#63">63</a>  		assertEquals(<span class="jxr_string">"03962854T"</span>, <strong class="jxr_keyword">this</strong>.vector_comprobacion.get(2).toString());
 <a name="64" href="#64">64</a>  	}
 <a name="65" href="#65">65</a>  
 <a name="66" href="#66">66</a>  	@Test

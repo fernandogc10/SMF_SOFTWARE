@@ -14,6 +14,8 @@ import dominio.entitymodel.LoteVacunas;
 import persistencia.AgenteBD;
 
 public class GestorRepartoVacunas {
+	
+	static List<EntregaVacunas> listaentregas = new ArrayList<>();
 
 	public static void altaNuevoLoteVacunas(Date fecha, String tipo, int cantidad) throws Exception {
 
@@ -24,12 +26,9 @@ public class GestorRepartoVacunas {
 	}
 
 	public static List<EntregaVacunas> calcularEntregasRegion() throws SQLException, Exception { // devuelve una lista
-																									// donde se deberian
-																									// de entregar
+																									// donde se deberian																					// de entregar
 
 		EntregaVacunas entrega = new EntregaVacunas();
-
-		List<EntregaVacunas> listaentregas = new ArrayList<>();
 
 		listaentregas.addAll(entrega._entregaDao.seleccionarEntregas());
 

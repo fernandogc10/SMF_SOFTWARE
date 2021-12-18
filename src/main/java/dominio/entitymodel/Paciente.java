@@ -18,7 +18,7 @@ public class Paciente {
 	}
 
 	public String get_dni() {
-
+		
 		return _dni;
 	}
 
@@ -27,7 +27,7 @@ public class Paciente {
 	}
 
 	public RegionEnum get_Region() {
-		return this._region;s
+		return this._region;
 	}
 
 	public String get_Nombre() {

@@ -15,7 +15,7 @@ import persistencia.AgenteBD;
 
 public class GestorVacunacion {
 	
-	public RegionEnum regionPaciente;
+	public static RegionEnum regionPaciente;
 	
 	public void set_regionPaciente(String Region) {
 		regionPaciente = RegionEnum.valueOf(Region.toUpperCase());
@@ -46,11 +46,11 @@ public class GestorVacunacion {
 
 	}
 
-	public void registrarVacunacion(Date aFecha, String aNombre, String aApellidos, String aNif,
+	public static void registrarVacunacion(Date aFecha, String aNombre, String aApellidos, String aNif,
 			TipoVacuna aTipo) throws SQLException, Exception {
 
 		Paciente paciente = new Paciente(aNif, aNombre, aApellidos);
-		paciente.set_Region(this.regionPaciente);
+		paciente.set_Region(regionPaciente);
 
 		Boolean isSegundaDosis = null;
 
@@ -76,8 +76,6 @@ public class GestorVacunacion {
 		nuevaVacunacion.set_Paciente(paciente);
 
 		nuevaVacunacion.set_TipoVacuna(aTipo);
-		
-		System.out.println(nuevaVacunacion.get_paciente());
 
 		nuevaVacunacion._vacunacionDao.insertarVacunacion(nuevaVacunacion);
 

@@ -46,7 +46,7 @@ public class GestorVacunacionTest {
 		
 		System.out.println(vector_comprobacion.get(2));
 		
-		assertEquals("lote_0", vector_comprobacion.get(2));
+		assertEquals("lote_0", this.vector_comprobacion.get(2));
 	}
 
 	@Test
@@ -60,7 +60,7 @@ public class GestorVacunacionTest {
 		this.vector_comprobacion = 
 				AgenteBD.select("Select * from Vacunacion where dni_paciente= '03962854T'");
 		
-		assertEquals("03962854T", this.vector_comprobacion.get(2));
+		assertEquals("03962854T", this.vector_comprobacion.get(2).toString());
 	}
 
 	@Test

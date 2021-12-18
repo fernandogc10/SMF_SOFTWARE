@@ -33,6 +33,7 @@ public class EntregaVacunas {
 
 		_entregaDao = new EntregaDAO();
 	}
+	
 
 	public Date get_fecha() {
 		return _fecha;

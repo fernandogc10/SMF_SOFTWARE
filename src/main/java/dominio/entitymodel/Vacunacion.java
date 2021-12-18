@@ -25,6 +25,10 @@ public class Vacunacion {
 		_vacunacionDao.seleccionarVacunaciones();
 	}
 	
+	public void consultarTotalVacunadosRegion () throws Exception {
+		_vacunacionDao.consultarPorcentajeVacunadosSobreRecibidas();
+	}
+	
 
 	public Date get_fechaVacunacion() {
 
@@ -36,7 +40,7 @@ public class Vacunacion {
 	}
 
 	public Paciente get_paciente() {
-		return _paciente;
+		return this._paciente;
 	}
 
 	public void set_Paciente(Paciente nuevoPaciente) {
