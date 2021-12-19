@@ -85,7 +85,6 @@ public class EntregaVacunas {
 
 	public void setRegion(String region) {
 		
-		System.out.println(RegionEnum.valueOf(region));
 
 		this._region = RegionEnum.valueOf(region);
 	}

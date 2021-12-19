@@ -36,13 +36,13 @@ public class LoteVacunasDAOTest {
 		
 		Vector <Object> vector = new Vector <> ();
 		
-		LoteVacunas lote = new LoteVacunas("lote_0",this.sqlDate, "Covid-19", 1000);
+		LoteVacunas lote = new LoteVacunas("lote_prueba",this.sqlDate, "Covid-19", 1000);
 		
 		LoteVacunasDAO.insertarLoteVacunas(lote);
 		
-		vector = AgenteBD.select("Select * from lotevacunas where id= 'lote_0'" );
+		vector = AgenteBD.select("Select id from lotevacunas where id= 'lote_prueba'" );
 		
-		assertEquals("lote_0", vector.get(0).toString());
+		assertEquals("lote_prueba", vector.get(0).toString());
 		
 		
 		

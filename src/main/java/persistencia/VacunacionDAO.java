@@ -45,19 +45,21 @@ public class VacunacionDAO<E> extends AgenteBD {
 
 		insertarVacunacion(vacunacion);
 		
+		seleccionarVacunaciones(region);
 		
 		
 		
 		
-		aux();
+		
+		//aux();
 		
 		
 		
-		GestorRepartoVacunas.altaNuevoLoteVacunas(sqlDate, "covid", 50);
+		//GestorRepartoVacunas.altaNuevoLoteVacunas(sqlDate, "covid", 50);
 
 		//seleccionarVacunaciones();
 		
-		consultarPorcentajeVacunadosSobreRecibidas();
+		//consultarPorcentajeVacunadosSobreRecibidas();
 	}
 
 	public VacunacionDAO() throws SQLException, ClassNotFoundException {
@@ -115,13 +117,13 @@ public class VacunacionDAO<E> extends AgenteBD {
 
 		for (int i = 0; i < vector.size(); i += 7) {
 
-			vacunacion = new Vacunacion((Date) vector.elementAt(i + 0), (Boolean) vector.elementAt(i + 1));
+			vacunacion = new Vacunacion((Date) vector.elementAt(i + 0), Boolean.parseBoolean((vector.elementAt(i + 1).toString())));
 			paciente = new Paciente(vector.elementAt(i + 2).toString(), vector.elementAt(i + 3).toString(),
 					vector.elementAt(i + 4).toString());
 			tipoVacuna = new TipoVacuna(vector.elementAt(i + 5).toString(), null, null);
 
 			vacunacion.set_Paciente(paciente);
-			vacunacion.get_paciente().set_Region((RegionEnum) vector.elementAt(i + 6));
+			vacunacion.get_paciente().set_Region(RegionEnum.valueOf(vector.elementAt(i + 6).toString()));
 			vacunacion.set_TipoVacuna(tipoVacuna);
 
 			listaVacunados.add(vacunacion);
@@ -131,7 +133,7 @@ public class VacunacionDAO<E> extends AgenteBD {
 		return listaVacunados;
 	}
 
-	public List<Vacunacion> seleccionarVacunaciones(RegionEnum aRegion) throws Exception {
+	public static List<Vacunacion> seleccionarVacunaciones(RegionEnum aRegion) throws Exception {
 
 		Vector<Object> vector = new Vector<>();
 		Vacunacion vacunacion;
@@ -139,17 +141,19 @@ public class VacunacionDAO<E> extends AgenteBD {
 		TipoVacuna tipoVacuna;
 
 		
-		vector = AgenteBD.getAgente().select("Select * from Vacunacion where Region= '" + aRegion.toString() + "')");
+		
+		vector = AgenteBD.getAgente().select("Select * from Vacunacion where Region= '" + aRegion.toString() + "'");
 
 		for (int i = 0; i < vector.size(); i += 7) {
 
-			vacunacion = new Vacunacion((Date) vector.elementAt(i + 0), (Boolean) vector.elementAt(i + 1));
+			vacunacion = new Vacunacion((Date) vector.elementAt(i + 0),  Boolean.parseBoolean((vector.elementAt(i + 1).toString())));
 			paciente = new Paciente(vector.elementAt(i + 2).toString(), vector.elementAt(i + 3).toString(),
 					vector.elementAt(i + 4).toString());
 			tipoVacuna = new TipoVacuna(vector.elementAt(i + 5).toString(), null, null);
 
 			vacunacion.set_Paciente(paciente);
-			vacunacion.get_paciente().set_Region((RegionEnum) vector.elementAt(i + 6));
+
+			vacunacion.get_paciente().set_Region(RegionEnum.valueOf(vector.elementAt(i + 6).toString()));
 			vacunacion.set_TipoVacuna(tipoVacuna);
 
 			listaVacunados.add(vacunacion);
@@ -165,6 +169,7 @@ public class VacunacionDAO<E> extends AgenteBD {
 		Vector<Object> num_vacunados = new Vector<>();
 		Vector<Object> num_dosis_recibidas = new Vector<>();
 		int suma = 0;
+		
 		
 		
 		num_vacunados = AgenteBD.getAgente().select("Select Region from Vacunacion");

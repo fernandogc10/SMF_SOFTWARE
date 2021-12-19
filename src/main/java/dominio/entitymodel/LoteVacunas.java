@@ -55,7 +55,7 @@ public class LoteVacunas {
 
 	public static int calculoLotes() {
 
-		return listalotes.capacity();
+		return listalotes.size();
 
 	}
 
@@ -65,10 +65,6 @@ public class LoteVacunas {
 
 	public static Vector<LoteVacunas> get_ListaLoteVacunas() {
 		return listalotes;
-	}
-
-	public static void addLote(LoteVacunas lote) {
-		listalotes.add(lote);
 	}
 
 	public String get_id() {

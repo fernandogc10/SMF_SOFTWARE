@@ -20,15 +20,11 @@ public class Vacunacion {
 
 	}
 	
-	public void consultarTotalVacunados() throws Exception {
-		
-		_vacunacionDao.seleccionarVacunaciones();
+	public Vacunacion() throws Exception{
+
+		this._vacunacionDao = new VacunacionDAO();
+
 	}
-	
-	public void consultarTotalVacunadosRegion () throws Exception {
-		_vacunacionDao.consultarPorcentajeVacunadosSobreRecibidas();
-	}
-	
 
 	public Date get_fechaVacunacion() {
 

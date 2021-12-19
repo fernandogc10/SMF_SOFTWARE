@@ -1,25 +1,37 @@
 package dominio.controller;
 
 import dominio.entitymodel.RegionEnum;
+import dominio.entitymodel.Vacunacion;
 
 public class GestorEstadisticas {
+	
+	Vacunacion vacunacion = new Vacunacion();
 
-	public void consultarTotalVacunados() {
-		throw new UnsupportedOperationException();
+	public void consultarTotalVacunados() throws Exception {
+		
+		
+		
+		vacunacion._vacunacionDao.seleccionarVacunaciones();
 		
 		
 	}
 
-	public void consultarTotalVacunadosPorRegion(RegionEnum aRegion) {
-		throw new UnsupportedOperationException();
+	public void consultarTotalVacunadosPorRegion(RegionEnum aRegion) throws Exception {
+		
+		vacunacion._vacunacionDao.seleccionarVacunaciones(aRegion);
+		
 	}
-	//fernando
+	
 
-	public void consultarPorcentajeVacunadosSobreRecibidas() {
-		throw new UnsupportedOperationException();
+	public void consultarPorcentajeVacunadosSobreRecibidas() throws Exception {
+		
+		vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidas();
 	}
 
 	public void consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum aRegion) {
-		throw new UnsupportedOperationException();
+		
+		
+		
+		
 	}
 }

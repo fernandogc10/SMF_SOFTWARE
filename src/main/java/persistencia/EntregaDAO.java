@@ -12,7 +12,7 @@ import dominio.entitymodel.LoteVacunas;
 
 public class EntregaDAO<E> extends AgenteBD {
 
-	List<EntregaVacunas> listaEntregaVacunas = new ArrayList<>();
+	static List<EntregaVacunas> listaEntregaVacunas = new ArrayList<>();
 
 	public EntregaDAO() throws SQLException, ClassNotFoundException {
 		super();
@@ -25,7 +25,7 @@ public class EntregaDAO<E> extends AgenteBD {
 
 	}
 
-	public List<EntregaVacunas> seleccionarEntregas() throws SQLException, Exception {
+	public static List<EntregaVacunas> seleccionarEntregas() throws SQLException, Exception {
 
 		Vector<Object> vector = new Vector<>();
 
@@ -42,22 +42,16 @@ public class EntregaDAO<E> extends AgenteBD {
 					entrega = new EntregaVacunas(region);
 
 					listaEntregaVacunas.add(entrega);
-
 				}
 			}
-
 			if (vector.isEmpty()) {
 
 				entrega = new EntregaVacunas(region);
 
 				listaEntregaVacunas.add(entrega);
-
 			}
 
 		}
-
-
-
 		return listaEntregaVacunas;
 
 	}
