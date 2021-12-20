@@ -23,12 +23,11 @@ public class GestorEstadisticasTest {
 
 	@Test
 	public void testConsultarTotalVacunadosPorRegion() {
-		
+	
 	}
 
 	@Test
 	public void testConsultarPorcentajeVacunadosSobreRecibidas() {
-		
 	}
 
 	@Test

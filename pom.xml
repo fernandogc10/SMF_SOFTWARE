@@ -17,19 +17,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.organization>smfsoftware</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.sources>./src/main/java</sonar.sources>
+		<sonar.binaries>./target/classes</sonar.binaries>
 		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
 		<sonar.language>java</sonar.language>
-
-		<sonar.sources>./src/main/java</sonar.sources>
-		<sonar.binaries>./target/classes</sonar.binaries>
 	</properties>
 
 
 
 	<build>
 		<plugins>
+
+
 
 
 			<plugin>
