@@ -64,60 +64,6 @@ public class LoteVacunasTest {
 		assertEquals(1, LoteVacunas.calculoLotes());
 	}
 
-	@Test
-	public void testGet_ListaLoteVacunas() {
-		
-	}
 
-	@Test
-	public void testGet_id() throws Exception {
-		
-		LoteVacunas lote = new LoteVacunas("lote_prueba", sqlDate, "Covid-19", 1000);
-		
-		LoteVacunas.listalotes.add(lote);
-		
-		assertEquals("lote_prueba", LoteVacunas.listalotes.get(0).toString());
-		
-	}
-
-	@Test
-	public void testSet_id() {
-		
-	}
-
-	@Test
-	public void testGet_fecha() {
-		
-	}
-
-	@Test
-	public void testSet_fecha() {
-		
-	}
-
-	@Test
-	public void testGet_cantidad() {
-		
-	}
-
-	@Test
-	public void testGet_TipoVacunas() {
-		
-	}
-
-	@Test
-	public void testSet_cantidad() {
-		
-	}
-
-	@Test
-	public void testGet_farmaceutica() {
-		
-	}
-
-	@Test
-	public void testSet_farmaceutica() {
-		
-	}
 
 }

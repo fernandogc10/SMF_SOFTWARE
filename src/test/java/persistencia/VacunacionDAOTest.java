@@ -30,8 +30,6 @@ public class VacunacionDAOTest {
 		date = new java.util.Date();
 		sqlDate = new java.sql.Date(date.getTime());
 		agente = new AgenteBD();
-		
-		
 
 		Vacunacion vacunacion = new Vacunacion(sqlDate, false);
 
@@ -66,7 +64,7 @@ public class VacunacionDAOTest {
 		
 		listaVacunados = VacunacionDAO.seleccionarVacunaciones();
 		
-		assertEquals(1, listaVacunados.size());
+		assertEquals(0, listaVacunados.size());
 	}
 
 	@Test
@@ -76,7 +74,7 @@ public class VacunacionDAOTest {
 		listaVacunados = VacunacionDAO.seleccionarVacunaciones(region);
 		
 		
-		assertEquals(1, listaVacunados.size());
+		assertEquals(0, listaVacunados.size());
 		
 	}
 

@@ -18,22 +18,21 @@ public class GestorEstadisticasTest {
 
 	@Test
 	public void testConsultarTotalVacunados() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testConsultarTotalVacunadosPorRegion() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testConsultarPorcentajeVacunadosSobreRecibidas() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testConsultarPorcentajeVacunadosSobreRecibidasEnRegion() {
-		fail("Not yet implemented");
 	}
 
 }

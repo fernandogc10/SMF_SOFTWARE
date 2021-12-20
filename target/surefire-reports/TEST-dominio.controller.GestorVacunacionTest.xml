@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="dominio.controller.GestorVacunacionTest" time="1.211" errors="2" skipped="0">
+<testsuite tests="3" failures="0" name="dominio.controller.GestorVacunacionTest" time="0.991" errors="2" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="12.0.2+10"/>
@@ -23,7 +23,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf9901423345617047114.tmp"/>
+    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf8889554137172236281.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/fernando/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="jdk.debug" value="release"/>
@@ -40,7 +40,7 @@
     <property name="java.class.path" value="/Applications/Eclipse JEE.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.16.0.20200610-1735/jars/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="12"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B clean site:site"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B install"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -58,8 +58,8 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testSeleccionarPrioridad" time="0.128"/>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testRegistrarVacunacion" time="0.487">
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testSeleccionarPrioridad" time="0.066"/>
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testRegistrarVacunacion" time="0.534">
     <error message="Array index out of range: 2" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 2
 	at java.base/java.util.Vector.get(Vector.java:780)
 	at dominio.controller.GestorVacunacionTest.testRegistrarVacunacion(GestorVacunacionTest.java:63)
@@ -104,7 +104,7 @@ in connectionjava.sql.SQLException: Meta-data for unknown could not be accessed 
 in connectionjava.sql.SQLException: Meta-data for unknown could not be accessed to read /Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/iso2_db/seg0/c60.dat
 </system-out>
   </testcase>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testAltaEntregaVacunas" time="0.596">
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testAltaEntregaVacunas" time="0.391">
     <error message="Array index out of range: 2" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 2
 	at java.base/java.util.Vector.get(Vector.java:780)
 	at dominio.controller.GestorVacunacionTest.testAltaEntregaVacunas(GestorVacunacionTest.java:47)

@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: persistencia.EntregaDAOTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.991 sec <<< FAILURE!
-testInsertarEntrega(persistencia.EntregaDAOTest)  Time elapsed: 0.22 sec  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.464 sec <<< FAILURE!
+testInsertarEntrega(persistencia.EntregaDAOTest)  Time elapsed: 0.162 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 0
 	at java.base/java.util.Vector.get(Vector.java:780)
 	at persistencia.EntregaDAOTest.testInsertarEntrega(EntregaDAOTest.java:45)

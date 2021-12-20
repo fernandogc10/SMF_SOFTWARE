@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: dominio.controller.GestorVacunacionTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.213 sec <<< FAILURE!
-testRegistrarVacunacion(dominio.controller.GestorVacunacionTest)  Time elapsed: 0.487 sec  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.993 sec <<< FAILURE!
+testRegistrarVacunacion(dominio.controller.GestorVacunacionTest)  Time elapsed: 0.534 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 2
 	at java.base/java.util.Vector.get(Vector.java:780)
 	at dominio.controller.GestorVacunacionTest.testRegistrarVacunacion(GestorVacunacionTest.java:63)
@@ -38,7 +38,7 @@ java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 2
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testAltaEntregaVacunas(dominio.controller.GestorVacunacionTest)  Time elapsed: 0.596 sec  <<< ERROR!
+testAltaEntregaVacunas(dominio.controller.GestorVacunacionTest)  Time elapsed: 0.391 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 2
 	at java.base/java.util.Vector.get(Vector.java:780)
 	at dominio.controller.GestorVacunacionTest.testAltaEntregaVacunas(GestorVacunacionTest.java:47)

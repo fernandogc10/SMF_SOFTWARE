@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: persistencia.LoteVacunasDAOTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.289 sec <<< FAILURE!
-testInsertarLoteVacunas(persistencia.LoteVacunasDAOTest)  Time elapsed: 0.286 sec  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.193 sec <<< FAILURE!
+testInsertarLoteVacunas(persistencia.LoteVacunasDAOTest)  Time elapsed: 0.192 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 0
 	at java.base/java.util.Vector.get(Vector.java:780)
 	at persistencia.LoteVacunasDAOTest.testInsertarLoteVacunas(LoteVacunasDAOTest.java:45)
