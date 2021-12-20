@@ -201,7 +201,40 @@ Una vez terminada la ejecución del análisis, nos muestra los siguientes result
 	
 	DUPLICATIONS
 
+Por un lado, SonarCloud nos genera por defecto una QualityGate, por ejemplo el Coverage por defecto viene definido a un 80% y Security Hotspots Reviewed viene fijado a un 100%. 
+	
+A continuación se muestra lo nombrado:
+	
+![ImagenSonarWay_QualityGate](./Imagenes/SonarWay_QualityGate.JPG)
+	
+Sin embargo, nosotros hemos configurado un QualityGate especifico para nuestro proyecto, el cual hemos llamado "SMF_SOFTWARE QualityGate". 
+	
+De esta nueva QualityGate tenemos que destacar que hemos eliminado el apartado Security Hotspots Reviewed, también el Coverage lo hemos bajado de un 80% (que era el valor por defecto) a un 30%. 
+	
+Hemos añadido un nuevo apartado que hace referencia a los Bugs y hemos puesto el valor de 20. 
+	
+Por último, en cuanto al Duplicated Lines (%) lo hemos subido de un 3% a un 25%. 
+	
+A continuación, se observa lo comentado en este punto:
 
+![ImagenSMF_SOFTWARE_QUALITYGATE.JPG](./Imagenes/SMF_SOFTWARE_QUALITYGATE.JPG)
+	
+En cuanto a la integración del análisis en SonarCloud con cada uno de los commit que hagamos en GitHub para asegurar la integración/mejora continua 
+	
 ---
 
-![Imagenlogo](./Imagenes/LogoSMF_SOFTWARE.png)
+## Gestión de mantenimiento
+	
+La mantenibilidad de un producto de software es la capacidad de un producto de software de ser modificado. Estas modificaciones incluyen correcciones, mejoras, o adaptaciones a cambios en el entorno, los requisitos o las especificaciones funcionales.
+	
+Hemos llevado a cabo un plan de mantenimiento preventido utilizando SonarCloud. 
+	
+Este tipo de mantenimiento es aquel que surge de la necesidad de rebajar el correctivo y todo lo que representa. Pretende reducir la reparación mediante una rutina de inspecciones periódicas y la renovación de los elementos dañados.
+	
+
+	
+	
+---
+
+![Imagen](./Imagenes/LogoSMF_SOFTWARE.png)
+
