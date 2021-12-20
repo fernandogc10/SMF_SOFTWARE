@@ -36,7 +36,7 @@ public class PantallaPrincipal extends JFrame {
 			public void run() {
 				try {
 					PantallaPrincipal frame = new PantallaPrincipal();
-					AgenteBD agente = new AgenteBD();
+					AgenteBD.getAgente();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -2,6 +2,7 @@ package dominio.controller;
 
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.Random;
 import java.util.Vector;
 
 import dominio.entitymodel.EntregaVacunas;
@@ -14,12 +15,7 @@ import dominio.entitymodel.Vacunacion;
 import persistencia.AgenteBD;
 
 public class GestorVacunacion {
-	
-	public static RegionEnum regionPaciente;
-	
-	public void set_regionPaciente(String Region) {
-		regionPaciente = RegionEnum.valueOf(Region.toUpperCase());
-	}
+
 
 	public static void altaEntregaVacunas(String aLote, Date aFecha, int aCantidad, int aPrioridad, String Region)
 			throws SQLException, Exception {
@@ -48,9 +44,14 @@ public class GestorVacunacion {
 
 	public static void registrarVacunacion(Date aFecha, String aNombre, String aApellidos, String aNif,
 			TipoVacuna aTipo) throws SQLException, Exception {
+		
+		Random r = new Random();
+		int num = r.nextInt(4);
+
+		RegionEnum region = RegionEnum.values()[num];
 
 		Paciente paciente = new Paciente(aNif, aNombre, aApellidos);
-		paciente.set_Region(regionPaciente);
+		paciente.set_Region(region);
 
 		Boolean isSegundaDosis = null;
 

@@ -2,12 +2,19 @@
 package presentacion;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import dominio.controller.GestorEstadisticas;
+import dominio.entitymodel.RegionEnum;
+import dominio.entitymodel.Vacunacion;
+
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -21,12 +28,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JTextPane;
+import javax.swing.JList;
 
 public class PantallaConsultaEstadisticas extends JFrame {
 
 	private JPanel contentPane;
-	
 
 	/**
 	 * Launch the application.
@@ -48,9 +56,7 @@ public class PantallaConsultaEstadisticas extends JFrame {
 	 * Create the frame.
 	 */
 	public PantallaConsultaEstadisticas() {
-		
-		
-		
+
 		setResizable(false);
 		setTitle("Consulta de Estadisticas");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(".\\src\\main\\resources\\LogoAPP.png"));
@@ -59,11 +65,11 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setToolTipText("");
 		contentPane.setForeground(new Color(64, 224, 208));
-		contentPane.setBackground(new Color(240,255,255));
+		contentPane.setBackground(new Color(240, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JButton btnPrincipal = new JButton("Principal");
 		btnPrincipal.addMouseListener(new MouseAdapter() {
 			@Override
@@ -73,7 +79,7 @@ public class PantallaConsultaEstadisticas extends JFrame {
 				dispose();
 			}
 		});
-		btnPrincipal.setBackground(new Color(19,98,143));
+		btnPrincipal.setBackground(new Color(19, 98, 143));
 		btnPrincipal.setForeground(Color.WHITE);
 		btnPrincipal.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
 		btnPrincipal.addActionListener(new ActionListener() {
@@ -82,56 +88,120 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		});
 		btnPrincipal.setBounds(672, 398, 97, 25);
 		contentPane.add(btnPrincipal);
-		
+
 		final JComboBox comboBox_Regiones = new JComboBox();
-		comboBox_Regiones.setForeground(Color.WHITE);
-		comboBox_Regiones.setBackground(new Color(19,98,143));
+		comboBox_Regiones.setForeground(new Color(255, 255, 255));
+		comboBox_Regiones.setBackground(new Color(19, 98, 143));
 		comboBox_Regiones.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
-		comboBox_Regiones.setModel(new DefaultComboBoxModel(new String[] {"                 -- --", "Andalucia", "Aragón", "Asturias", "Cantabria", "Castilla-La Mancha", "Castilla y León", "Cataluña", "Extremadura", "Galicia", "Islas Baleares", "Islas Canarias", "La Rioja", "Madrid", "Murcia", "Navarra", "País Vasco", "Valencia"}));
+		comboBox_Regiones.setModel(new DefaultComboBoxModel(
+				new String[] { "                 -- --", "Andalucia", "Aragón", "Asturias", "Cantabria",
+						"Castilla-La Mancha", "Castilla y León", "Cataluña", "Extremadura", "Galicia", "Islas Baleares",
+						"Islas Canarias", "La Rioja", "Madrid", "Murcia", "Navarra", "País Vasco", "Valencia" }));
 		comboBox_Regiones.setToolTipText("");
-		comboBox_Regiones.setBounds(528, 142, 172, 38);
+		comboBox_Regiones.setBounds(528, 128, 172, 38);
 		contentPane.add(comboBox_Regiones);
-		
+
 		comboBox_Regiones.setVisible(false);
-		
+
+		final JList listVacunados = new JList();
+		listVacunados.setBounds(188, 287, 328, 136);
+		contentPane.add(listVacunados);
+		listVacunados.setVisible(false);
+
 		final JLabel lblResultado = new JLabel("Número");
 		lblResultado.setFont(new Font("Tw Cen MT", Font.BOLD, 11));
 		lblResultado.setHorizontalAlignment(SwingConstants.CENTER);
-		lblResultado.setBounds(288, 294, 103, 38);
+		lblResultado.setBounds(31, 245, 103, 38);
 		contentPane.add(lblResultado);
-		
-		lblResultado.setVisible(false);
-		
 
-		
+		lblResultado.setVisible(false);
+
 		final JLabel lblTitulo = new JLabel("Selecciones la opción que desea consultar");
 		lblTitulo.setFont(new Font("Tw Cen MT", Font.BOLD, 20));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitulo.setBounds(155, 35, 385, 46);
+		lblTitulo.setBounds(155, 16, 385, 46);
 		contentPane.add(lblTitulo);
-		
+
 		final JButton btnTotalVacunados = new JButton("Total vacunados");
 		btnTotalVacunados.setForeground(Color.WHITE);
-		btnTotalVacunados.setBackground(new Color(19,98,143));
+		btnTotalVacunados.setBackground(new Color(19, 98, 143));
 		btnTotalVacunados.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				List<Vacunacion> listaVacunados = new ArrayList<>();
+
+				try {
+
+					listaVacunados = GestorEstadisticas.consultarTotalVacunados();
+
+					DefaultListModel modelo = new DefaultListModel();
+
+					for (int i = 0; i < listaVacunados.size(); i++) {
+
+						modelo.addElement(listaVacunados.get(i).get_paciente().get_dni().toString());
+					}
+
+					listVacunados.setModel(modelo);
+
+					listVacunados.setVisible(true);
+
+				} catch (Exception e1) {
+
+					e1.printStackTrace();
+				}
+
 				comboBox_Regiones.setVisible(false);
 				lblResultado.setVisible(true);
+
 			}
 		});
 		btnTotalVacunados.setFont(new Font("Tw Cen MT", Font.BOLD, 17));
-		btnTotalVacunados.setBounds(181, 92, 337, 40);
+		btnTotalVacunados.setBounds(181, 74, 337, 40);
 		contentPane.add(btnTotalVacunados);
-		
+
 		final JButton btnTotalVacunadosRegion = new JButton("Total vacunados por Región");
 		btnTotalVacunadosRegion.setForeground(Color.WHITE);
-		btnTotalVacunadosRegion.setBackground(new Color(19,98,143));
+		btnTotalVacunadosRegion.setBackground(new Color(19, 98, 143));
 		btnTotalVacunadosRegion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
 				comboBox_Regiones.setVisible(true);
 				lblResultado.setVisible(true);
+
+				comboBox_Regiones.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						List<Vacunacion> listaVacunados = new ArrayList<>();
+						
+						System.out.println(RegionEnum.valueOf(comboBox_Regiones.getSelectedItem().toString()));
+						
+						RegionEnum region = RegionEnum.valueOf(comboBox_Regiones.getSelectedItem().toString());
+
+						try {
+
+							listaVacunados = GestorEstadisticas.consultarTotalVacunadosPorRegion(region);
+
+							DefaultListModel modelo = new DefaultListModel();
+
+							for (int i = 0; i < listaVacunados.size(); i++) {
+
+								modelo.addElement(listaVacunados.get(i).get_paciente().get_dni().toString());
+							}
+
+							listVacunados.setModel(modelo);
+
+							listVacunados.setVisible(true);
+
+						} catch (Exception e1) {
+
+							e1.printStackTrace();
+						}
+
+					}
+				});
+
 			}
 		});
 		btnTotalVacunadosRegion.addActionListener(new ActionListener() {
@@ -139,12 +209,12 @@ public class PantallaConsultaEstadisticas extends JFrame {
 			}
 		});
 		btnTotalVacunadosRegion.setFont(new Font("Tw Cen MT", Font.BOLD, 17));
-		btnTotalVacunadosRegion.setBounds(181, 142, 337, 40);
+		btnTotalVacunadosRegion.setBounds(179, 126, 337, 40);
 		contentPane.add(btnTotalVacunadosRegion);
-		
+
 		final JButton btnPorcentajeVacunadosRecibidas = new JButton("Porcentaje Vacunados sobre Recibidas");
 		btnPorcentajeVacunadosRecibidas.setForeground(Color.WHITE);
-		btnPorcentajeVacunadosRecibidas.setBackground(new Color(19,98,143));
+		btnPorcentajeVacunadosRecibidas.setBackground(new Color(19, 98, 143));
 		btnPorcentajeVacunadosRecibidas.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -153,12 +223,12 @@ public class PantallaConsultaEstadisticas extends JFrame {
 			}
 		});
 		btnPorcentajeVacunadosRecibidas.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
-		btnPorcentajeVacunadosRecibidas.setBounds(181, 193, 341, 40);
+		btnPorcentajeVacunadosRecibidas.setBounds(181, 178, 341, 40);
 		contentPane.add(btnPorcentajeVacunadosRecibidas);
-		
+
 		JButton btnPorcentajeVacunadosRecibidasRegion = new JButton("Porcentaje Vacunados sobre recibidas en región");
 		btnPorcentajeVacunadosRecibidasRegion.setForeground(Color.WHITE);
-		btnPorcentajeVacunadosRecibidasRegion.setBackground(new Color(19,98,143));
+		btnPorcentajeVacunadosRecibidasRegion.setBackground(new Color(19, 98, 143));
 		btnPorcentajeVacunadosRecibidasRegion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -167,12 +237,8 @@ public class PantallaConsultaEstadisticas extends JFrame {
 			}
 		});
 		btnPorcentajeVacunadosRecibidasRegion.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
-		btnPorcentajeVacunadosRecibidasRegion.setBounds(181, 244, 341, 39);
+		btnPorcentajeVacunadosRecibidasRegion.setBounds(181, 230, 341, 39);
 		contentPane.add(btnPorcentajeVacunadosRecibidasRegion);
 
-		
-
-		
-		
 	}
 }

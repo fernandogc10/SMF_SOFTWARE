@@ -10,7 +10,7 @@ public class Vacunacion {
 	private boolean _isSegundaDosis;
 	public TipoVacuna _vacuna;
 	public Paciente _paciente;
-	public VacunacionDAO _vacunacionDao;
+	public static VacunacionDAO _vacunacionDao;
 
 	public Vacunacion(Date _fecha, Boolean isSegundaDosis) throws ClassNotFoundException, SQLException {
 
@@ -20,7 +20,7 @@ public class Vacunacion {
 
 	}
 	
-	public Vacunacion() throws Exception{
+	public Vacunacion() throws ClassNotFoundException, SQLException{
 
 		this._vacunacionDao = new VacunacionDAO();
 
