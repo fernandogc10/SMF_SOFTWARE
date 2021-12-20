@@ -171,7 +171,35 @@ Por otro lado, hemos eliminado la clase AbstractEntityDAO<E> y las generalizacio
 
 
 
+## Generación de calidad
 
+Hemos realizado la configuración en SonarCloud siguiendo el pdf de la práctica 3 'P3.Sonar'. Para ello hemos añadido las siguientes propiedades a nuestro fichero pom, las cuales son las siguientes:
+	
+	<sonar.organization>smfsoftware</sonar.organization>
+	
+	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	
+	<sonar.sources>./src/main/java</sonar.sources>
+	
+	<sonar.binaries>./target/classes</sonar.binaries>
+    
+Después de haber configurado nuestro proyecto con SonarCloud hemos ejecutado un análisis desde Maven, para esto desde Eclipse hemos ejecutado lo siguiente:
+        
+	mvn verify sonar:sonar
+	
+Una vez terminada la ejecución del análisis, nos muestra los siguientes resultados, los cuales nos los divide en 6 diferentes apartados:
+	
+	RELIABILITY
+	
+	MAINTAINABILITY
+	
+	SECURITY
+	
+	SECURITY REVIEW
+	
+	COVERAGE
+	
+	DUPLICATIONS
 
 
 ---
