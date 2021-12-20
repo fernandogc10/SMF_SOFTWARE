@@ -14,7 +14,7 @@ import org.junit.Test;
 import dominio.entitymodel.EntregaVacunas;
 
 public class EntregaDAOTest {
-
+//
 	java.util.Date date;
 	java.sql.Date sqlDate;
 	AgenteBD agentebd;
