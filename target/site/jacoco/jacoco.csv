@@ -1,10 +1,12 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-SMF_SOFTWARE,dominio.controller,GestorVacunacion,16,167,6,4,6,35,6,3,1,3
+SMF_SOFTWARE,dominio.controller,GestorVacunacionTest,81,0,0,0,21,0,6,0,6,0
 SMF_SOFTWARE,dominio.controller,GestorEstadisticas,30,0,0,0,10,0,6,0,6,0
+SMF_SOFTWARE,dominio.controller,GestorVacunacion,16,167,6,4,6,35,6,3,1,3
+SMF_SOFTWARE,dominio.controller,GestorEstadisticasTest,9,0,0,0,7,0,7,0,7,0
+SMF_SOFTWARE,dominio.controller,GestorRepartoVacunasTest,35,0,0,0,11,0,5,0,5,0
 SMF_SOFTWARE,dominio.controller,GestorRepartoVacunas,16,16,0,0,4,4,2,2,2,2
 SMF_SOFTWARE,presentacion,PantallaConsultaEstadisticas.new MouseAdapter() {...},21,0,0,0,4,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaConsultaEstadisticas.new MouseAdapter() {...},21,0,0,0,4,0,2,0,2,0
-SMF_SOFTWARE,presentacion,PantallaGestionSistemaRegionalSalud,850,0,0,0,158,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaConsultaEstadisticas.new MouseAdapter() {...},17,0,0,0,5,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaConsultaEstadisticas.new Runnable() {...},15,0,0,0,7,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaConsultaEstadisticas.5.new ActionListener() {...},64,0,2,0,14,0,3,0,2,0
@@ -13,20 +15,13 @@ SMF_SOFTWARE,presentacion,PantallaConsultaEstadisticas.new MouseAdapter() {...},
 SMF_SOFTWARE,presentacion,PantallaConsultaEstadisticas.new MouseAdapter() {...},63,0,2,0,14,0,3,0,2,0
 SMF_SOFTWARE,presentacion,PantallaConsultaEstadisticas.new ActionListener() {...},7,0,0,0,2,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaConsultaEstadisticas,499,0,0,0,77,0,2,0,2,0
-SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional.new MouseAdapter() {...},59,0,0,0,10,0,2,0,2,0
-SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional.new MouseAdapter() {...},99,0,2,0,21,0,3,0,2,0
-SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional.new MouseAdapter() {...},49,0,0,0,12,0,2,0,2,0
-SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional.new ActionListener() {...},7,0,0,0,2,0,2,0,2,0
-SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional.new MouseAdapter() {...},17,0,0,0,5,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaPrincipal,331,0,0,0,61,0,2,0,2,0
-SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional.new Runnable() {...},15,0,0,0,7,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaPrincipal.new ActionListener() {...},7,0,0,0,2,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaPrincipal.new MouseAdapter() {...},17,0,0,0,5,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaPrincipal.new Runnable() {...},17,0,0,0,8,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaPrincipal.new MouseAdapter() {...},17,0,0,0,5,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaPrincipal.new ActionListener() {...},7,0,0,0,2,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaPrincipal.new MouseAdapter() {...},17,0,0,0,5,0,2,0,2,0
-SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional,458,0,0,0,85,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaGestionSistemaRegionalSalud.new Runnable() {...},15,0,0,0,7,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaGestionSistemaRegionalSalud.new MouseAdapter() {...},100,0,0,0,22,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaGestionSistemaRegionalSalud.new MouseAdapter() {...},135,0,0,0,23,0,2,0,2,0
@@ -35,15 +30,28 @@ SMF_SOFTWARE,presentacion,PantallaGestionSistemaRegionalSalud.new MouseAdapter()
 SMF_SOFTWARE,presentacion,PantallaGestionSistemaRegionalSalud.new ActionListener() {...},7,0,0,0,2,0,2,0,2,0
 SMF_SOFTWARE,presentacion,PantallaGestionSistemaRegionalSalud.new MouseAdapter() {...},95,0,4,0,23,0,4,0,2,0
 SMF_SOFTWARE,presentacion,PantallaGestionSistemaRegionalSalud.new ActionListener() {...},7,0,0,0,2,0,2,0,2,0
+SMF_SOFTWARE,presentacion,PantallaGestionSistemaRegionalSalud,850,0,0,0,158,0,2,0,2,0
+SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional.new MouseAdapter() {...},59,0,0,0,10,0,2,0,2,0
+SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional.new MouseAdapter() {...},99,0,2,0,21,0,3,0,2,0
+SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional.new MouseAdapter() {...},49,0,0,0,12,0,2,0,2,0
+SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional.new ActionListener() {...},7,0,0,0,2,0,2,0,2,0
+SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional.new MouseAdapter() {...},17,0,0,0,5,0,2,0,2,0
+SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional.new Runnable() {...},15,0,0,0,7,0,2,0,2,0
+SMF_SOFTWARE,presentacion,PantallaGestionSistemaSaludNacional,458,0,0,0,85,0,2,0,2,0
 SMF_SOFTWARE,persistencia,LoteVacunasDAO,0,34,0,0,0,7,0,2,0,2
-SMF_SOFTWARE,persistencia,AgenteBD,75,123,6,4,23,39,4,7,0,6
+SMF_SOFTWARE,persistencia,VacunacionDAOTest,106,0,0,0,26,0,8,0,8,0
 SMF_SOFTWARE,persistencia,EntregaDAO,19,57,4,4,3,13,3,5,0,4
-SMF_SOFTWARE,persistencia,VacunacionDAO,313,121,6,2,47,23,6,4,2,4
-SMF_SOFTWARE,dominio.entitymodel,Vacunacion,9,37,0,0,3,13,1,7,1,7
+SMF_SOFTWARE,persistencia,VacunacionDAO,150,284,4,4,28,42,4,6,2,4
+SMF_SOFTWARE,persistencia,EntregaDAOTest,67,0,0,0,17,0,5,0,5,0
+SMF_SOFTWARE,persistencia,LoteVacunasDAOTest,44,0,0,0,12,0,5,0,5,0
+SMF_SOFTWARE,persistencia,AgenteBD,11,187,2,8,4,58,2,9,0,6
 SMF_SOFTWARE,dominio.entitymodel,TipoVacuna.Farmaceuticas,0,44,0,0,0,2,0,1,0,1
-SMF_SOFTWARE,dominio.entitymodel,RegionEnum,0,204,0,0,0,10,0,2,0,2
 SMF_SOFTWARE,dominio.entitymodel,Paciente,0,33,0,0,0,12,0,6,0,6
-SMF_SOFTWARE,dominio.entitymodel,GrupoPrioridad,0,64,0,0,0,9,0,3,0,3
-SMF_SOFTWARE,dominio.entitymodel,LoteVacunas,21,96,0,2,10,24,6,10,6,9
+SMF_SOFTWARE,dominio.entitymodel,LoteVacunasTest,82,0,0,0,27,0,16,0,16,0
 SMF_SOFTWARE,dominio.entitymodel,EntregaVacunas,38,50,0,0,17,19,9,9,9,9
+SMF_SOFTWARE,dominio.entitymodel,Vacunacion,9,37,0,0,3,13,1,7,1,7
+SMF_SOFTWARE,dominio.entitymodel,RegionEnum,0,204,0,0,0,10,0,2,0,2
+SMF_SOFTWARE,dominio.entitymodel,GrupoPrioridad,0,64,0,0,0,9,0,3,0,3
+SMF_SOFTWARE,dominio.entitymodel,EntregaVacunasTest,23,0,0,0,21,0,21,0,21,0
+SMF_SOFTWARE,dominio.entitymodel,LoteVacunas,21,96,0,2,10,24,6,10,6,9
 SMF_SOFTWARE,dominio.entitymodel,TipoVacuna,0,20,0,0,0,7,0,2,0,2

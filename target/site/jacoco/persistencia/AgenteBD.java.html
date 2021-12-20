@@ -48,23 +48,23 @@ public class AgenteBD {
 
 		try {
 
-<span class="nc" id="L51">			rs = stmt.executeQuery(SQL);</span>
+<span class="fc" id="L51">			rs = stmt.executeQuery(SQL);</span>
 
-<span class="nc" id="L53">			ResultSetMetaData rsmd = rs.getMetaData();</span>
+<span class="fc" id="L53">			ResultSetMetaData rsmd = rs.getMetaData();</span>
 
-<span class="nc bnc" id="L55" title="All 2 branches missed.">			while (rs.next()) {</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">			while (rs.next()) {</span>
 
-<span class="nc bnc" id="L57" title="All 2 branches missed.">				for (int i = 1; i &lt;= rsmd.getColumnCount(); i++) {</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">				for (int i = 1; i &lt;= rsmd.getColumnCount(); i++) {</span>
 
-<span class="nc" id="L59">					vectorDevuelto.add(rs.getObject(i));</span>
+<span class="fc" id="L59">					vectorDevuelto.add(rs.getObject(i));</span>
 				}
 
 			}
 
-<span class="nc" id="L64">			conn.commit();</span>
+<span class="fc" id="L64">			conn.commit();</span>
 <span class="fc" id="L65">		} catch (SQLException ex) {</span>
 <span class="fc" id="L66">			System.out.println(&quot;in connection&quot; + ex);</span>
-<span class="nc" id="L67">		}</span>
+<span class="fc" id="L67">		}</span>
 
 <span class="fc" id="L69">		return vectorDevuelto;</span>
 	}
@@ -81,13 +81,13 @@ public class AgenteBD {
 
 		try {
 
-<span class="nc" id="L84">			stmt.executeUpdate(SQL);</span>
+<span class="fc" id="L84">			stmt.executeUpdate(SQL);</span>
 
-<span class="nc" id="L86">			conn.commit();</span>
+<span class="fc" id="L86">			conn.commit();</span>
 
 <span class="fc" id="L88">		} catch (SQLException ex) {</span>
 <span class="fc" id="L89">			System.out.println(&quot;in connection&quot; + ex);</span>
-<span class="nc" id="L90">		}</span>
+<span class="fc" id="L90">		}</span>
 
 <span class="fc" id="L92">	}</span>
 
@@ -114,24 +114,24 @@ public class AgenteBD {
 
 <span class="fc" id="L115">			stmt = conn.createStatement();</span>
 			
-<span class="nc" id="L117">			stmt.execute(&quot;drop table LoteVacunas&quot;);</span>
-<span class="nc" id="L118">			stmt.execute(&quot;drop table Entregas&quot;);</span>
-<span class="nc" id="L119">			stmt.execute(&quot;drop table Vacunacion&quot;);</span>
+<span class="fc" id="L117">			stmt.execute(&quot;drop table LoteVacunas&quot;);</span>
+<span class="fc" id="L118">			stmt.execute(&quot;drop table Entregas&quot;);</span>
+<span class="fc" id="L119">			stmt.execute(&quot;drop table Vacunacion&quot;);</span>
 
-<span class="nc" id="L121">			stmt.execute(createSQL);</span>
-<span class="nc" id="L122">			stmt.execute(createSQL2);</span>
-<span class="nc" id="L123">			stmt.execute(createSQL3);</span>
+<span class="fc" id="L121">			stmt.execute(createSQL);</span>
+<span class="fc" id="L122">			stmt.execute(createSQL2);</span>
+<span class="fc" id="L123">			stmt.execute(createSQL3);</span>
 			
 			
 
 
-<span class="nc" id="L128">			stmt.close();</span>
+<span class="fc" id="L128">			stmt.close();</span>
 
-<span class="nc" id="L130">			conn.commit();</span>
+<span class="fc" id="L130">			conn.commit();</span>
 
 <span class="fc" id="L132">		} catch (SQLException ex) {</span>
 <span class="fc" id="L133">			System.out.println(&quot;in connection&quot; + ex);</span>
-<span class="nc" id="L134">		}</span>
+<span class="fc" id="L134">		}</span>
 
 		try {
 <span class="nc" id="L137">			DriverManager.getConnection(&quot;jdbc:derby:;shutdown=true&quot;);</span>
