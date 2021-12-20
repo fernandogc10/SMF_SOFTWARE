@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PantallaConsultaEstadisticas.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SMF_SOFTWARE</a> &gt; <a href="index.source.html" class="el_package">presentacion</a> &gt; <span class="el_source">PantallaConsultaEstadisticas.java</span></div><h1>PantallaConsultaEstadisticas.java</h1><pre class="source lang-java linenums">
+package presentacion;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import dominio.controller.GestorEstadisticas;
+import dominio.entitymodel.RegionEnum;
+import dominio.entitymodel.Vacunacion;
+
+import java.awt.Toolkit;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JTextPane;
+import javax.swing.JList;
+
+public class PantallaConsultaEstadisticas extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+<span class="nc" id="L43">		EventQueue.invokeLater(new Runnable() {</span>
+			public void run() {
+				try {
+<span class="nc" id="L46">					PantallaConsultaEstadisticas frame = new PantallaConsultaEstadisticas();</span>
+<span class="nc" id="L47">					frame.setVisible(true);</span>
+<span class="nc" id="L48">				} catch (Exception e) {</span>
+<span class="nc" id="L49">					e.printStackTrace();</span>
+<span class="nc" id="L50">				}</span>
+<span class="nc" id="L51">			}</span>
+		});
+<span class="nc" id="L53">	}</span>
+
+	/**
+	 * Create the frame.
+	 */
+<span class="nc" id="L58">	public PantallaConsultaEstadisticas() {</span>
+
+<span class="nc" id="L60">		setResizable(false);</span>
+<span class="nc" id="L61">		setTitle(&quot;Consulta de Estadisticas&quot;);</span>
+<span class="nc" id="L62">		setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;.\\src\\main\\resources\\LogoAPP.png&quot;));</span>
+<span class="nc" id="L63">		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L64">		setBounds(100, 100, 795, 473);</span>
+<span class="nc" id="L65">		contentPane = new JPanel();</span>
+<span class="nc" id="L66">		contentPane.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L67">		contentPane.setForeground(new Color(64, 224, 208));</span>
+<span class="nc" id="L68">		contentPane.setBackground(new Color(240, 255, 255));</span>
+<span class="nc" id="L69">		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="nc" id="L70">		setContentPane(contentPane);</span>
+<span class="nc" id="L71">		contentPane.setLayout(null);</span>
+
+<span class="nc" id="L73">		JButton btnPrincipal = new JButton(&quot;Principal&quot;);</span>
+<span class="nc" id="L74">		btnPrincipal.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L77">				PantallaPrincipal principal = new PantallaPrincipal();</span>
+<span class="nc" id="L78">				principal.setVisible(true);</span>
+<span class="nc" id="L79">				dispose();</span>
+<span class="nc" id="L80">			}</span>
+		});
+<span class="nc" id="L82">		btnPrincipal.setBackground(new Color(19, 98, 143));</span>
+<span class="nc" id="L83">		btnPrincipal.setForeground(Color.WHITE);</span>
+<span class="nc" id="L84">		btnPrincipal.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
+<span class="nc" id="L85">		btnPrincipal.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L87">			}</span>
+		});
+<span class="nc" id="L89">		btnPrincipal.setBounds(672, 398, 97, 25);</span>
+<span class="nc" id="L90">		contentPane.add(btnPrincipal);</span>
+
+<span class="nc" id="L92">		final JComboBox comboBox_Regiones = new JComboBox();</span>
+<span class="nc" id="L93">		comboBox_Regiones.setForeground(new Color(255, 255, 255));</span>
+<span class="nc" id="L94">		comboBox_Regiones.setBackground(new Color(19, 98, 143));</span>
+<span class="nc" id="L95">		comboBox_Regiones.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 15));</span>
+<span class="nc" id="L96">		comboBox_Regiones.setModel(new DefaultComboBoxModel(</span>
+				new String[] { &quot;                 -- --&quot;, &quot;Andalucia&quot;, &quot;Aragón&quot;, &quot;Asturias&quot;, &quot;Cantabria&quot;,
+						&quot;Castilla-La Mancha&quot;, &quot;Castilla y León&quot;, &quot;Cataluña&quot;, &quot;Extremadura&quot;, &quot;Galicia&quot;, &quot;Islas Baleares&quot;,
+						&quot;Islas Canarias&quot;, &quot;La Rioja&quot;, &quot;Madrid&quot;, &quot;Murcia&quot;, &quot;Navarra&quot;, &quot;País Vasco&quot;, &quot;Valencia&quot; }));
+<span class="nc" id="L100">		comboBox_Regiones.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L101">		comboBox_Regiones.setBounds(528, 128, 172, 38);</span>
+<span class="nc" id="L102">		contentPane.add(comboBox_Regiones);</span>
+
+<span class="nc" id="L104">		comboBox_Regiones.setVisible(false);</span>
+
+<span class="nc" id="L106">		final JList listVacunados = new JList();</span>
+<span class="nc" id="L107">		listVacunados.setBounds(188, 287, 328, 136);</span>
+<span class="nc" id="L108">		contentPane.add(listVacunados);</span>
+<span class="nc" id="L109">		listVacunados.setVisible(false);</span>
+
+<span class="nc" id="L111">		final JLabel lblResultado = new JLabel(&quot;Número&quot;);</span>
+<span class="nc" id="L112">		lblResultado.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 11));</span>
+<span class="nc" id="L113">		lblResultado.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L114">		lblResultado.setBounds(31, 245, 103, 38);</span>
+<span class="nc" id="L115">		contentPane.add(lblResultado);</span>
+
+<span class="nc" id="L117">		lblResultado.setVisible(false);</span>
+
+<span class="nc" id="L119">		final JLabel lblTitulo = new JLabel(&quot;Selecciones la opción que desea consultar&quot;);</span>
+<span class="nc" id="L120">		lblTitulo.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 20));</span>
+<span class="nc" id="L121">		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L122">		lblTitulo.setBounds(155, 16, 385, 46);</span>
+<span class="nc" id="L123">		contentPane.add(lblTitulo);</span>
+
+<span class="nc" id="L125">		final JButton btnTotalVacunados = new JButton(&quot;Total vacunados&quot;);</span>
+<span class="nc" id="L126">		btnTotalVacunados.setForeground(Color.WHITE);</span>
+<span class="nc" id="L127">		btnTotalVacunados.setBackground(new Color(19, 98, 143));</span>
+<span class="nc" id="L128">		btnTotalVacunados.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+<span class="nc" id="L132">				List&lt;Vacunacion&gt; listaVacunados = new ArrayList&lt;&gt;();</span>
+
+				try {
+
+<span class="nc" id="L136">					listaVacunados = GestorEstadisticas.consultarTotalVacunados();</span>
+
+<span class="nc" id="L138">					DefaultListModel modelo = new DefaultListModel();</span>
+
+<span class="nc bnc" id="L140" title="All 2 branches missed.">					for (int i = 0; i &lt; listaVacunados.size(); i++) {</span>
+
+<span class="nc" id="L142">						modelo.addElement(listaVacunados.get(i).get_paciente().get_dni().toString());</span>
+					}
+
+<span class="nc" id="L145">					listVacunados.setModel(modelo);</span>
+
+<span class="nc" id="L147">					listVacunados.setVisible(true);</span>
+
+<span class="nc" id="L149">				} catch (Exception e1) {</span>
+
+<span class="nc" id="L151">					e1.printStackTrace();</span>
+<span class="nc" id="L152">				}</span>
+
+<span class="nc" id="L154">				comboBox_Regiones.setVisible(false);</span>
+<span class="nc" id="L155">				lblResultado.setVisible(true);</span>
+
+<span class="nc" id="L157">			}</span>
+		});
+<span class="nc" id="L159">		btnTotalVacunados.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 17));</span>
+<span class="nc" id="L160">		btnTotalVacunados.setBounds(181, 74, 337, 40);</span>
+<span class="nc" id="L161">		contentPane.add(btnTotalVacunados);</span>
+
+<span class="nc" id="L163">		final JButton btnTotalVacunadosRegion = new JButton(&quot;Total vacunados por Región&quot;);</span>
+<span class="nc" id="L164">		btnTotalVacunadosRegion.setForeground(Color.WHITE);</span>
+<span class="nc" id="L165">		btnTotalVacunadosRegion.setBackground(new Color(19, 98, 143));</span>
+<span class="nc" id="L166">		btnTotalVacunadosRegion.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+<span class="nc" id="L170">				comboBox_Regiones.setVisible(true);</span>
+<span class="nc" id="L171">				lblResultado.setVisible(true);</span>
+
+<span class="nc" id="L173">				comboBox_Regiones.addActionListener(new ActionListener() {</span>
+					@Override
+					public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L176">						List&lt;Vacunacion&gt; listaVacunados = new ArrayList&lt;&gt;();</span>
+						
+<span class="nc" id="L178">						System.out.println(RegionEnum.valueOf(comboBox_Regiones.getSelectedItem().toString()));</span>
+						
+<span class="nc" id="L180">						RegionEnum region = RegionEnum.valueOf(comboBox_Regiones.getSelectedItem().toString());</span>
+
+						try {
+
+<span class="nc" id="L184">							listaVacunados = GestorEstadisticas.consultarTotalVacunadosPorRegion(region);</span>
+
+<span class="nc" id="L186">							DefaultListModel modelo = new DefaultListModel();</span>
+
+<span class="nc bnc" id="L188" title="All 2 branches missed.">							for (int i = 0; i &lt; listaVacunados.size(); i++) {</span>
+
+<span class="nc" id="L190">								modelo.addElement(listaVacunados.get(i).get_paciente().get_dni().toString());</span>
+							}
+
+<span class="nc" id="L193">							listVacunados.setModel(modelo);</span>
+
+<span class="nc" id="L195">							listVacunados.setVisible(true);</span>
+
+<span class="nc" id="L197">						} catch (Exception e1) {</span>
+
+<span class="nc" id="L199">							e1.printStackTrace();</span>
+<span class="nc" id="L200">						}</span>
+
+<span class="nc" id="L202">					}</span>
+				});
+
+<span class="nc" id="L205">			}</span>
+		});
+<span class="nc" id="L207">		btnTotalVacunadosRegion.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L209">			}</span>
+		});
+<span class="nc" id="L211">		btnTotalVacunadosRegion.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 17));</span>
+<span class="nc" id="L212">		btnTotalVacunadosRegion.setBounds(179, 126, 337, 40);</span>
+<span class="nc" id="L213">		contentPane.add(btnTotalVacunadosRegion);</span>
+
+<span class="nc" id="L215">		final JButton btnPorcentajeVacunadosRecibidas = new JButton(&quot;Porcentaje Vacunados sobre Recibidas&quot;);</span>
+<span class="nc" id="L216">		btnPorcentajeVacunadosRecibidas.setForeground(Color.WHITE);</span>
+<span class="nc" id="L217">		btnPorcentajeVacunadosRecibidas.setBackground(new Color(19, 98, 143));</span>
+<span class="nc" id="L218">		btnPorcentajeVacunadosRecibidas.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L221">				comboBox_Regiones.setVisible(false);</span>
+<span class="nc" id="L222">				lblResultado.setVisible(true);</span>
+<span class="nc" id="L223">			}</span>
+		});
+<span class="nc" id="L225">		btnPorcentajeVacunadosRecibidas.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 15));</span>
+<span class="nc" id="L226">		btnPorcentajeVacunadosRecibidas.setBounds(181, 178, 341, 40);</span>
+<span class="nc" id="L227">		contentPane.add(btnPorcentajeVacunadosRecibidas);</span>
+
+<span class="nc" id="L229">		JButton btnPorcentajeVacunadosRecibidasRegion = new JButton(&quot;Porcentaje Vacunados sobre recibidas en región&quot;);</span>
+<span class="nc" id="L230">		btnPorcentajeVacunadosRecibidasRegion.setForeground(Color.WHITE);</span>
+<span class="nc" id="L231">		btnPorcentajeVacunadosRecibidasRegion.setBackground(new Color(19, 98, 143));</span>
+<span class="nc" id="L232">		btnPorcentajeVacunadosRecibidasRegion.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L235">				comboBox_Regiones.setVisible(true);</span>
+<span class="nc" id="L236">				lblResultado.setVisible(true);</span>
+<span class="nc" id="L237">			}</span>
+		});
+<span class="nc" id="L239">		btnPorcentajeVacunadosRecibidasRegion.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 15));</span>
+<span class="nc" id="L240">		btnPorcentajeVacunadosRecibidasRegion.setBounds(181, 230, 341, 39);</span>
+<span class="nc" id="L241">		contentPane.add(btnPorcentajeVacunadosRecibidasRegion);</span>
+
+<span class="nc" id="L243">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

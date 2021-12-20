@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+   <duplication lines="31" tokens="213">
+      <file column="39" endcolumn="7" endline="94" line="64"
+            path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/presentacion/PantallaGestionSistemaRegionalSalud.java"/>
+      <file column="39" endcolumn="7" endline="91" line="61"
+            path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/presentacion/PantallaGestionSistemaSaludNacional.java"/>
+      <codefragment><![CDATA[		setTitle("Sistema Regional de Salud");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(".\\src\\main\\resources\\LogoAPP.png"));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 795, 473);
+		contentPane = new JPanel();
+		contentPane.setForeground(new Color(64, 224, 208));
+		contentPane.setBackground(new Color(240, 255, 255));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		JButton btnPrincipal = new JButton("Principal");
+		btnPrincipal.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PantallaPrincipal principal = new PantallaPrincipal();
+				principal.setVisible(true);
+				dispose();
+			}
+		});
+		btnPrincipal.setBackground(new Color(19, 98, 143));
+		btnPrincipal.setForeground(Color.WHITE);
+		btnPrincipal.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
+		btnPrincipal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnPrincipal.setBounds(672, 398, 97, 25);
+		contentPane.add(btnPrincipal);
+
+		final JLabel lblAltaprimero = new JLabel("¡PRIMERO DEBE DE ESTAR DADO DE ALTA UN NUEVO LOTE!");]]></codefragment>
+   </duplication>
+   <duplication lines="27" tokens="178">
+      <file column="32" endcolumn="7" endline="92" line="66"
+            path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/presentacion/PantallaConsultaEstadisticas.java"/>
+      <file column="28" endcolumn="7" endline="94" line="68"
+            path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/presentacion/PantallaGestionSistemaRegionalSalud.java"/>
+      <file column="28" endcolumn="7" endline="91" line="65"
+            path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/presentacion/PantallaGestionSistemaSaludNacional.java"/>
+      <codefragment><![CDATA[		contentPane.setToolTipText("");
+		contentPane.setForeground(new Color(64, 224, 208));
+		contentPane.setBackground(new Color(240, 255, 255));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		JButton btnPrincipal = new JButton("Principal");
+		btnPrincipal.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PantallaPrincipal principal = new PantallaPrincipal();
+				principal.setVisible(true);
+				dispose();
+			}
+		});
+		btnPrincipal.setBackground(new Color(19, 98, 143));
+		btnPrincipal.setForeground(Color.WHITE);
+		btnPrincipal.setFont(new Font("Tw Cen MT", Font.BOLD, 16));
+		btnPrincipal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnPrincipal.setBounds(672, 398, 97, 25);
+		contentPane.add(btnPrincipal);
+
+		final JComboBox comboBox_Regiones = new JComboBox();]]></codefragment>
+   </duplication>
+   <duplication lines="13" tokens="148">
+      <file column="4" endcolumn="3" endline="69" line="57"
+            path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/persistencia/VacunacionDAO.java"/>
+      <file column="4" endcolumn="3" endline="98" line="85"
+            path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/persistencia/VacunacionDAO.java"/>
+      <codefragment><![CDATA[			vacunacion = new Vacunacion((Date) vector.elementAt(i + 0),
+					Boolean.parseBoolean((vector.elementAt(i + 1).toString())));
+			paciente = new Paciente(vector.elementAt(i + 2).toString(), vector.elementAt(i + 3).toString(),
+					vector.elementAt(i + 4).toString());
+			tipoVacuna = new TipoVacuna(vector.elementAt(i + 5).toString(), null, null);
+
+			vacunacion.set_Paciente(paciente);
+			vacunacion.get_paciente().set_Region(RegionEnum.valueOf(vector.elementAt(i + 6).toString()));
+			vacunacion.set_TipoVacuna(tipoVacuna);
+
+			listaVacunados.add(vacunacion);
+
+		}]]></codefragment>
+   </duplication>
+</pmd-cpd>

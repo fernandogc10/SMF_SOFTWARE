@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Vacunacion.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SMF_SOFTWARE</a> &gt; <a href="index.source.html" class="el_package">dominio.entitymodel</a> &gt; <span class="el_source">Vacunacion.java</span></div><h1>Vacunacion.java</h1><pre class="source lang-java linenums">package dominio.entitymodel;
+
+import java.sql.SQLException;
+import java.util.Date;
+
+import persistencia.VacunacionDAO;
+
+public class Vacunacion {
+	private Date _fecha;
+	private boolean _isSegundaDosis;
+	public TipoVacuna _vacuna;
+	public Paciente _paciente;
+	public static VacunacionDAO _vacunacionDao;
+
+<span class="fc" id="L15">	public Vacunacion(Date _fecha, Boolean isSegundaDosis) throws ClassNotFoundException, SQLException {</span>
+
+<span class="fc" id="L17">		this._fecha = _fecha;</span>
+<span class="fc" id="L18">		this._isSegundaDosis = isSegundaDosis;</span>
+<span class="fc" id="L19">		this._vacunacionDao = new VacunacionDAO();</span>
+
+<span class="fc" id="L21">	}</span>
+	
+<span class="nc" id="L23">	public Vacunacion() throws ClassNotFoundException, SQLException{</span>
+
+<span class="nc" id="L25">		this._vacunacionDao = new VacunacionDAO();</span>
+
+<span class="nc" id="L27">	}</span>
+
+	public Date get_fechaVacunacion() {
+
+<span class="fc" id="L31">		return _fecha;</span>
+	}
+
+	public Boolean get_isSegundaDosis() {
+<span class="fc" id="L35">		return _isSegundaDosis;</span>
+	}
+
+	public Paciente get_paciente() {
+<span class="fc" id="L39">		return this._paciente;</span>
+	}
+
+	public void set_Paciente(Paciente nuevoPaciente) {
+<span class="fc" id="L43">		this._paciente = nuevoPaciente;</span>
+<span class="fc" id="L44">	}</span>
+
+	public TipoVacuna get_tipoVacuna() {
+<span class="fc" id="L47">		return _vacuna;</span>
+	}
+
+	public void set_TipoVacuna(TipoVacuna tipo) {
+<span class="fc" id="L51">		this._vacuna = tipo;</span>
+<span class="fc" id="L52">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

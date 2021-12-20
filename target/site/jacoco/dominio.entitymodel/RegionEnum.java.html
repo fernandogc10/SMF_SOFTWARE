@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RegionEnum.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SMF_SOFTWARE</a> &gt; <a href="index.source.html" class="el_package">dominio.entitymodel</a> &gt; <span class="el_source">RegionEnum.java</span></div><h1>RegionEnum.java</h1><pre class="source lang-java linenums">package dominio.entitymodel;
+
+import java.util.Vector;
+import dominio.entitymodel.EntregaVacunas;
+
+<span class="fc" id="L6">public enum RegionEnum {</span>
+	
+<span class="fc" id="L8">	MADRID(&quot;Madrid&quot;), CATALUÑA(&quot;Cataluña&quot;), ANDALUCÍA (&quot;Andalucía&quot;), GALICIA(&quot;Galicia&quot;)</span>
+<span class="fc" id="L9">	,VALENCIA(&quot;Valencia&quot;), ISLASBALEARES(&quot;Islas Baleares&quot;), CANARIAS(&quot;Canarias&quot;),</span>
+<span class="fc" id="L10">	PAISVASCO (&quot;País Vasco&quot;), ASTURIAS(&quot;Asturias&quot;), CANTABRIA(&quot;Cantabria&quot;), MURCIA(&quot;Murcia&quot;),</span>
+<span class="fc" id="L11">	NAVARRA(&quot;Navarra&quot;), LARIOJA(&quot;La Rioja&quot;), ARAGON(&quot;Aragón&quot;), CASTILLAYLEON(&quot;Castilla y León&quot;),</span>
+<span class="fc" id="L12">	CASTILLALAMANCHA(&quot;Castilla la Mancha&quot;), EXTREMADURA(&quot;Extremadura&quot;);</span>
+	
+	private String nombre;
+	
+<span class="fc" id="L16">	private RegionEnum(String nombre) {</span>
+<span class="fc" id="L17">		this.nombre = nombre;</span>
+<span class="fc" id="L18">	}</span>
+	
+	
+	
+	
+<span class="fc" id="L23">	public Vector&lt;EntregaVacunas&gt; _entregas = new Vector&lt;EntregaVacunas&gt;();</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

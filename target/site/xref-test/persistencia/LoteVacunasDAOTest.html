@@ -46,13 +46,13 @@
 <a name="36" href="#36">36</a>  		
 <a name="37" href="#37">37</a>  		Vector &lt;Object&gt; vector = <strong class="jxr_keyword">new</strong> Vector &lt;&gt; ();
 <a name="38" href="#38">38</a>  		
-<a name="39" href="#39">39</a>  		LoteVacunas lote = <strong class="jxr_keyword">new</strong> LoteVacunas(<span class="jxr_string">"lote_0"</span>,<strong class="jxr_keyword">this</strong>.sqlDate, <span class="jxr_string">"Covid-19"</span>, 1000);
+<a name="39" href="#39">39</a>  		LoteVacunas lote = <strong class="jxr_keyword">new</strong> LoteVacunas(<span class="jxr_string">"lote_prueba"</span>,<strong class="jxr_keyword">this</strong>.sqlDate, <span class="jxr_string">"Covid-19"</span>, 1000);
 <a name="40" href="#40">40</a>  		
 <a name="41" href="#41">41</a>  		LoteVacunasDAO.insertarLoteVacunas(lote);
 <a name="42" href="#42">42</a>  		
-<a name="43" href="#43">43</a>  		vector = AgenteBD.select(<span class="jxr_string">"Select * from lotevacunas where id= 'lote_0'"</span> );
+<a name="43" href="#43">43</a>  		vector = AgenteBD.select(<span class="jxr_string">"Select id from lotevacunas where id= 'lote_prueba'"</span> );
 <a name="44" href="#44">44</a>  		
-<a name="45" href="#45">45</a>  		assertEquals(<span class="jxr_string">"lote_0"</span>, vector.get(0).toString());
+<a name="45" href="#45">45</a>  		assertEquals(<span class="jxr_string">"lote_prueba"</span>, vector.get(0).toString());
 <a name="46" href="#46">46</a>  		
 <a name="47" href="#47">47</a>  		
 <a name="48" href="#48">48</a>  		

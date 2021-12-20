@@ -1,0 +1,7 @@
+dominio/entitymodel/LoteVacunasTest.class
+dominio/controller/GestorVacunacionTest.class
+persistencia/EntregaDAOTest.class
+persistencia/LoteVacunasDAOTest.class
+dominio/controller/GestorRepartoVacunasTest.class
+dominio/controller/GestorEstadisticasTest.class
+persistencia/VacunacionDAOTest.class
