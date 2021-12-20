@@ -70,7 +70,13 @@ public class LoteVacunasTest {
 	}
 
 	@Test
-	public void testGet_id() {
+	public void testGet_id() throws Exception {
+		
+		LoteVacunas lote = new LoteVacunas("lote_prueba", sqlDate, "Covid-19", 1000);
+		
+		LoteVacunas.listalotes.add(lote);
+		
+		assertEquals("lote_prueba", LoteVacunas.listalotes.get(0).toString());
 		
 	}
 
