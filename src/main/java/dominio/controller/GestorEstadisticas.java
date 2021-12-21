@@ -21,7 +21,9 @@ public class GestorEstadisticas {
 		
 	}
 
-	public static List<Vacunacion> consultarTotalVacunadosPorRegion(RegionEnum aRegion) throws SQLException{
+	public static List<Vacunacion> consultarTotalVacunadosPorRegion(RegionEnum aRegion) throws SQLException, Exception{
+		
+		if(aRegion == null) throw new Exception("La región no puede ser nula");
 		
 		listaVacunados = Vacunacion._vacunacionDao.seleccionarVacunaciones(aRegion);
 		
@@ -35,7 +37,9 @@ public class GestorEstadisticas {
 		return Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidas();
 	}
 
-	public static String consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum aRegion) throws SQLException {
+	public static String consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum aRegion) throws SQLException, Exception {
+		
+		if(aRegion == null) throw new Exception("La región no puede ser nula");
 		
 		return Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidasEnRegion(aRegion);
 			

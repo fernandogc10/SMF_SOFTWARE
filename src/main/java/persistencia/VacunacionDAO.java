@@ -25,7 +25,11 @@ public class VacunacionDAO<E> extends AgenteBD {
 
 	}
 
-	public static void insertarVacunacion(Vacunacion nuevaVacunacion) throws SQLException {
+	public static void insertarVacunacion(Vacunacion nuevaVacunacion) throws SQLException, Exception {
+		
+		if (nuevaVacunacion.get_fechaVacunacion() == null || nuevaVacunacion.get_paciente().get_dni() == null || nuevaVacunacion.get_paciente().get_Nombre() == null
+				|| nuevaVacunacion.get_paciente().get_Apellidos() == null || nuevaVacunacion.get_tipoVacuna() == null || nuevaVacunacion.get_paciente().get_Region() == null)
+			throw new Exception ("No se permiten valores nulos de parámetros");
 
 		AgenteBD.getAgente().insert(
 				"Insert into Vacunacion (fecha, Dosis, dni_paciente, nombre_paciente, apellidos_paciente, tipoVacuna, Region) values"

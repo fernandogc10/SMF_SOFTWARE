@@ -18,8 +18,12 @@ public class GestorVacunacion {
 
 
 	public static void altaEntregaVacunas(String aLote, Date aFecha, int aCantidad, int aPrioridad, String Region)
-			throws SQLException {
+			throws SQLException, Exception {
 
+		if(aLote == null || aFecha == null || aCantidad <=0 || aPrioridad <0 || aPrioridad >2)
+			throw new Exception("No se permiten parámetros nulos, negativos o la prioridad "
+					+ "fuera de su rango (0<prioridad<2");
+		
 		Vector<Object> vector = new Vector<>();
 		EntregaVacunas nuevaEntrega = new EntregaVacunas(aFecha, aCantidad);
 
@@ -45,7 +49,10 @@ public class GestorVacunacion {
 	}
 
 	public static void registrarVacunacion(Date aFecha, String aNombre, String aApellidos, String aNif,
-			TipoVacuna aTipo) throws SQLException{
+			TipoVacuna aTipo) throws SQLException, Exception{
+		
+		if (aFecha == null || aNombre == null || aApellidos == null || aNif == null || aTipo.get_Nombre() == ""
+				|| aTipo.get_Nombre() == null) throw new Exception("No se permiten valores nulos o vacíos.");
 		
 		Random r = new Random();
 		int num = r.nextInt(10);
@@ -84,7 +91,10 @@ public class GestorVacunacion {
 
 	}
 
-	public static GrupoPrioridad seleccionarPrioridad(int prioridad) {
+	public static GrupoPrioridad seleccionarPrioridad(int prioridad) throws Exception{
+		
+		if (prioridad < 0 || prioridad > 2) throw new Exception ("No se permiten a valores "
+				+ "menores de 0 o mayores de 2 para prioridad");
 
 		GrupoPrioridad grupo = null;
 

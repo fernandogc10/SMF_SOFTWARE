@@ -19,7 +19,11 @@ public class EntregaDAO<E> extends AgenteBD {
 
 	}
 
-	public static void insertarEntrega(EntregaVacunas nuevaEntrega) throws SQLException {
+	public static void insertarEntrega(EntregaVacunas nuevaEntrega) throws SQLException,Exception{
+		
+		if(nuevaEntrega.get_fecha() == null || nuevaEntrega.get_cantidad() <=0 || nuevaEntrega.get_region() == null
+				|| nuevaEntrega.get_tipo() == null || nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() < 0 || nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() > 2)
+			throw new Exception ("No se permiten parámetros nulos, negativos o la prioridad fuera de su rango (0<prioridad<2");
 
 		AgenteBD.getAgente().insert(("Insert into Entregas (fecha, cantidad, loteVacunas, region, tipoVacuna, GrupoPrioridad) values"
 				+ " ('" + nuevaEntrega.get_fecha().toString() + "'," + nuevaEntrega.get_cantidad() + ",'"
