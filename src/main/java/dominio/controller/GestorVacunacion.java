@@ -29,11 +29,16 @@ public class GestorVacunacion {
 		nuevaEntrega.set_grupoPrioridad(seleccionarPrioridad(aPrioridad));
 
 		LoteVacunas lote = new LoteVacunas(aLote,sqlDate, "covid", 100);
+		
+		nuevaEntrega.setLoteVacunas(lote);
 
 
 		nuevaEntrega.setTipoVacuna(lote.get_TipoVacunas());
 
 		nuevaEntrega.setRegion(Region);
+		
+		System.out.println(nuevaEntrega.get_lote().get_id());
+		System.out.println(nuevaEntrega.get_region().toString());
 
 		nuevaEntrega._entregaDao.insertarEntrega(nuevaEntrega);
 
@@ -43,7 +48,7 @@ public class GestorVacunacion {
 			TipoVacuna aTipo) throws SQLException{
 		
 		Random r = new Random();
-		int num = r.nextInt(4);
+		int num = r.nextInt(10);
 
 		RegionEnum region = RegionEnum.values()[num];
 

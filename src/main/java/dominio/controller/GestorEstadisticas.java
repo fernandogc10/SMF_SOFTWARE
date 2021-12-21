@@ -30,14 +30,14 @@ public class GestorEstadisticas {
 	}
 	
 
-	public void consultarPorcentajeVacunadosSobreRecibidas() throws SQLException{
+	public static String consultarPorcentajeVacunadosSobreRecibidas() throws SQLException{
 		
-		Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidas();
+		return Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidas();
 	}
 
-	public void consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum aRegion) throws Exception {
+	public static String consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum aRegion) throws SQLException {
 		
-		Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidasEnRegion(aRegion);
+		return Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidasEnRegion(aRegion);
 			
 		
 	}

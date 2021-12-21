@@ -4,6 +4,7 @@ package presentacion;
 import java.io.*;
 import java.sql.SQLException;
 import java.util.Random;
+import java.util.Vector;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -15,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import dominio.controller.GestorVacunacion;
 import dominio.entitymodel.LoteVacunas;
 import dominio.entitymodel.TipoVacuna;
+import persistencia.AgenteBD;
 
 import java.awt.Toolkit;
 import java.awt.Color;
@@ -99,21 +101,26 @@ public class PantallaGestionSistemaRegionalSalud extends JFrame {
 		final JButton btnDarDeAlta = new JButton("Dar de alta");
 		btnDarDeAlta.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent e){
+				
+				Vector<Object> vector = new Vector <> ();
+				try {
+					vector = AgenteBD.getAgente().select("Select * from LoteVacunas");
+				} catch (SQLException e2) {
+					e2.printStackTrace();
+				}
 
-				if (LoteVacunas.get_ListaLoteVacunas().isEmpty()) {
+				if (vector.isEmpty()) {
 
 					lblAltaprimero.setVisible(true);
 					return;
-				}
-
-				if (!textFieldLote.getText().equals(LoteVacunas.get_ListaLoteVacunas().elementAt(0).get_id().toString())) {
-					
 				} else {
 					java.util.Date date = new java.util.Date();
 					java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
 					try {
+						
+						System.out.println(textFieldLote.getText());
 						GestorVacunacion.altaEntregaVacunas(textFieldLote.getText(), sqlDate,
 								Integer.parseInt(textFieldCantidad.getText()),
 								Integer.parseInt(textFieldPrioridad.getText()),

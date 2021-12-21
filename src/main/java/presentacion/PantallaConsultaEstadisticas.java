@@ -2,6 +2,7 @@
 package presentacion;
 
 import java.io.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.BorderLayout;
@@ -129,30 +130,40 @@ public class PantallaConsultaEstadisticas extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
+				listVacunados.removeAll();
+				DefaultListModel modelo = new DefaultListModel();
+				comboBox_Regiones.setVisible(false);
+
 				List<Vacunacion> listaVacunados = new ArrayList<>();
 
 				try {
 
 					listaVacunados = GestorEstadisticas.consultarTotalVacunados();
 
-					DefaultListModel modelo = new DefaultListModel();
+					if (listaVacunados == null) {
+						
+						modelo.addElement("No hay ningún vacunado.");
+						listVacunados.setModel(modelo);
+						listVacunados.setVisible(true);
+						
 
-					for (int i = 0; i < listaVacunados.size(); i++) {
+					} else {
+						
 
-						modelo.addElement(listaVacunados.get(i).get_paciente().get_dni().toString());
+						for (int i = 0; i < listaVacunados.size(); i++) {
+
+							modelo.addElement(listaVacunados.get(i).get_paciente().get_dni().toString());
+						}
+
+						listVacunados.setModel(modelo);
+
+						listVacunados.setVisible(true);
 					}
-
-					listVacunados.setModel(modelo);
-
-					listVacunados.setVisible(true);
 
 				} catch (Exception e1) {
 
 					e1.printStackTrace();
 				}
-
-				comboBox_Regiones.setVisible(false);
-				
 
 			}
 		});
@@ -167,8 +178,10 @@ public class PantallaConsultaEstadisticas extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
+				listVacunados.removeAll();
+				listVacunados.setVisible(false);
+
 				comboBox_Regiones.setVisible(true);
-				
 
 				comboBox_Regiones.addActionListener(new ActionListener() {
 					@Override
@@ -188,6 +201,8 @@ public class PantallaConsultaEstadisticas extends JFrame {
 						try {
 
 							listaVacunados = GestorEstadisticas.consultarTotalVacunadosPorRegion(region);
+
+							System.out.println("ES NULL");
 
 							if (listaVacunados == null) {
 
@@ -233,8 +248,15 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		btnPorcentajeVacunadosRecibidas.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				listVacunados.setVisible(false);
+				try {
+					lblResultado.setText(GestorEstadisticas.consultarPorcentajeVacunadosSobreRecibidas());
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+				}
 				comboBox_Regiones.setVisible(false);
-				lblResultado.setVisible(false);
+				lblResultado.setVisible(true);
 			}
 		});
 		btnPorcentajeVacunadosRecibidas.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
@@ -247,9 +269,28 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		btnPorcentajeVacunadosRecibidasRegion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				comboBox_Regiones.setVisible(true);
-				lblResultado.setVisible(false);
+
+				listVacunados.setVisible(false);
+				comboBox_Regiones.setVisible(false);
+
+				RegionEnum region = null;
+
+				for (RegionEnum r : RegionEnum.values()) {
+
+					if (r.toString().equalsIgnoreCase(comboBox_Regiones.getSelectedItem().toString().toUpperCase()))
+						region = r;
+
+				}
+				try {
+					lblResultado.setText(GestorEstadisticas.consultarPorcentajeVacunadosSobreRecibidasEnRegion(region));
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+				}
+
+				lblResultado.setVisible(true);
 			}
+
 		});
 		btnPorcentajeVacunadosRecibidasRegion.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
 		btnPorcentajeVacunadosRecibidasRegion.setBounds(181, 230, 341, 39);

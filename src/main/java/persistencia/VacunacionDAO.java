@@ -19,13 +19,13 @@ public class VacunacionDAO<E> extends AgenteBD {
 
 	static List<Vacunacion> listaVacunados;
 
-	public VacunacionDAO() throws SQLException{
+	public VacunacionDAO() throws SQLException {
 		super();
 		this.listaVacunados = new ArrayList<>();
 
 	}
 
-	public static void insertarVacunacion(Vacunacion nuevaVacunacion) throws SQLException{
+	public static void insertarVacunacion(Vacunacion nuevaVacunacion) throws SQLException {
 
 		AgenteBD.getAgente().insert(
 				"Insert into Vacunacion (fecha, Dosis, dni_paciente, nombre_paciente, apellidos_paciente, tipoVacuna, Region) values"
@@ -35,10 +35,10 @@ public class VacunacionDAO<E> extends AgenteBD {
 						+ "','" + nuevaVacunacion.get_paciente().get_Apellidos() + "','"
 						+ nuevaVacunacion.get_tipoVacuna().get_Nombre() + "','"
 						+ nuevaVacunacion.get_paciente().get_Region().toString() + "')");
-		
+
 		Vector<Object> vector = new Vector<>();
 		vector = AgenteBD.getAgente().select("Select * from Vacunacion");
-		System.out.println(vector.size());
+		
 	}
 
 	public static List<Vacunacion> seleccionarVacunaciones() throws SQLException {
@@ -49,10 +49,11 @@ public class VacunacionDAO<E> extends AgenteBD {
 		TipoVacuna tipoVacuna;
 
 		vector = AgenteBD.getAgente().select("Select * from Vacunacion");
+		
+
 
 		for (int i = 0; i < vector.size(); i += 7) {
-			
-			System.out.println("FERNANDO " + vector.elementAt(i+3).toString());
+
 
 			vacunacion = new Vacunacion((Date) vector.elementAt(i + 0),
 					Boolean.parseBoolean((vector.elementAt(i + 1).toString())));
@@ -67,7 +68,6 @@ public class VacunacionDAO<E> extends AgenteBD {
 			listaVacunados.add(vacunacion);
 
 		}
-		System.out.println(listaVacunados);
 		return listaVacunados;
 	}
 
@@ -77,6 +77,8 @@ public class VacunacionDAO<E> extends AgenteBD {
 		Vacunacion vacunacion;
 		Paciente paciente;
 		TipoVacuna tipoVacuna;
+		
+		System.out.println(aRegion.toString());
 
 		vector = AgenteBD.getAgente().select("Select * from Vacunacion where Region= '" + aRegion.toString() + "'");
 
@@ -101,59 +103,72 @@ public class VacunacionDAO<E> extends AgenteBD {
 
 	}
 
-	public static void consultarPorcentajeVacunadosSobreRecibidas() throws SQLException {
+	public static String consultarPorcentajeVacunadosSobreRecibidas() throws SQLException {
 
 		Vector<Object> num_vacunados = new Vector<>();
 		Vector<Object> num_dosis_recibidas = new Vector<>();
 		int suma = 0;
 
-
 		num_vacunados = AgenteBD.getAgente().select("Select dni_paciente from Vacunacion");
+		
+		num_dosis_recibidas = AgenteBD.getAgente().select("Select cantidad from LoteVacunas");
+		
+		System.out.println("TAMAÑO " + num_dosis_recibidas.size());
+		
+		System.out.println(num_dosis_recibidas.get(0).toString());
+		
+		
 
-		AgenteBD.getAgente();
-		num_dosis_recibidas = AgenteBD.select("Select cantidad from LoteVacunas");
+		if (num_vacunados == null || num_dosis_recibidas == null) {
+			return null;
+		} else {
 
-		for (int i = 0; i < num_dosis_recibidas.size(); i++) {
+			for (int i = 0; i < num_dosis_recibidas.size(); i++) {
 
-			suma += (int) num_dosis_recibidas.get(i);
+				suma += (int) num_dosis_recibidas.get(i);
+			}
+			
+			System.out.println(suma);
+
+			DecimalFormat df = new DecimalFormat("#.##");
+
+			double total = (((int) num_vacunados.get(0)) / suma) * 100;
+
+			return ("El porcentaje de Vacunados sobre dosis Recibidas es: " + df.format(total) + "%");
+			
 		}
 
-		System.out.println(suma);
-
-		DecimalFormat df = new DecimalFormat("#.##");
-
-		double total = (((int) num_vacunados.get(0))/suma)*100;
-
-		System.out.println("El porcentaje de Vacunados sobre dosis Recibidas es: "+
-		df.format(total) + "%");
+	
 
 	}
 
-	public static void consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum region) throws SQLException {
+	public static String consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum region) throws SQLException {
 
 		Vector<Object> num_vacunados = new Vector<>();
 		Vector<Object> num_dosis_recibidas = new Vector<>();
 		int suma = 0;
 
+		num_vacunados = AgenteBD.getAgente().select("Select dni_paciente from Vacunacion where Region= '" + region.toString() + "'");
+		num_dosis_recibidas = AgenteBD.getAgente().select("Select cantidad from LoteVacunas");
 
-		num_vacunados = AgenteBD.getAgente().select("Select '" +region.toString() + "' from Vacunacion");
+		if (num_vacunados == null || num_dosis_recibidas == null) {
+			return null;
+		} else {
 
-		AgenteBD.getAgente();
-		num_dosis_recibidas = AgenteBD.select("Select cantidad from LoteVacunas");
+			for (int i = 0; i < num_dosis_recibidas.size(); i++) {
 
-		for (int i = 0; i < num_dosis_recibidas.size(); i++) {
+				suma += (int) num_dosis_recibidas.get(i);
+			}
 
-			suma += (int) num_dosis_recibidas.get(i);
+			DecimalFormat df = new DecimalFormat("#.##");
+
+			double total = (((int) num_vacunados.get(0)) / suma) * 100;
+
+			return ("El porcentaje de Vacunados sobre dosis Recibidas en " + region.toString() + " es: " + df.format(total) + "%");
+			
 		}
 
-		System.out.println(suma);
-
-		DecimalFormat df = new DecimalFormat("#.##");
-
-		double total = (((int) num_vacunados.get(0))/suma)*100;
-
-		System.out.println("El porcentaje de Vacunados sobre dosis Recibidas es: "+
-		df.format(total) + "%");
+	
 
 	}
 }
