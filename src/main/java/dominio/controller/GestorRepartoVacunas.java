@@ -21,7 +21,7 @@ public class GestorRepartoVacunas {
 
 		LoteVacunas lote = new LoteVacunas(null, fecha, tipo, cantidad);
 
-		LoteVacunas.altaNuevoLoteVacunas(lote);
+		lote._loteVacunasDao.insertarLoteVacunas(lote);
 
 	}
 

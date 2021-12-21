@@ -95,8 +95,8 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		comboBox_Regiones.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
 		comboBox_Regiones.setModel(new DefaultComboBoxModel(
 				new String[] { "                 -- --", "Andalucia", "Aragón", "Asturias", "Cantabria",
-						"Castilla-La Mancha", "Castilla y León", "Cataluña", "Extremadura", "Galicia", "Islas Baleares",
-						"Islas Canarias", "La Rioja", "Madrid", "Murcia", "Navarra", "País Vasco", "Valencia" }));
+						"CastillaLaMancha", "CastillayLeón", "Cataluña", "Extremadura", "Galicia", "IslasBaleares",
+						"IslasCanarias", "LaRioja", "Madrid", "Murcia", "Navarra", "PaísVasco", "Valencia" }));
 		comboBox_Regiones.setToolTipText("");
 		comboBox_Regiones.setBounds(528, 128, 172, 38);
 		contentPane.add(comboBox_Regiones);
@@ -104,7 +104,7 @@ public class PantallaConsultaEstadisticas extends JFrame {
 		comboBox_Regiones.setVisible(false);
 
 		final JList listVacunados = new JList();
-		listVacunados.setBounds(188, 287, 328, 136);
+		listVacunados.setBounds(162, 281, 378, 142);
 		contentPane.add(listVacunados);
 		listVacunados.setVisible(false);
 
@@ -152,7 +152,7 @@ public class PantallaConsultaEstadisticas extends JFrame {
 				}
 
 				comboBox_Regiones.setVisible(false);
-				lblResultado.setVisible(true);
+				
 
 			}
 		});
@@ -168,31 +168,46 @@ public class PantallaConsultaEstadisticas extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 
 				comboBox_Regiones.setVisible(true);
-				lblResultado.setVisible(true);
+				
 
 				comboBox_Regiones.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						List<Vacunacion> listaVacunados = new ArrayList<>();
-						
-						System.out.println(RegionEnum.valueOf(comboBox_Regiones.getSelectedItem().toString()));
-						
-						RegionEnum region = RegionEnum.valueOf(comboBox_Regiones.getSelectedItem().toString());
+						RegionEnum region = null;
+						DefaultListModel modelo = new DefaultListModel();
+
+						for (RegionEnum r : RegionEnum.values()) {
+
+							if (r.toString()
+									.equalsIgnoreCase(comboBox_Regiones.getSelectedItem().toString().toUpperCase()))
+								region = r;
+
+						}
 
 						try {
 
 							listaVacunados = GestorEstadisticas.consultarTotalVacunadosPorRegion(region);
 
-							DefaultListModel modelo = new DefaultListModel();
+							if (listaVacunados == null) {
 
-							for (int i = 0; i < listaVacunados.size(); i++) {
+								modelo.addElement("No hay ningún vacunado en la región de " + region.toString());
 
-								modelo.addElement(listaVacunados.get(i).get_paciente().get_dni().toString());
+								listVacunados.setModel(modelo);
+
+								listVacunados.setVisible(true);
+
+							} else {
+
+								for (int i = 0; i < listaVacunados.size(); i++) {
+
+									modelo.addElement(listaVacunados.get(i).get_paciente().get_dni().toString());
+								}
+
+								listVacunados.setModel(modelo);
+
+								listVacunados.setVisible(true);
 							}
-
-							listVacunados.setModel(modelo);
-
-							listVacunados.setVisible(true);
 
 						} catch (Exception e1) {
 
@@ -219,7 +234,7 @@ public class PantallaConsultaEstadisticas extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				comboBox_Regiones.setVisible(false);
-				lblResultado.setVisible(true);
+				lblResultado.setVisible(false);
 			}
 		});
 		btnPorcentajeVacunadosRecibidas.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
@@ -233,7 +248,7 @@ public class PantallaConsultaEstadisticas extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				comboBox_Regiones.setVisible(true);
-				lblResultado.setVisible(true);
+				lblResultado.setVisible(false);
 			}
 		});
 		btnPorcentajeVacunadosRecibidasRegion.setFont(new Font("Tw Cen MT", Font.BOLD, 15));

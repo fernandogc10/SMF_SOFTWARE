@@ -14,7 +14,7 @@ public class EntregaVacunas {
 	public LoteVacunas _lote;
 	public EntregaDAO _entregaDao;
 
-	public EntregaVacunas(Date fecha, int cantidad){
+	public EntregaVacunas(Date fecha, int cantidad) throws SQLException{
 
 		this._fecha = fecha;
 		this._cantidad = cantidad;
@@ -22,14 +22,14 @@ public class EntregaVacunas {
 		_entregaDao = new EntregaDAO();
 	}
 
-	public EntregaVacunas(RegionEnum region){
+	public EntregaVacunas(RegionEnum region) throws SQLException{
 
 		this._region = region;
 
 		_entregaDao = new EntregaDAO();
 	}
 
-	public EntregaVacunas(){
+	public EntregaVacunas() throws SQLException{
 
 		_entregaDao = new EntregaDAO();
 	}

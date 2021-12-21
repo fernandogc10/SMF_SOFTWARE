@@ -45,13 +45,6 @@ public class LoteVacunas {
 
 	}
 
-	public static void altaNuevoLoteVacunas(LoteVacunas lote) throws SQLException{
-
-		LoteVacunasDAO.insertarLoteVacunas(lote);
-
-		listalotes.add(lote);
-
-	}
 
 	public static int calculoLotes() {
 
