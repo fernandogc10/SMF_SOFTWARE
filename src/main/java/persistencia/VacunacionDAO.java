@@ -19,13 +19,13 @@ public class VacunacionDAO<E> extends AgenteBD {
 
 	static List<Vacunacion> listaVacunados;
 
-	public VacunacionDAO() throws SQLException, ClassNotFoundException {
+	public VacunacionDAO() throws SQLException{
 		super();
 		this.listaVacunados = new ArrayList<>();
 
 	}
 
-	public static void insertarVacunacion(Vacunacion nuevaVacunacion) throws Exception {
+	public static void insertarVacunacion(Vacunacion nuevaVacunacion) throws SQLException{
 
 		AgenteBD.getAgente().insert(
 				"Insert into Vacunacion (fecha, Dosis, dni_paciente, nombre_paciente, apellidos_paciente, tipoVacuna, Region) values"
@@ -41,7 +41,7 @@ public class VacunacionDAO<E> extends AgenteBD {
 		System.out.println(vector.size());
 	}
 
-	public static List<Vacunacion> seleccionarVacunaciones() throws Exception {
+	public static List<Vacunacion> seleccionarVacunaciones() throws SQLException {
 
 		Vector<Object> vector = new Vector<>();
 		Vacunacion vacunacion;
@@ -71,7 +71,7 @@ public class VacunacionDAO<E> extends AgenteBD {
 		return listaVacunados;
 	}
 
-	public static List<Vacunacion> seleccionarVacunaciones(RegionEnum aRegion) throws Exception {
+	public static List<Vacunacion> seleccionarVacunaciones(RegionEnum aRegion) throws SQLException {
 
 		Vector<Object> vector = new Vector<>();
 		Vacunacion vacunacion;
@@ -101,7 +101,7 @@ public class VacunacionDAO<E> extends AgenteBD {
 
 	}
 
-	public static void consultarPorcentajeVacunadosSobreRecibidas() throws Exception {
+	public static void consultarPorcentajeVacunadosSobreRecibidas() throws SQLException {
 
 		Vector<Object> num_vacunados = new Vector<>();
 		Vector<Object> num_dosis_recibidas = new Vector<>();
@@ -129,7 +129,7 @@ public class VacunacionDAO<E> extends AgenteBD {
 
 	}
 
-	public static void consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum region) throws Exception {
+	public static void consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum region) throws SQLException {
 
 		Vector<Object> num_vacunados = new Vector<>();
 		Vector<Object> num_dosis_recibidas = new Vector<>();

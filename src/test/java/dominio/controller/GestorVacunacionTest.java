@@ -66,6 +66,8 @@ public class GestorVacunacionTest {
 	@Test
 	public void testSeleccionarPrioridad() {
 		
+		
+		
 
 	}
 

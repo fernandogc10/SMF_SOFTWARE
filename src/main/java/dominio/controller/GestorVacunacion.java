@@ -18,7 +18,7 @@ public class GestorVacunacion {
 
 
 	public static void altaEntregaVacunas(String aLote, Date aFecha, int aCantidad, int aPrioridad, String Region)
-			throws SQLException, Exception {
+			throws SQLException {
 
 		Vector<Object> vector = new Vector<>();
 		EntregaVacunas nuevaEntrega = new EntregaVacunas(aFecha, aCantidad);
@@ -35,15 +35,12 @@ public class GestorVacunacion {
 
 		nuevaEntrega.setRegion(Region);
 
-		nuevaEntrega._entregaDao.insertarEntrega("Insert into Entregas (fecha, cantidad, loteVacunas, region, tipoVacuna, GrupoPrioridad) values"
-						+ " ('" + nuevaEntrega.get_fecha().toString() + "'," + nuevaEntrega.get_cantidad() + ",'"
-						+ lote.get_id() + "', '" + Region + "','" + nuevaEntrega.get_tipo().get_Nombre() + "',"
-						+ nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() + ")");
+		nuevaEntrega._entregaDao.insertarEntrega(nuevaEntrega);
 
 	}
 
 	public static void registrarVacunacion(Date aFecha, String aNombre, String aApellidos, String aNif,
-			TipoVacuna aTipo) throws SQLException, Exception {
+			TipoVacuna aTipo) throws SQLException{
 		
 		Random r = new Random();
 		int num = r.nextInt(4);

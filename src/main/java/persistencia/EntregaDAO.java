@@ -14,18 +14,21 @@ public class EntregaDAO<E> extends AgenteBD {
 
 	static List<EntregaVacunas> listaEntregaVacunas = new ArrayList<>();
 
-	public EntregaDAO() throws SQLException, ClassNotFoundException {
-		super();
+	public EntregaDAO() throws SQLException{
+		
 
 	}
 
-	public static void insertarEntrega(String consulta) throws SQLException, Exception {
+	public static void insertarEntrega(EntregaVacunas nuevaEntrega) throws SQLException {
 
-		AgenteBD.getAgente().insert(consulta);
+		AgenteBD.getAgente().insert(("Insert into Entregas (fecha, cantidad, loteVacunas, region, tipoVacuna, GrupoPrioridad) values"
+				+ " ('" + nuevaEntrega.get_fecha().toString() + "'," + nuevaEntrega.get_cantidad() + ",'"
+				+ nuevaEntrega.get_lote().get_id() + "', '" + nuevaEntrega.get_region().toString() + "','" + nuevaEntrega.get_tipo().get_Nombre() + "',"
+				+ nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() + ")"));
 
 	}
 
-	public static List<EntregaVacunas> seleccionarEntregas() throws SQLException, Exception {
+	public static List<EntregaVacunas> seleccionarEntregas() throws SQLException{
 
 		Vector<Object> vector = new Vector<>();
 

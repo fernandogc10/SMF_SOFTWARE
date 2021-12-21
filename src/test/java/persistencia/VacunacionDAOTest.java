@@ -58,6 +58,8 @@ public class VacunacionDAOTest {
 		vector = AgenteBD.getAgente().select("Select dni_paciente from Vacunacion");
 		
 		assertEquals("03962854T", vector.get(0).toString());
+		
+		
 
 	}
 
@@ -82,6 +84,8 @@ public class VacunacionDAOTest {
 
 	@Test
 	public void testConsultarPorcentajeVacunadosSobreRecibidas() {
+		
+		
 		
 	}
 

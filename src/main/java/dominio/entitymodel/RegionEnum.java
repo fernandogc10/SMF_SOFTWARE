@@ -18,7 +18,5 @@ public enum RegionEnum {
 	}
 	
 	
-	
-	
 	public Vector<EntregaVacunas> _entregas = new Vector<EntregaVacunas>();
 }

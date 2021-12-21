@@ -21,13 +21,17 @@ public class AgenteBD {
 	static Statement stmt;
 	static ResultSet rs = null;
 
-	public AgenteBD() throws SQLException, ClassNotFoundException {
-		Class.forName(DRIVER);
+	public AgenteBD() throws SQLException{
+		try {
+			Class.forName(DRIVER);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 
 		crearBaseDatosSinoExiste();
 	}
 
-	public static AgenteBD getAgente() throws Exception {
+	public static AgenteBD getAgente() throws SQLException {
 		if (mInstancia == null) {
 			mInstancia = new AgenteBD();
 		}

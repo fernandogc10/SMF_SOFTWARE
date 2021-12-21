@@ -14,7 +14,7 @@ public class EntregaVacunas {
 	public LoteVacunas _lote;
 	public EntregaDAO _entregaDao;
 
-	public EntregaVacunas(Date fecha, int cantidad) throws ClassNotFoundException, SQLException {
+	public EntregaVacunas(Date fecha, int cantidad){
 
 		this._fecha = fecha;
 		this._cantidad = cantidad;
@@ -22,14 +22,14 @@ public class EntregaVacunas {
 		_entregaDao = new EntregaDAO();
 	}
 
-	public EntregaVacunas(RegionEnum region) throws ClassNotFoundException, SQLException {
+	public EntregaVacunas(RegionEnum region){
 
 		this._region = region;
 
 		_entregaDao = new EntregaDAO();
 	}
 
-	public EntregaVacunas() throws ClassNotFoundException, SQLException {
+	public EntregaVacunas(){
 
 		_entregaDao = new EntregaDAO();
 	}

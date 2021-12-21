@@ -1,5 +1,6 @@
 package dominio.controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class GestorEstadisticas {
 	
 	static List<Vacunacion> listaVacunados = new ArrayList<>();
 
-	public static List<Vacunacion> consultarTotalVacunados() throws Exception {
+	public static List<Vacunacion> consultarTotalVacunados() throws SQLException{
 		
 		
 		listaVacunados = Vacunacion._vacunacionDao.seleccionarVacunaciones();
@@ -20,7 +21,7 @@ public class GestorEstadisticas {
 		
 	}
 
-	public static List<Vacunacion> consultarTotalVacunadosPorRegion(RegionEnum aRegion) throws Exception {
+	public static List<Vacunacion> consultarTotalVacunadosPorRegion(RegionEnum aRegion) throws SQLException{
 		
 		listaVacunados = Vacunacion._vacunacionDao.seleccionarVacunaciones(aRegion);
 		
@@ -29,7 +30,7 @@ public class GestorEstadisticas {
 	}
 	
 
-	public void consultarPorcentajeVacunadosSobreRecibidas() throws Exception {
+	public void consultarPorcentajeVacunadosSobreRecibidas() throws SQLException{
 		
 		Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidas();
 	}

@@ -7,13 +7,13 @@ import dominio.entitymodel.LoteVacunas;
 
 public class LoteVacunasDAO<E> extends AgenteBD {
 
-	public LoteVacunasDAO() throws SQLException, ClassNotFoundException {
+	public LoteVacunasDAO() throws SQLException{
 		super();
 
 	}
 
 
-	public static void insertarLoteVacunas(LoteVacunas aLote) throws SQLException, Exception {
+	public static void insertarLoteVacunas(LoteVacunas aLote) throws SQLException{
 
 		String consulta = "INSERT INTO lotevacunas (id, fecha, cantidad, farmaceutica) VALUES (" + "'" + aLote.get_id()
 				+ "'" + "," + "'" + aLote.get_fecha() + "'" + "," + +aLote.get_cantidad() + "," + "'"

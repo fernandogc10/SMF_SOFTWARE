@@ -51,6 +51,7 @@ public class GestorRepartoVacunasTest {
 
 	@Test
 	public void testCalcularEntregasRegion() {
+		
 
 	}
 

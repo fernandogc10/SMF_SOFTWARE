@@ -17,7 +17,7 @@ public class GestorRepartoVacunas {
 	
 	static List<EntregaVacunas> listaentregas = new ArrayList<>();
 
-	public static void altaNuevoLoteVacunas(Date fecha, String tipo, int cantidad) throws Exception {
+	public static void altaNuevoLoteVacunas(Date fecha, String tipo, int cantidad) throws SQLException {
 
 		LoteVacunas lote = new LoteVacunas(null, fecha, tipo, cantidad);
 
@@ -25,7 +25,7 @@ public class GestorRepartoVacunas {
 
 	}
 
-	public static List<EntregaVacunas> calcularEntregasRegion() throws SQLException, Exception { // devuelve una lista
+	public static List<EntregaVacunas> calcularEntregasRegion() throws SQLException{ // devuelve una lista
 																									// donde se deberian																					// de entregar
 
 		EntregaVacunas entrega = new EntregaVacunas();

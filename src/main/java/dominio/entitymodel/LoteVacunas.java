@@ -23,7 +23,7 @@ public class LoteVacunas {
 	public Vector<EntregaVacunas> _entregas = new Vector<EntregaVacunas>();
 	static Vector<LoteVacunas> listalotes = new Vector<>();
 
-	public LoteVacunas(String id, Date _fecha, String tipo, int _cantidad) throws ClassNotFoundException, SQLException {
+	public LoteVacunas(String id, Date _fecha, String tipo, int _cantidad) throws SQLException{
 		this._fecha = _fecha;
 
 		this._cantidad = _cantidad;
@@ -45,7 +45,7 @@ public class LoteVacunas {
 
 	}
 
-	public static void altaNuevoLoteVacunas(LoteVacunas lote) throws Exception {
+	public static void altaNuevoLoteVacunas(LoteVacunas lote) throws SQLException{
 
 		LoteVacunasDAO.insertarLoteVacunas(lote);
 
