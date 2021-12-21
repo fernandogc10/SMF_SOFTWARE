@@ -231,8 +231,19 @@ Hemos llevado a cabo un plan de mantenimiento preventido utilizando SonarCloud.
 	
 Este tipo de mantenimiento es aquel que surge de la necesidad de rebajar el correctivo y todo lo que representa. Pretende reducir la reparación mediante una rutina de inspecciones periódicas y la renovación de los elementos dañados.
 	
+Las ventajas de disponer de un plan de mantenimiento son por tanto múltiples, pero entre ellas podemos señalar:
 
+	- Reducir las intervenciones correctivas, puesto que una buena previsión y planificación se evitarán averías
 	
+	- Reducir los gastos en reparaciones, tanto materiales como humanos.
+	
+	- Aumentar la disponibilidad de los activos, por lo que conseguiremos una mayor rentabilidad en la producción
+	
+	- Aumentar la eficiencia del área de mantenimiento, puesto que los trabajos estarán mucho mejor organizados y optimizados
+
+	- Disponer de una gestión eficiente de maquinaria y herramientas, evitando así carencias de herramientas cuando son necesarias
+
+En resumen, disponer de un buen plan de mantenimiento preventivo es clave para trabajar de manera más eficiente.
 	
 ---
 
