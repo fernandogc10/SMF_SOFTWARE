@@ -286,6 +286,8 @@ public class PantallaConsultaEstadisticas extends JFrame {
 				} catch (SQLException e1) {
 
 					e1.printStackTrace();
+				} catch (Exception e1) {
+					e1.printStackTrace();
 				}
 
 				lblResultado.setVisible(true);
