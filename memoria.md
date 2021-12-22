@@ -1,10 +1,8 @@
 # Memoria Proyecto Ingeniería del Software II - SMF_Software
 
----
 
 ## Miembros de la empresa:
 
----
 
     • Marcelino Díaz Alba
     • Sergio Díaz de la Peña
@@ -14,8 +12,6 @@
 
 
 ## Gestión de la configuración
-
----
 
 
 ### Plan de Gestión de la Configuración
@@ -96,8 +92,6 @@ El uso de Maven nos ha ayudado a:
 
 ## Planificación y gestión
 
----
-
 Hemos llevado a cabo una metodología agil llamada Scrum. Esta es una metodologia de Gestión de Proyectos.
 
 Esta ha sido adaptada a nuestro equipo de trabajo con el objetivo de obtener resultados rapidos y adaptandose a las peticiones de cambios del cliente.
@@ -123,8 +117,6 @@ A continuación, se muestra un ejemplo del uso del Produck Backlog, Sprint Backl
 ---
 
 # Codificación
-
----
 
 A continuación, se muestran los bocetos realizados para llevar a cabo el desarrollo de la UI.
 
@@ -196,7 +188,7 @@ Una vez terminada la ejecución del análisis, nos muestra los siguientes result
 
 Por un lado, SonarCloud nos genera por defecto una QualityGate, por ejemplo el Coverage por defecto viene definido a un 80% y Security Hotspots Reviewed viene fijado a un 100%. 
 	
-A continuación se muestra lo nombrado:
+A continuación, se muestra lo nombrado:
 	
 ![ImagenSonarWay_QualityGate](./Imagenes/SonarWay_QualityGate.JPG)
 	
@@ -223,6 +215,10 @@ En cuanto a la integración del análisis en SonarCloud con cada uno de los comm
 		<sonar.binaries>./target/classes</sonar.binaries>
 
 Además, hemos tenido que crear un archivo llamado build.yml con la configuración necesaria, el cuál se encuentra en la carpeta .github/workflows.
+	
+A continuación, se muestra un enlace a este archivo: [build.yml](./.github/workflows/build.yml)
+	
+En conclusión, con la integración continua, lo que se ha conseguido en este proyecto, es que con cada Push que se haga en GitHub, es decir, cada cambio en el código se va a analizar en busca de las diferentes cosas de las que realiza el análisis.
 	
 ---
 
