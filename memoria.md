@@ -173,15 +173,8 @@ Por otro lado, hemos eliminado la clase AbstractEntityDAO<E> y las generalizacio
 
 ## Generación de calidad
 
-Hemos realizado la configuración en SonarCloud siguiendo el pdf de la práctica 3 'P3.Sonar'. Para ello hemos añadido las siguientes propiedades a nuestro fichero pom, las cuales son las siguientes:
+Hemos realizado la configuración en SonarCloud siguiendo el pdf de la práctica 3 'P3.Sonar'.
 	
-	<sonar.organization>smfsoftware</sonar.organization>
-	
-	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-	
-	<sonar.sources>./src/main/java</sonar.sources>
-	
-	<sonar.binaries>./target/classes</sonar.binaries>
     
 Después de haber configurado nuestro proyecto con SonarCloud hemos ejecutado un análisis desde Maven, para esto desde Eclipse hemos ejecutado lo siguiente:
         
@@ -219,7 +212,17 @@ A continuación, se observa lo comentado en este punto:
 
 ![ImagenSMF_SOFTWARE_QUALITYGATE.JPG](./Imagenes/SMF_SOFTWARE_QUALITYGATE.JPG)
 	
-En cuanto a la integración del análisis en SonarCloud con cada uno de los commit que hagamos en GitHub para asegurar la integración/mejora continua 
+En cuanto a la integración del análisis en SonarCloud con cada uno de los commit que hagamos en GitHub para asegurar la integración/mejora continua hemos agregado a nuestro fichero pom.xml en el apartado de <Properties> lo siguiente:
+	
+		<sonar.organization>smfsoftware</sonar.organization>
+	
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	
+		<sonar.sources>./src/main/java</sonar.sources>
+	
+		<sonar.binaries>./target/classes</sonar.binaries>
+
+Además, hemos tenido que crear un archivo llamado build.yml con la configuración necesaria, el cuál se encuentra en la carpeta .github/workflows.
 	
 ---
 
