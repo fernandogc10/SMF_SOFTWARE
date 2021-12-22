@@ -10,45 +10,47 @@ public class Vacunacion {
 	private boolean _isSegundaDosis;
 	public TipoVacuna _vacuna;
 	public Paciente _paciente;
+
 	public static VacunacionDAO _vacunacionDao;
 
-<span class="fc" id="L15">	public Vacunacion(Date _fecha, Boolean isSegundaDosis) throws SQLException {</span>
+<span class="fc" id="L16">	public Vacunacion(Date _fecha, Boolean isSegundaDosis) throws SQLException {</span>
 
-<span class="fc" id="L17">		this._fecha = _fecha;</span>
-<span class="fc" id="L18">		this._isSegundaDosis = isSegundaDosis;</span>
-<span class="fc" id="L19">		this._vacunacionDao = new VacunacionDAO();</span>
+<span class="fc" id="L18">		this._fecha = _fecha;</span>
+<span class="fc" id="L19">		this._isSegundaDosis = isSegundaDosis;</span>
+<span class="fc" id="L20">		this._vacunacionDao = new VacunacionDAO();</span>
 
-<span class="fc" id="L21">	}</span>
+<span class="fc" id="L22">	}</span>
 	
-<span class="nc" id="L23">	public Vacunacion() throws SQLException{</span>
+<span class="nc" id="L24">	public Vacunacion() throws SQLException{</span>
 
-<span class="nc" id="L25">		this._vacunacionDao = new VacunacionDAO();</span>
+<span class="nc" id="L26">		this._vacunacionDao = new VacunacionDAO();</span>
 
-<span class="nc" id="L27">	}</span>
+<span class="nc" id="L28">	}</span>
 
 	public Date get_fechaVacunacion() {
 
-<span class="fc" id="L31">		return _fecha;</span>
+<span class="fc" id="L32">		return _fecha;</span>
 	}
 
 	public Boolean get_isSegundaDosis() {
-<span class="fc" id="L35">		return _isSegundaDosis;</span>
+<span class="fc" id="L36">		return _isSegundaDosis;</span>
 	}
 
 	public Paciente get_paciente() {
-<span class="fc" id="L39">		return this._paciente;</span>
+<span class="fc" id="L40">		return this._paciente;</span>
+
 	}
 
 	public void set_Paciente(Paciente nuevoPaciente) {
-<span class="fc" id="L43">		this._paciente = nuevoPaciente;</span>
-<span class="fc" id="L44">	}</span>
+<span class="fc" id="L45">		this._paciente = nuevoPaciente;</span>
+<span class="fc" id="L46">	}</span>
 
 	public TipoVacuna get_tipoVacuna() {
-<span class="fc" id="L47">		return _vacuna;</span>
+<span class="fc" id="L49">		return _vacuna;</span>
 	}
 
 	public void set_TipoVacuna(TipoVacuna tipo) {
-<span class="fc" id="L51">		this._vacuna = tipo;</span>
-<span class="fc" id="L52">	}</span>
+<span class="fc" id="L53">		this._vacuna = tipo;</span>
+<span class="fc" id="L54">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

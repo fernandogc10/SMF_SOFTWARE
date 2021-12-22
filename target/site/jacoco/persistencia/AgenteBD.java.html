@@ -114,39 +114,40 @@ public class AgenteBD {
 				+ &quot;dni_paciente varchar(50) not null, nombre_paciente varchar(30) not null, &quot;
 				+ &quot;apellidos_paciente varchar(50) not null, tipoVacuna varchar(30), Region varchar(30) not null, constraint pr2 primary key (fecha))&quot;;
 
-		try {
-
-<span class="fc" id="L119">			stmt = conn.createStatement();</span>
-			
-<span class="fc" id="L121">			stmt.execute(&quot;drop table LoteVacunas&quot;);</span>
-<span class="fc" id="L122">			stmt.execute(&quot;drop table Entregas&quot;);</span>
-<span class="fc" id="L123">			stmt.execute(&quot;drop table Vacunacion&quot;);</span>
-
-<span class="fc" id="L125">			stmt.execute(createSQL);</span>
-<span class="fc" id="L126">			stmt.execute(createSQL2);</span>
-<span class="fc" id="L127">			stmt.execute(createSQL3);</span>
-			
-			
-
-
-<span class="fc" id="L132">			stmt.close();</span>
-
-<span class="fc" id="L134">			conn.commit();</span>
-
-<span class="nc" id="L136">		} catch (SQLException ex) {</span>
-<span class="nc" id="L137">			System.out.println(&quot;in connection&quot; + ex);</span>
-<span class="fc" id="L138">		}</span>
 
 		try {
-<span class="nc" id="L141">			DriverManager.getConnection(&quot;jdbc:derby:;shutdown=true&quot;);</span>
-<span class="fc" id="L142">		} catch (SQLException ex) {</span>
-<span class="pc bpc" id="L143" title="2 of 4 branches missed.">			if (((ex.getErrorCode() == 50000) &amp;&amp; (&quot;XJ015&quot;.equals(ex.getSQLState())))) {</span>
+
+<span class="fc" id="L120">			stmt = conn.createStatement();</span>
+			
+<span class="fc" id="L122">			stmt.execute(&quot;drop table LoteVacunas&quot;);</span>
+<span class="fc" id="L123">			stmt.execute(&quot;drop table Entregas&quot;);</span>
+<span class="fc" id="L124">			stmt.execute(&quot;drop table Vacunacion&quot;);</span>
+
+<span class="fc" id="L126">			stmt.execute(createSQL);</span>
+<span class="fc" id="L127">			stmt.execute(createSQL2);</span>
+<span class="fc" id="L128">			stmt.execute(createSQL3);</span>
+			
+			
+
+
+<span class="fc" id="L133">			stmt.close();</span>
+
+<span class="fc" id="L135">			conn.commit();</span>
+
+<span class="nc" id="L137">		} catch (SQLException ex) {</span>
+<span class="nc" id="L138">			System.out.println(&quot;in connection&quot; + ex);</span>
+<span class="fc" id="L139">		}</span>
+
+		try {
+<span class="nc" id="L142">			DriverManager.getConnection(&quot;jdbc:derby:;shutdown=true&quot;);</span>
+<span class="fc" id="L143">		} catch (SQLException ex) {</span>
+<span class="pc bpc" id="L144" title="2 of 4 branches missed.">			if (((ex.getErrorCode() == 50000) &amp;&amp; (&quot;XJ015&quot;.equals(ex.getSQLState())))) {</span>
 			} else {
-<span class="nc" id="L145">				System.err.println(&quot;Derby did not shut down normally&quot;);</span>
-<span class="nc" id="L146">				System.err.println(ex.getMessage());</span>
+<span class="nc" id="L146">				System.err.println(&quot;Derby did not shut down normally&quot;);</span>
+<span class="nc" id="L147">				System.err.println(ex.getMessage());</span>
 			}
-<span class="nc" id="L148">		}</span>
-<span class="fc" id="L149">	}</span>
+<span class="nc" id="L149">		}</span>
+<span class="fc" id="L150">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -37,8 +37,8 @@ SMF_SOFTWARE,presentacion,PantallaGestionSistemaRegionalSalud.new MouseAdapter()
 SMF_SOFTWARE,presentacion,PantallaGestionSistemaRegionalSalud.new ActionListener() {...},7,0,0,0,2,0,2,0,2,0
 SMF_SOFTWARE,persistencia,LoteVacunasDAO,0,48,2,4,0,9,2,3,0,2
 SMF_SOFTWARE,persistencia,AgenteBD,47,155,2,8,12,53,2,9,0,6
-SMF_SOFTWARE,persistencia,EntregaDAO,19,135,9,11,3,20,8,6,0,4
-SMF_SOFTWARE,persistencia,VacunacionDAO,258,223,18,14,39,36,13,9,2,4
+SMF_SOFTWARE,persistencia,EntregaDAO,19,123,9,11,3,19,8,6,0,4
+SMF_SOFTWARE,persistencia,VacunacionDAO,238,223,18,14,36,36,13,9,2,4
 SMF_SOFTWARE,dominio.entitymodel,Vacunacion,9,37,0,0,3,13,1,7,1,7
 SMF_SOFTWARE,dominio.entitymodel,TipoVacuna.Farmaceuticas,0,44,0,0,0,2,0,1,0,1
 SMF_SOFTWARE,dominio.entitymodel,RegionEnum,0,204,0,0,0,10,0,2,0,2

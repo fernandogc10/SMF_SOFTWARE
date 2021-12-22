@@ -23,7 +23,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf2138970761648579867.tmp"/>
+    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf17326120533012661688.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/fernando/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="jdk.debug" value="release"/>
@@ -40,7 +40,7 @@
     <property name="java.class.path" value="/Applications/Eclipse JEE.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.16.0.20200610-1735/jars/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="12"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B clean install site:site"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>

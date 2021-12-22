@@ -117,26 +117,23 @@ public class VacunacionDAO&lt;E&gt; extends AgenteBD {
 
 <span class="nc" id="L118">		num_dosis_recibidas = AgenteBD.getAgente().select(&quot;Select cantidad from LoteVacunas&quot;);</span>
 
-<span class="nc" id="L120">		System.out.println(&quot;TAMAÑO &quot; + num_dosis_recibidas.size());</span>
 
-<span class="nc" id="L122">		System.out.println(num_dosis_recibidas.get(0).toString());</span>
 
-<span class="nc bnc" id="L124" title="All 4 branches missed.">		if (num_vacunados == null || num_dosis_recibidas == null) {</span>
-<span class="nc" id="L125">			return null;</span>
+<span class="nc bnc" id="L122" title="All 4 branches missed.">		if (num_vacunados == null || num_dosis_recibidas == null) {</span>
+<span class="nc" id="L123">			return null;</span>
 		} else {
 
-<span class="nc bnc" id="L128" title="All 2 branches missed.">			for (int i = 0; i &lt; num_dosis_recibidas.size(); i++) {</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">			for (int i = 0; i &lt; num_dosis_recibidas.size(); i++) {</span>
 
-<span class="nc" id="L130">				suma += (int) num_dosis_recibidas.get(i);</span>
+<span class="nc" id="L128">				suma += (int) num_dosis_recibidas.get(i);</span>
 			}
 
-<span class="nc" id="L133">			System.out.println(suma);</span>
 
-<span class="nc" id="L135">			DecimalFormat df = new DecimalFormat(&quot;#.##&quot;);</span>
+<span class="nc" id="L132">			DecimalFormat df = new DecimalFormat(&quot;#.##&quot;);</span>
 
-<span class="nc" id="L137">			double total = (((int) num_vacunados.get(0)) / suma) * 100;</span>
+<span class="nc" id="L134">			double total = (((int) num_vacunados.get(0)) / suma) * 100;</span>
 
-<span class="nc" id="L139">			return (&quot;El porcentaje de Vacunados sobre dosis Recibidas es: &quot; + df.format(total) + &quot;%&quot;);</span>
+<span class="nc" id="L136">			return (&quot;El porcentaje de Vacunados sobre dosis Recibidas es: &quot; + df.format(total) + &quot;%&quot;);</span>
 
 		}
 
@@ -145,32 +142,33 @@ public class VacunacionDAO&lt;E&gt; extends AgenteBD {
 	public static String consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum region) throws SQLException, Exception {
 
 		
-<span class="nc bnc" id="L148" title="All 2 branches missed.">		if (region == null) throw new Exception (&quot;El parámetro region no puede ser null&quot;);</span>
-<span class="nc" id="L149">		Vector&lt;Object&gt; num_vacunados = new Vector&lt;&gt;();</span>
-<span class="nc" id="L150">		Vector&lt;Object&gt; num_dosis_recibidas = new Vector&lt;&gt;();</span>
-<span class="nc" id="L151">		int suma = 0;</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">		if (region == null) throw new Exception (&quot;El parámetro region no puede ser null&quot;);</span>
+<span class="nc" id="L146">		Vector&lt;Object&gt; num_vacunados = new Vector&lt;&gt;();</span>
+<span class="nc" id="L147">		Vector&lt;Object&gt; num_dosis_recibidas = new Vector&lt;&gt;();</span>
+<span class="nc" id="L148">		int suma = 0;</span>
 
-<span class="nc" id="L153">		num_vacunados = AgenteBD.getAgente()</span>
-<span class="nc" id="L154">				.select(&quot;Select dni_paciente from Vacunacion where Region= '&quot; + region.toString() + &quot;'&quot;);</span>
-<span class="nc" id="L155">		num_dosis_recibidas = AgenteBD.getAgente().select(&quot;Select cantidad from LoteVacunas&quot;);</span>
+<span class="nc" id="L150">		num_vacunados = AgenteBD.getAgente()</span>
+<span class="nc" id="L151">				.select(&quot;Select dni_paciente from Vacunacion where Region= '&quot; + region.toString() + &quot;'&quot;);</span>
+<span class="nc" id="L152">		num_dosis_recibidas = AgenteBD.getAgente().select(&quot;Select cantidad from LoteVacunas&quot;);</span>
 
-<span class="nc bnc" id="L157" title="All 4 branches missed.">		if (num_vacunados == null || num_dosis_recibidas == null) {</span>
-<span class="nc" id="L158">			return null;</span>
+<span class="nc bnc" id="L154" title="All 4 branches missed.">		if (num_vacunados == null || num_dosis_recibidas == null) {</span>
+<span class="nc" id="L155">			return null;</span>
 		} else {
 
-<span class="nc bnc" id="L161" title="All 2 branches missed.">			for (int i = 0; i &lt; num_dosis_recibidas.size(); i++) {</span>
+<span class="nc bnc" id="L158" title="All 2 branches missed.">			for (int i = 0; i &lt; num_dosis_recibidas.size(); i++) {</span>
 
-<span class="nc" id="L163">				suma += (int) num_dosis_recibidas.get(i);</span>
+<span class="nc" id="L160">				suma += (int) num_dosis_recibidas.get(i);</span>
 			}
 
-<span class="nc" id="L166">			DecimalFormat df = new DecimalFormat(&quot;#.##&quot;);</span>
+<span class="nc" id="L163">			DecimalFormat df = new DecimalFormat(&quot;#.##&quot;);</span>
 
-<span class="nc" id="L168">			double total = (((int) num_vacunados.get(0)) / suma) * 100;</span>
+<span class="nc" id="L165">			double total = (((int) num_vacunados.get(0)) / suma) * 100;</span>
 
-<span class="nc" id="L170">			return (&quot;El porcentaje de Vacunados sobre dosis Recibidas en &quot; + region.toString() + &quot; es: &quot;</span>
-<span class="nc" id="L171">					+ df.format(total) + &quot;%&quot;);</span>
+<span class="nc" id="L167">			return (&quot;El porcentaje de Vacunados sobre dosis Recibidas en &quot; + region.toString() + &quot; es: &quot;</span>
+<span class="nc" id="L168">					+ df.format(total) + &quot;%&quot;);</span>
 
 		}
+
 
 	}
 }

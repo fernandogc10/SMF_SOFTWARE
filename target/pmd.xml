@@ -1,33 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.38.0" timestamp="2021-12-22T03:02:40.477">
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.38.0" timestamp="2021-12-22T04:08:45.356">
+<file name="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/dominio/controller/GestorEstadisticas.java">
+<violation beginline="10" endline="10" begincolumn="1" endcolumn="38" rule="UnnecessaryImport" ruleset="Code Style" package="dominio.controller" class="GestorEstadisticas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+Duplicate import 'dominio.entitymodel.RegionEnum'
+</violation>
+</file>
 <file name="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/dominio/controller/GestorRepartoVacunas.java">
-<violation beginline="4" endline="4" begincolumn="1" endcolumn="28" rule="UnnecessaryImport" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+<violation beginline="8" endline="8" begincolumn="1" endcolumn="28" rule="UnnecessaryImport" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
 Unused import 'java.text.DateFormat'
 </violation>
-<violation beginline="5" endline="5" begincolumn="1" endcolumn="32" rule="UnnecessaryImport" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+<violation beginline="9" endline="9" begincolumn="1" endcolumn="32" rule="UnnecessaryImport" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
 Unused import 'java.text.ParseException'
 </violation>
-<violation beginline="6" endline="6" begincolumn="1" endcolumn="34" rule="UnnecessaryImport" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+<violation beginline="10" endline="10" begincolumn="1" endcolumn="34" rule="UnnecessaryImport" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
 Unused import 'java.text.SimpleDateFormat'
 </violation>
-<violation beginline="10" endline="10" begincolumn="1" endcolumn="24" rule="UnnecessaryImport" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+<violation beginline="14" endline="14" begincolumn="1" endcolumn="24" rule="UnnecessaryImport" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
 Unused import 'java.util.Vector'
 </violation>
-<violation beginline="14" endline="14" begincolumn="1" endcolumn="29" rule="UnnecessaryImport" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+<violation beginline="16" endline="16" begincolumn="1" endcolumn="42" rule="UnnecessaryImport" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+Duplicate import 'dominio.entitymodel.EntregaVacunas'
+</violation>
+<violation beginline="17" endline="17" begincolumn="1" endcolumn="39" rule="UnnecessaryImport" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+Duplicate import 'dominio.entitymodel.LoteVacunas'
+</violation>
+<violation beginline="18" endline="18" begincolumn="1" endcolumn="29" rule="UnnecessaryImport" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
 Unused import 'persistencia.AgenteBD'
 </violation>
-<violation beginline="20" endline="20" begincolumn="2" endcolumn="15" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+<violation beginline="24" endline="24" begincolumn="2" endcolumn="15" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="dominio.controller" class="GestorRepartoVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
 Unnecessary use of fully qualified name 'java.util.Date' due to existing import 'java.util.Date'
 </violation>
 </file>
 <file name="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/dominio/controller/GestorVacunacion.java">
-<violation beginline="29" endline="29" begincolumn="18" endcolumn="23" rule="UnusedLocalVariable" ruleset="Best Practices" package="dominio.controller" class="GestorVacunacion" method="altaEntregaVacunas" variable="vector" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="3">
+<violation beginline="30" endline="30" begincolumn="18" endcolumn="23" rule="UnusedLocalVariable" ruleset="Best Practices" package="dominio.controller" class="GestorVacunacion" method="altaEntregaVacunas" variable="vector" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="3">
 Avoid unused local variables such as 'vector'.
 </violation>
-<violation beginline="32" endline="32" begincolumn="3" endcolumn="16" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="dominio.controller" class="GestorVacunacion" method="altaEntregaVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+<violation beginline="33" endline="33" begincolumn="3" endcolumn="16" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="dominio.controller" class="GestorVacunacion" method="altaEntregaVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
 Unnecessary use of fully qualified name 'java.util.Date' due to existing import 'java.util.Date'
 </violation>
-<violation beginline="32" endline="32" begincolumn="29" endcolumn="42" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="dominio.controller" class="GestorVacunacion" method="altaEntregaVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+<violation beginline="33" endline="33" begincolumn="29" endcolumn="42" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="dominio.controller" class="GestorVacunacion" method="altaEntregaVacunas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
 Unnecessary use of fully qualified name 'java.util.Date' due to existing import 'java.util.Date'
 </violation>
 </file>
@@ -90,16 +101,16 @@ Unused import 'java.util.Collections'
 <violation beginline="8" endline="8" begincolumn="1" endcolumn="22" rule="UnnecessaryImport" ruleset="Code Style" package="persistencia" class="AgenteBD" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
 Unused import 'java.util.List'
 </violation>
-<violation beginline="143" endline="144" begincolumn="78" endcolumn="4" rule="EmptyIfStmt" ruleset="Error Prone" package="persistencia" class="AgenteBD" method="crearBaseDatosSinoExiste" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_errorprone.html#emptyifstmt" priority="3">
+<violation beginline="144" endline="145" begincolumn="78" endcolumn="4" rule="EmptyIfStmt" ruleset="Error Prone" package="persistencia" class="AgenteBD" method="crearBaseDatosSinoExiste" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_errorprone.html#emptyifstmt" priority="3">
 Avoid empty if statements
 </violation>
-<violation beginline="143" endline="143" begincolumn="9" endcolumn="74" rule="UselessParentheses" ruleset="Code Style" package="persistencia" class="AgenteBD" method="crearBaseDatosSinoExiste" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+<violation beginline="144" endline="144" begincolumn="9" endcolumn="74" rule="UselessParentheses" ruleset="Code Style" package="persistencia" class="AgenteBD" method="crearBaseDatosSinoExiste" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="143" endline="143" begincolumn="10" endcolumn="35" rule="UselessParentheses" ruleset="Code Style" package="persistencia" class="AgenteBD" method="crearBaseDatosSinoExiste" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+<violation beginline="144" endline="144" begincolumn="10" endcolumn="35" rule="UselessParentheses" ruleset="Code Style" package="persistencia" class="AgenteBD" method="crearBaseDatosSinoExiste" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="143" endline="143" begincolumn="42" endcolumn="73" rule="UselessParentheses" ruleset="Code Style" package="persistencia" class="AgenteBD" method="crearBaseDatosSinoExiste" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+<violation beginline="144" endline="144" begincolumn="42" endcolumn="73" rule="UselessParentheses" ruleset="Code Style" package="persistencia" class="AgenteBD" method="crearBaseDatosSinoExiste" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
 Useless parentheses.
 </violation>
 </file>
@@ -132,10 +143,10 @@ Useless parentheses.
 <violation beginline="92" endline="92" begincolumn="28" endcolumn="61" rule="UselessParentheses" ruleset="Code Style" package="persistencia" class="VacunacionDAO" method="seleccionarVacunaciones" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="139" endline="139" begincolumn="12" endcolumn="91" rule="UselessParentheses" ruleset="Code Style" package="persistencia" class="VacunacionDAO" method="consultarPorcentajeVacunadosSobreRecibidas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+<violation beginline="136" endline="136" begincolumn="12" endcolumn="91" rule="UselessParentheses" ruleset="Code Style" package="persistencia" class="VacunacionDAO" method="consultarPorcentajeVacunadosSobreRecibidas" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
 Useless parentheses.
 </violation>
-<violation beginline="170" endline="171" begincolumn="12" endcolumn="29" rule="UselessParentheses" ruleset="Code Style" package="persistencia" class="VacunacionDAO" method="consultarPorcentajeVacunadosSobreRecibidasEnRegion" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+<violation beginline="167" endline="168" begincolumn="12" endcolumn="29" rule="UselessParentheses" ruleset="Code Style" package="persistencia" class="VacunacionDAO" method="consultarPorcentajeVacunadosSobreRecibidasEnRegion" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
 Useless parentheses.
 </violation>
 </file>

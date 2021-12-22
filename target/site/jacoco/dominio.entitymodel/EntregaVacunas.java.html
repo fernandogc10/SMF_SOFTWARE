@@ -14,93 +14,94 @@ public class EntregaVacunas {
 	public LoteVacunas _lote;
 	public EntregaDAO _entregaDao;
 
-<span class="fc" id="L17">	public EntregaVacunas(Date fecha, int cantidad) throws SQLException{</span>
 
-<span class="fc" id="L19">		this._fecha = fecha;</span>
-<span class="fc" id="L20">		this._cantidad = cantidad;</span>
+<span class="fc" id="L18">	public EntregaVacunas(Date fecha, int cantidad) throws SQLException{</span>
 
-<span class="fc" id="L22">		_entregaDao = new EntregaDAO();</span>
-<span class="fc" id="L23">	}</span>
+<span class="fc" id="L20">		this._fecha = fecha;</span>
+<span class="fc" id="L21">		this._cantidad = cantidad;</span>
 
-<span class="fc" id="L25">	public EntregaVacunas(RegionEnum region) throws SQLException{</span>
+<span class="fc" id="L23">		_entregaDao = new EntregaDAO();</span>
+<span class="fc" id="L24">	}</span>
 
-<span class="fc" id="L27">		this._region = region;</span>
+<span class="fc" id="L26">	public EntregaVacunas(RegionEnum region) throws SQLException{</span>
 
-<span class="fc" id="L29">		_entregaDao = new EntregaDAO();</span>
-<span class="fc" id="L30">	}</span>
+<span class="fc" id="L28">		this._region = region;</span>
 
-<span class="nc" id="L32">	public EntregaVacunas() throws SQLException{</span>
+<span class="fc" id="L30">		_entregaDao = new EntregaDAO();</span>
+<span class="fc" id="L31">	}</span>
 
-<span class="nc" id="L34">		_entregaDao = new EntregaDAO();</span>
-<span class="nc" id="L35">	}</span>
+<span class="nc" id="L33">	public EntregaVacunas() throws SQLException{</span>
+
+<span class="nc" id="L35">		_entregaDao = new EntregaDAO();</span>
+<span class="nc" id="L36">	}</span>
 	
 
 	public Date get_fecha() {
-<span class="fc" id="L39">		return _fecha;</span>
+<span class="fc" id="L40">		return _fecha;</span>
 	}
 
 	public void set_fecha(Date _fecha) {
-<span class="nc" id="L43">		this._fecha = _fecha;</span>
-<span class="nc" id="L44">	}</span>
+<span class="nc" id="L44">		this._fecha = _fecha;</span>
+<span class="nc" id="L45">	}</span>
 
 	public int get_cantidad() {
-<span class="fc" id="L47">		return _cantidad;</span>
+<span class="fc" id="L48">		return _cantidad;</span>
 	}
 
 	public void set_cantidad(int _cantidad) {
-<span class="nc" id="L51">		this._cantidad = _cantidad;</span>
-<span class="nc" id="L52">	}</span>
+<span class="nc" id="L52">		this._cantidad = _cantidad;</span>
+<span class="nc" id="L53">	}</span>
 
 	public TipoVacuna get_tipo() {
-<span class="fc" id="L55">		return _tipo;</span>
+<span class="fc" id="L56">		return _tipo;</span>
 	}
 
 	public void set_tipo(TipoVacuna _tipo) {
-<span class="nc" id="L59">		this._tipo = _tipo;</span>
-<span class="nc" id="L60">	}</span>
+<span class="nc" id="L60">		this._tipo = _tipo;</span>
+<span class="nc" id="L61">	}</span>
 
 	public RegionEnum get_region() {
-<span class="fc" id="L63">		return _region;</span>
+<span class="fc" id="L64">		return _region;</span>
 	}
 
 	public void set_region(RegionEnum _region) {
-<span class="nc" id="L67">		this._region = _region;</span>
-<span class="nc" id="L68">	}</span>
+<span class="nc" id="L68">		this._region = _region;</span>
+<span class="nc" id="L69">	}</span>
 
 	public GrupoPrioridad get_grupoPrioridad() {
-<span class="fc" id="L71">		return _grupoPrioridad;</span>
+<span class="fc" id="L72">		return _grupoPrioridad;</span>
 	}
 
 	public void set_grupoPrioridad(GrupoPrioridad _grupoPrioridad) {
-<span class="fc" id="L75">		this._grupoPrioridad = _grupoPrioridad;</span>
-<span class="fc" id="L76">	}</span>
+<span class="fc" id="L76">		this._grupoPrioridad = _grupoPrioridad;</span>
+<span class="fc" id="L77">	}</span>
 
 	public LoteVacunas get_lote() {
-<span class="fc" id="L79">		return _lote;</span>
+<span class="fc" id="L80">		return _lote;</span>
 	}
 
 	public void set_lote(LoteVacunas _lote) {
-<span class="nc" id="L83">		this._lote = _lote;</span>
-<span class="nc" id="L84">	}</span>
+<span class="nc" id="L84">		this._lote = _lote;</span>
+<span class="nc" id="L85">	}</span>
 
 	public void setRegion(String region) {
 		
 
-<span class="fc" id="L89">		this._region = RegionEnum.valueOf(region.toUpperCase());</span>
-<span class="fc" id="L90">	}</span>
+<span class="fc" id="L90">		this._region = RegionEnum.valueOf(region.toUpperCase());</span>
+<span class="fc" id="L91">	}</span>
 
 
 
 	public void setLoteVacunas(LoteVacunas lote) {
 
-<span class="fc" id="L96">		this._lote = lote;</span>
+<span class="fc" id="L97">		this._lote = lote;</span>
 
-<span class="fc" id="L98">	}</span>
+<span class="fc" id="L99">	}</span>
 
 	public void setTipoVacuna(TipoVacuna tipo) {
 
-<span class="fc" id="L102">		this._tipo = tipo;</span>
-<span class="fc" id="L103">	}</span>
+<span class="fc" id="L103">		this._tipo = tipo;</span>
+<span class="fc" id="L104">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -21,7 +21,7 @@ public class EntregaDAO&lt;E&gt; extends AgenteBD {
 
 	public static void insertarEntrega(EntregaVacunas nuevaEntrega) throws SQLException,Exception{
 		
-<span class="fc" id="L24">		System.out.println(&quot;IDDDDD &quot; +nuevaEntrega.get_lote().get_id());</span>
+		
 		
 <span class="pc bpc" id="L26" title="2 of 6 branches missed.">		if(nuevaEntrega.get_fecha() == null || nuevaEntrega.get_cantidad() &lt;=0 || nuevaEntrega.get_region() == null</span>
 <span class="pc bpc" id="L27" title="3 of 6 branches missed.">				|| nuevaEntrega.get_tipo() == null || nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() &lt; 0 || nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() &gt; 2)</span>
@@ -61,7 +61,8 @@ public class EntregaDAO&lt;E&gt; extends AgenteBD {
 			}
 
 		}
-<span class="fc" id="L64">		return listaEntregaVacunas;</span>
+
+<span class="fc" id="L65">		return listaEntregaVacunas;</span>
 
 	}
 }
