@@ -117,9 +117,7 @@ public class VacunacionDAO<E> extends AgenteBD {
 
 		num_dosis_recibidas = AgenteBD.getAgente().select("Select cantidad from LoteVacunas");
 
-		System.out.println("TAMAÑO " + num_dosis_recibidas.size());
 
-		System.out.println(num_dosis_recibidas.get(0).toString());
 
 		if (num_vacunados == null || num_dosis_recibidas == null) {
 			return null;
@@ -130,7 +128,6 @@ public class VacunacionDAO<E> extends AgenteBD {
 				suma += (int) num_dosis_recibidas.get(i);
 			}
 
-			System.out.println(suma);
 
 			DecimalFormat df = new DecimalFormat("#.##");
 

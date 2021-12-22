@@ -21,7 +21,7 @@ public class EntregaDAO<E> extends AgenteBD {
 
 	public static void insertarEntrega(EntregaVacunas nuevaEntrega) throws SQLException,Exception{
 		
-		System.out.println("IDDDDD " +nuevaEntrega.get_lote().get_id());
+		
 		
 		if(nuevaEntrega.get_fecha() == null || nuevaEntrega.get_cantidad() <=0 || nuevaEntrega.get_region() == null
 				|| nuevaEntrega.get_tipo() == null || nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() < 0 || nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() > 2)
