@@ -2,7 +2,7 @@ package dominio.entitymodel;
 
 import java.util.Vector;
 import dominio.entitymodel.Vacunacion;
-//
+
 public class TipoVacuna {
 	private String _nombre;
 	private String _farmaceutica;
