@@ -10,6 +10,7 @@ public class Vacunacion {
 	private boolean _isSegundaDosis;
 	public TipoVacuna _vacuna;
 	public Paciente _paciente;
+<<<<<<< HEAD
 	public VacunacionDAO _vacunacionDao;
 
 	public Vacunacion(Date _fecha, Boolean isSegundaDosis) throws ClassNotFoundException, SQLException {
@@ -31,6 +32,35 @@ public class Vacunacion {
 
 	public Paciente get_paciente() {
 		return _paciente;
+=======
+	public static VacunacionDAO _vacunacionDao;
+
+	public Vacunacion(Date _fecha, Boolean isSegundaDosis) throws SQLException {
+
+		this._fecha = _fecha;
+		this._isSegundaDosis = isSegundaDosis;
+		this._vacunacionDao = new VacunacionDAO();
+
+	}
+	
+	public Vacunacion() throws SQLException{
+
+		this._vacunacionDao = new VacunacionDAO();
+
+	}
+
+	public Date get_fechaVacunacion() {
+
+		return _fecha;
+	}
+
+	public Boolean get_isSegundaDosis() {
+		return _isSegundaDosis;
+	}
+
+	public Paciente get_paciente() {
+		return this._paciente;
+>>>>>>> refs/remotes/origin/development
 	}
 
 	public void set_Paciente(Paciente nuevoPaciente) {

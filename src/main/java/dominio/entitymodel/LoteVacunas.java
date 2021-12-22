@@ -23,6 +23,7 @@ public class LoteVacunas {
 	public Vector<EntregaVacunas> _entregas = new Vector<EntregaVacunas>();
 	static Vector<LoteVacunas> listalotes = new Vector<>();
 
+<<<<<<< HEAD
 	
 
 	public LoteVacunas(Date _fecha, String tipo, int _cantidad) throws ClassNotFoundException, SQLException {
@@ -64,6 +65,43 @@ public class LoteVacunas {
 
 	public static void addLote(LoteVacunas lote) {
 		listalotes.add(lote);
+=======
+	public LoteVacunas(String id, Date _fecha, String tipo, int _cantidad) throws SQLException{
+		this._fecha = _fecha;
+
+		this._cantidad = _cantidad;
+		Random r = new Random();
+		num = r.nextInt(4);
+
+		this._farmaceutica = TipoVacuna.Farmaceuticas.values()[num].toString();
+
+		if (id == null) {
+
+			this._id = "lote_" + String.valueOf(cont);
+		} else {
+			this._id = id;
+		}
+
+		_tipo = new TipoVacuna(tipo, this._farmaceutica, _fecha.toString());
+
+		_loteVacunasDao = new LoteVacunasDAO();
+
+	}
+
+
+	public static int calculoLotes() {
+
+		return listalotes.size();
+
+	}
+
+	public int get_Count() {
+		return this.cont;
+	}
+
+	public static Vector<LoteVacunas> get_ListaLoteVacunas() {
+		return listalotes;
+>>>>>>> refs/remotes/origin/development
 	}
 
 	public String get_id() {

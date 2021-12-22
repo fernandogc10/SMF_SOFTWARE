@@ -18,7 +18,28 @@ public class Paciente {
 	}
 
 	public String get_dni() {
+<<<<<<< HEAD
 
 		return _dni;
+=======
+		
+		return _dni;
+	}
+
+	public void set_Region(RegionEnum region) {
+		this._region = region;
+	}
+
+	public RegionEnum get_Region() {
+		return this._region;
+	}
+
+	public String get_Nombre() {
+		return _nombre;
+	}
+
+	public String get_Apellidos() {
+		return _apellidos;
+>>>>>>> refs/remotes/origin/development
 	}
 }

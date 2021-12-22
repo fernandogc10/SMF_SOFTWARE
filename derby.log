@@ -1,4 +1,5 @@
 ----------------------------------------------------------------
+<<<<<<< HEAD
 Thu Dec 16 11:13:18 CET 2021:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-017d-c2bb-591f-0000074572d8 
 on database directory /Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/iso2_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@799f7e29 
@@ -16,4 +17,23 @@ Thu Dec 16 11:13:18 CET 2021: Shutting down Derby engine
 ----------------------------------------------------------------
 Thu Dec 16 11:13:18 CET 2021:
 Shutting down instance a816c00e-017d-c2bb-591f-0000074572d8 on database directory /Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/iso2_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@799f7e29 
+=======
+Wed Dec 22 03:02:17 CET 2021:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-017d-dfdf-f8a2-00000245ceb8 
+on database directory /Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/iso2_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@368239c8 
+Loaded from file:/Users/fernando/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=AdoptOpenJDK
+java.runtime.version=12.0.2+10
+user.dir=/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.16
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Wed Dec 22 03:02:17 CET 2021: Shutting down Derby engine
+----------------------------------------------------------------
+Wed Dec 22 03:02:17 CET 2021:
+Shutting down instance a816c00e-017d-dfdf-f8a2-00000245ceb8 on database directory /Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/iso2_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@368239c8 
+>>>>>>> refs/remotes/origin/development
 ----------------------------------------------------------------

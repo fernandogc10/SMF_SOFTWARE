@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EntregaDAO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SMF_SOFTWARE</a> &gt; <a href="index.source.html" class="el_package">persistencia</a> &gt; <span class="el_source">EntregaDAO.java</span></div><h1>EntregaDAO.java</h1><pre class="source lang-java linenums">package persistencia;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+import dominio.entitymodel.RegionEnum;
+
+import dominio.entitymodel.EntregaVacunas;
+import dominio.entitymodel.LoteVacunas;
+
+public class EntregaDAO&lt;E&gt; extends AgenteBD {
+
+<span class="fc" id="L15">	static List&lt;EntregaVacunas&gt; listaEntregaVacunas = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L17">	public EntregaDAO() throws SQLException{</span>
+		
+
+<span class="fc" id="L20">	}</span>
+
+	public static void insertarEntrega(EntregaVacunas nuevaEntrega) throws SQLException,Exception{
+		
+<span class="fc" id="L24">		System.out.println(&quot;IDDDDD &quot; +nuevaEntrega.get_lote().get_id());</span>
+		
+<span class="pc bpc" id="L26" title="2 of 6 branches missed.">		if(nuevaEntrega.get_fecha() == null || nuevaEntrega.get_cantidad() &lt;=0 || nuevaEntrega.get_region() == null</span>
+<span class="pc bpc" id="L27" title="3 of 6 branches missed.">				|| nuevaEntrega.get_tipo() == null || nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() &lt; 0 || nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() &gt; 2)</span>
+<span class="fc" id="L28">			throw new Exception (&quot;No se permiten parámetros nulos, negativos o la prioridad fuera de su rango (0&lt;prioridad&lt;2&quot;);</span>
+
+<span class="fc" id="L30">		AgenteBD.getAgente().insert((&quot;Insert into Entregas (fecha, cantidad, loteVacunas, region, tipoVacuna, GrupoPrioridad) values&quot;</span>
+<span class="fc" id="L31">				+ &quot; ('&quot; + nuevaEntrega.get_fecha().toString() + &quot;',&quot; + nuevaEntrega.get_cantidad() + &quot;,'&quot;</span>
+<span class="fc" id="L32">				+ nuevaEntrega.get_lote().get_id() + &quot;', '&quot; + nuevaEntrega.get_region().toString() + &quot;','&quot; + nuevaEntrega.get_tipo().get_Nombre() + &quot;',&quot;</span>
+<span class="fc" id="L33">				+ nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() + &quot;)&quot;));</span>
+
+<span class="fc" id="L35">	}</span>
+
+	public static List&lt;EntregaVacunas&gt; seleccionarEntregas() throws SQLException{
+
+<span class="fc" id="L39">		Vector&lt;Object&gt; vector = new Vector&lt;&gt;();</span>
+
+		EntregaVacunas entrega;
+
+<span class="fc" id="L43">		vector = AgenteBD.getAgente().select(&quot;Select region from Entregas&quot;);</span>
+
+<span class="fc bfc" id="L45" title="All 2 branches covered.">		for (RegionEnum region : RegionEnum.values()) {</span>
+
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">			for (int i = 0; i &lt; vector.size(); i++) {</span>
+
+<span class="nc bnc" id="L49" title="All 2 branches missed.">				if (!region.toString().equalsIgnoreCase(vector.elementAt(i).toString())) {</span>
+
+<span class="nc" id="L51">					entrega = new EntregaVacunas(region);</span>
+
+<span class="nc" id="L53">					listaEntregaVacunas.add(entrega);</span>
+				}
+			}
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">			if (vector.isEmpty()) {</span>
+
+<span class="fc" id="L58">				entrega = new EntregaVacunas(region);</span>
+
+<span class="fc" id="L60">				listaEntregaVacunas.add(entrega);</span>
+			}
+
+		}
+<span class="fc" id="L64">		return listaEntregaVacunas;</span>
+
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

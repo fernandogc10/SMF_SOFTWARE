@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PantallaPrincipal.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SMF_SOFTWARE</a> &gt; <a href="index.source.html" class="el_package">presentacion</a> &gt; <span class="el_source">PantallaPrincipal.java</span></div><h1>PantallaPrincipal.java</h1><pre class="source lang-java linenums">package presentacion;
+
+
+import java.io.*;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import persistencia.AgenteBD;
+
+import java.awt.Toolkit;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+
+public class PantallaPrincipal extends JFrame {
+
+	private JPanel contentPane;
+////
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+<span class="nc" id="L35">		EventQueue.invokeLater(new Runnable() {</span>
+			public void run() {
+				try {
+<span class="nc" id="L38">					PantallaPrincipal frame = new PantallaPrincipal();</span>
+<span class="nc" id="L39">					AgenteBD.getAgente();</span>
+<span class="nc" id="L40">					frame.setVisible(true);</span>
+<span class="nc" id="L41">				} catch (Exception e) {</span>
+<span class="nc" id="L42">					e.printStackTrace();</span>
+<span class="nc" id="L43">				}</span>
+<span class="nc" id="L44">			}</span>
+		});
+<span class="nc" id="L46">	}</span>
+
+	/**
+	 * Create the frame.
+	 */
+<span class="nc" id="L51">	public PantallaPrincipal() {</span>
+		
+<span class="nc" id="L53">		setBackground(Color.GRAY);</span>
+<span class="nc" id="L54">		setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;.\\src\\main\\resources\\LogoAPP.png&quot;));</span>
+<span class="nc" id="L55">		setTitle(&quot;SMF_SOFTWARE&quot;);</span>
+<span class="nc" id="L56">		setResizable(false);</span>
+<span class="nc" id="L57">		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L58">		setBounds(100, 100, 800, 453);</span>
+<span class="nc" id="L59">		contentPane = new JPanel();</span>
+<span class="nc" id="L60">		contentPane.setBackground(new Color(240, 255, 255));</span>
+<span class="nc" id="L61">		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="nc" id="L62">		setContentPane(contentPane);</span>
+<span class="nc" id="L63">		contentPane.setLayout(null);</span>
+		
+<span class="nc" id="L65">		JButton btnConEst = new JButton(&quot;Consultar estadísticas&quot;);</span>
+<span class="nc" id="L66">		btnConEst.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L69">				PantallaConsultaEstadisticas estadisticas = new PantallaConsultaEstadisticas();</span>
+<span class="nc" id="L70">				estadisticas.setVisible(true);</span>
+<span class="nc" id="L71">				dispose();</span>
+<span class="nc" id="L72">			}</span>
+
+		});
+<span class="nc" id="L75">		btnConEst.setForeground(Color.WHITE);</span>
+<span class="nc" id="L76">		btnConEst.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 18));</span>
+<span class="nc" id="L77">		btnConEst.setBackground(new Color(19,98,143));</span>
+		
+<span class="nc" id="L79">		btnConEst.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L81">			}</span>
+		});
+		
+<span class="nc" id="L84">		btnConEst.setBounds(266, 155, 266, 41);</span>
+<span class="nc" id="L85">		contentPane.add(btnConEst);</span>
+		
+<span class="nc" id="L87">		JButton btnSRS = new JButton(&quot;Sistema Regional de Salud&quot;);</span>
+<span class="nc" id="L88">		btnSRS.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L91">				PantallaGestionSistemaRegionalSalud regional = new PantallaGestionSistemaRegionalSalud();</span>
+<span class="nc" id="L92">				regional.setVisible(true);</span>
+<span class="nc" id="L93">				dispose();</span>
+<span class="nc" id="L94">			}</span>
+		});
+<span class="nc" id="L96">		btnSRS.setForeground(Color.WHITE);</span>
+<span class="nc" id="L97">		btnSRS.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent e) {
+<span class="nc" id="L99">			}</span>
+		});
+<span class="nc" id="L101">		btnSRS.setBackground(new Color(19,98,143));</span>
+<span class="nc" id="L102">		btnSRS.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 18));</span>
+<span class="nc" id="L103">		btnSRS.setBounds(266, 259, 266, 41);</span>
+<span class="nc" id="L104">		contentPane.add(btnSRS);</span>
+		
+<span class="nc" id="L106">		JButton btnSNS = new JButton(&quot;Sistema Nacional de Salud&quot;);</span>
+<span class="nc" id="L107">		btnSNS.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L110">				PantallaGestionSistemaSaludNacional nacional = new PantallaGestionSistemaSaludNacional();</span>
+<span class="nc" id="L111">				nacional.setVisible(true);</span>
+<span class="nc" id="L112">				dispose();</span>
+<span class="nc" id="L113">			}</span>
+		});
+<span class="nc" id="L115">		btnSNS.setForeground(Color.WHITE);</span>
+<span class="nc" id="L116">		btnSNS.setBackground(new Color(19,98,143));</span>
+<span class="nc" id="L117">		btnSNS.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 18));</span>
+<span class="nc" id="L118">		btnSNS.setBounds(266, 207, 266, 41);</span>
+<span class="nc" id="L119">		contentPane.add(btnSNS);</span>
+		
+<span class="nc" id="L121">		JLabel lblLogoEmpresa = new JLabel(&quot;SMF SOFTWARE © &quot;);</span>
+<span class="nc" id="L122">		lblLogoEmpresa.setFont(new Font(&quot;Roboto Medium&quot;, Font.PLAIN, 11));</span>
+<span class="nc" id="L123">		lblLogoEmpresa.setBounds(350, 389, 99, 14);</span>
+<span class="nc" id="L124">		contentPane.add(lblLogoEmpresa);</span>
+		
+<span class="nc" id="L126">		JLabel lbl_Img_Izq = new JLabel(&quot;&quot;);</span>
+<span class="nc" id="L127">		lbl_Img_Izq.setIcon(new ImageIcon(&quot;.\\src\\main\\resources\\sani_1.png&quot;));</span>
+<span class="nc" id="L128">		lbl_Img_Izq.setBounds(63, 134, 165, 311);</span>
+<span class="nc" id="L129">		contentPane.add(lbl_Img_Izq);</span>
+		
+<span class="nc" id="L131">		JLabel lblTitulo = new JLabel(&quot;VACUNACIÓN COVID&quot;);</span>
+<span class="nc" id="L132">		lblTitulo.setForeground(new Color(19, 98, 143));</span>
+<span class="nc" id="L133">		lblTitulo.setBackground(new Color(0, 0, 0));</span>
+<span class="nc" id="L134">		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L135">		lblTitulo.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 26));</span>
+<span class="nc" id="L136">		lblTitulo.setBounds(271, 53, 261, 53);</span>
+<span class="nc" id="L137">		contentPane.add(lblTitulo);</span>
+		
+<span class="nc" id="L139">		JLabel lblLogoAbajo = new JLabel(&quot;&quot;);</span>
+<span class="nc" id="L140">		lblLogoAbajo.setIcon(new ImageIcon(&quot;.\\src\\main\\resources\\LOGO_SMF.png&quot;));</span>
+<span class="nc" id="L141">		lblLogoAbajo.setBounds(360, 348, 64, 41);</span>
+<span class="nc" id="L142">		contentPane.add(lblLogoAbajo);</span>
+		
+<span class="nc" id="L144">		JLabel lbl_Img_Der = new JLabel(&quot;&quot;);</span>
+<span class="nc" id="L145">		lbl_Img_Der.setIcon(new ImageIcon(&quot;.\\src\\main\\resources\\sani_2.png&quot;));</span>
+<span class="nc" id="L146">		lbl_Img_Der.setBounds(578, 86, 271, 365);</span>
+<span class="nc" id="L147">		contentPane.add(lbl_Img_Der);</span>
+<span class="nc" id="L148">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

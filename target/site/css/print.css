@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,6 +18,8 @@
  * under the License.
  */
 
+=======
+>>>>>>> refs/remotes/origin/development
 #banner, #footer, #leftcol, #breadcrumbs, .docs #toc, .docs .courtesylinks, #leftColumn, #navColumn {
 	display: none !important;
 }

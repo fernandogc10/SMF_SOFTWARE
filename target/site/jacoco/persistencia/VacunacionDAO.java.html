@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VacunacionDAO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SMF_SOFTWARE</a> &gt; <a href="index.source.html" class="el_package">persistencia</a> &gt; <span class="el_source">VacunacionDAO.java</span></div><h1>VacunacionDAO.java</h1><pre class="source lang-java linenums">package persistencia;
+
+import dominio.entitymodel.Vacunacion;
+
+import java.sql.Date;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+import dominio.controller.GestorRepartoVacunas;
+import dominio.entitymodel.EntregaVacunas;
+import dominio.entitymodel.Paciente;
+import dominio.entitymodel.RegionEnum;
+import dominio.entitymodel.TipoVacuna;
+
+public class VacunacionDAO&lt;E&gt; extends AgenteBD {
+
+	static List&lt;Vacunacion&gt; listaVacunados;
+
+	public VacunacionDAO() throws SQLException {
+<span class="fc" id="L23">		super();</span>
+<span class="fc" id="L24">		this.listaVacunados = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L26">	}</span>
+
+	public static void insertarVacunacion(Vacunacion nuevaVacunacion) throws SQLException, Exception {
+
+<span class="fc bfc" id="L30" title="All 4 branches covered.">		if (nuevaVacunacion.get_fechaVacunacion() == null || nuevaVacunacion.get_paciente().get_dni() == null</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">				|| nuevaVacunacion.get_paciente().get_Nombre() == null</span>
+<span class="pc bpc" id="L32" title="1 of 4 branches missed.">				|| nuevaVacunacion.get_paciente().get_Apellidos() == null || nuevaVacunacion.get_tipoVacuna().get_Nombre() == null</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">				|| nuevaVacunacion.get_paciente().get_Region() == null)</span>
+<span class="fc" id="L34">			throw new Exception(&quot;No se permiten valores nulos de parámetros&quot;);</span>
+
+<span class="fc" id="L36">		AgenteBD.getAgente().insert(</span>
+				&quot;Insert into Vacunacion (fecha, Dosis, dni_paciente, nombre_paciente, apellidos_paciente, tipoVacuna, Region) values&quot;
+<span class="fc" id="L38">						+ &quot;('&quot; + nuevaVacunacion.get_fechaVacunacion().toString() + &quot;','&quot; + &quot;&quot;</span>
+<span class="fc" id="L39">						+ nuevaVacunacion.get_isSegundaDosis().toString() + &quot;','&quot;</span>
+<span class="fc" id="L40">						+ nuevaVacunacion.get_paciente().get_dni() + &quot;','&quot; + nuevaVacunacion.get_paciente().get_Nombre()</span>
+<span class="fc" id="L41">						+ &quot;','&quot; + nuevaVacunacion.get_paciente().get_Apellidos() + &quot;','&quot;</span>
+<span class="fc" id="L42">						+ nuevaVacunacion.get_tipoVacuna().get_Nombre() + &quot;','&quot;</span>
+<span class="fc" id="L43">						+ nuevaVacunacion.get_paciente().get_Region().toString() + &quot;')&quot;);</span>
+
+<span class="fc" id="L45">		Vector&lt;Object&gt; vector = new Vector&lt;&gt;();</span>
+<span class="fc" id="L46">		vector = AgenteBD.getAgente().select(&quot;Select * from Vacunacion&quot;);</span>
+
+<span class="fc" id="L48">	}</span>
+
+	public static List&lt;Vacunacion&gt; seleccionarVacunaciones() throws SQLException {
+
+<span class="fc" id="L52">		Vector&lt;Object&gt; vector = new Vector&lt;&gt;();</span>
+		Vacunacion vacunacion;
+		Paciente paciente;
+		TipoVacuna tipoVacuna;
+
+<span class="fc" id="L57">		vector = AgenteBD.getAgente().select(&quot;Select * from Vacunacion&quot;);</span>
+
+<span class="fc bfc" id="L59" title="All 2 branches covered.">		for (int i = 0; i &lt; vector.size(); i += 7) {</span>
+
+<span class="fc" id="L61">			vacunacion = new Vacunacion((Date) vector.elementAt(i + 0),</span>
+<span class="fc" id="L62">					Boolean.parseBoolean((vector.elementAt(i + 1).toString())));</span>
+<span class="fc" id="L63">			paciente = new Paciente(vector.elementAt(i + 2).toString(), vector.elementAt(i + 3).toString(),</span>
+<span class="fc" id="L64">					vector.elementAt(i + 4).toString());</span>
+<span class="fc" id="L65">			tipoVacuna = new TipoVacuna(vector.elementAt(i + 5).toString(), null, null);</span>
+
+<span class="fc" id="L67">			vacunacion.set_Paciente(paciente);</span>
+<span class="fc" id="L68">			vacunacion.get_paciente().set_Region(RegionEnum.valueOf(vector.elementAt(i + 6).toString()));</span>
+<span class="fc" id="L69">			vacunacion.set_TipoVacuna(tipoVacuna);</span>
+
+<span class="fc" id="L71">			listaVacunados.add(vacunacion);</span>
+
+		}
+<span class="fc" id="L74">		return listaVacunados;</span>
+	}
+
+	public static List&lt;Vacunacion&gt; seleccionarVacunaciones(RegionEnum aRegion) throws SQLException, Exception {
+
+		
+<span class="fc bfc" id="L80" title="All 2 branches covered.">		if (aRegion == null) throw new Exception (&quot;El parámetro aRegion no puede ser null&quot;);</span>
+		
+<span class="fc" id="L82">		Vector&lt;Object&gt; vector = new Vector&lt;&gt;();</span>
+		Vacunacion vacunacion;
+		Paciente paciente;
+		TipoVacuna tipoVacuna;
+
+<span class="fc" id="L87">		vector = AgenteBD.getAgente().select(&quot;Select * from Vacunacion where Region= '&quot; + aRegion.toString() + &quot;'&quot;);</span>
+
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">		for (int i = 0; i &lt; vector.size(); i += 7) {</span>
+
+<span class="nc" id="L91">			vacunacion = new Vacunacion((Date) vector.elementAt(i + 0),</span>
+<span class="nc" id="L92">					Boolean.parseBoolean((vector.elementAt(i + 1).toString())));</span>
+<span class="nc" id="L93">			paciente = new Paciente(vector.elementAt(i + 2).toString(), vector.elementAt(i + 3).toString(),</span>
+<span class="nc" id="L94">					vector.elementAt(i + 4).toString());</span>
+<span class="nc" id="L95">			tipoVacuna = new TipoVacuna(vector.elementAt(i + 5).toString(), null, null);</span>
+
+<span class="nc" id="L97">			vacunacion.set_Paciente(paciente);</span>
+
+<span class="nc" id="L99">			vacunacion.get_paciente().set_Region(RegionEnum.valueOf(vector.elementAt(i + 6).toString()));</span>
+<span class="nc" id="L100">			vacunacion.set_TipoVacuna(tipoVacuna);</span>
+
+<span class="nc" id="L102">			listaVacunados.add(vacunacion);</span>
+
+		}
+
+<span class="fc" id="L106">		return listaVacunados;</span>
+
+	}
+
+	public static String consultarPorcentajeVacunadosSobreRecibidas() throws SQLException {
+
+<span class="nc" id="L112">		Vector&lt;Object&gt; num_vacunados = new Vector&lt;&gt;();</span>
+<span class="nc" id="L113">		Vector&lt;Object&gt; num_dosis_recibidas = new Vector&lt;&gt;();</span>
+<span class="nc" id="L114">		int suma = 0;</span>
+
+<span class="nc" id="L116">		num_vacunados = AgenteBD.getAgente().select(&quot;Select dni_paciente from Vacunacion&quot;);</span>
+
+<span class="nc" id="L118">		num_dosis_recibidas = AgenteBD.getAgente().select(&quot;Select cantidad from LoteVacunas&quot;);</span>
+
+<span class="nc" id="L120">		System.out.println(&quot;TAMAÑO &quot; + num_dosis_recibidas.size());</span>
+
+<span class="nc" id="L122">		System.out.println(num_dosis_recibidas.get(0).toString());</span>
+
+<span class="nc bnc" id="L124" title="All 4 branches missed.">		if (num_vacunados == null || num_dosis_recibidas == null) {</span>
+<span class="nc" id="L125">			return null;</span>
+		} else {
+
+<span class="nc bnc" id="L128" title="All 2 branches missed.">			for (int i = 0; i &lt; num_dosis_recibidas.size(); i++) {</span>
+
+<span class="nc" id="L130">				suma += (int) num_dosis_recibidas.get(i);</span>
+			}
+
+<span class="nc" id="L133">			System.out.println(suma);</span>
+
+<span class="nc" id="L135">			DecimalFormat df = new DecimalFormat(&quot;#.##&quot;);</span>
+
+<span class="nc" id="L137">			double total = (((int) num_vacunados.get(0)) / suma) * 100;</span>
+
+<span class="nc" id="L139">			return (&quot;El porcentaje de Vacunados sobre dosis Recibidas es: &quot; + df.format(total) + &quot;%&quot;);</span>
+
+		}
+
+	}
+
+	public static String consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum region) throws SQLException, Exception {
+
+		
+<span class="nc bnc" id="L148" title="All 2 branches missed.">		if (region == null) throw new Exception (&quot;El parámetro region no puede ser null&quot;);</span>
+<span class="nc" id="L149">		Vector&lt;Object&gt; num_vacunados = new Vector&lt;&gt;();</span>
+<span class="nc" id="L150">		Vector&lt;Object&gt; num_dosis_recibidas = new Vector&lt;&gt;();</span>
+<span class="nc" id="L151">		int suma = 0;</span>
+
+<span class="nc" id="L153">		num_vacunados = AgenteBD.getAgente()</span>
+<span class="nc" id="L154">				.select(&quot;Select dni_paciente from Vacunacion where Region= '&quot; + region.toString() + &quot;'&quot;);</span>
+<span class="nc" id="L155">		num_dosis_recibidas = AgenteBD.getAgente().select(&quot;Select cantidad from LoteVacunas&quot;);</span>
+
+<span class="nc bnc" id="L157" title="All 4 branches missed.">		if (num_vacunados == null || num_dosis_recibidas == null) {</span>
+<span class="nc" id="L158">			return null;</span>
+		} else {
+
+<span class="nc bnc" id="L161" title="All 2 branches missed.">			for (int i = 0; i &lt; num_dosis_recibidas.size(); i++) {</span>
+
+<span class="nc" id="L163">				suma += (int) num_dosis_recibidas.get(i);</span>
+			}
+
+<span class="nc" id="L166">			DecimalFormat df = new DecimalFormat(&quot;#.##&quot;);</span>
+
+<span class="nc" id="L168">			double total = (((int) num_vacunados.get(0)) / suma) * 100;</span>
+
+<span class="nc" id="L170">			return (&quot;El porcentaje de Vacunados sobre dosis Recibidas en &quot; + region.toString() + &quot; es: &quot;</span>
+<span class="nc" id="L171">					+ df.format(total) + &quot;%&quot;);</span>
+
+		}
+
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

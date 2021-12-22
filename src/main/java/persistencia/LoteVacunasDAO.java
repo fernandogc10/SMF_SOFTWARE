@@ -7,6 +7,7 @@ import dominio.entitymodel.LoteVacunas;
 
 public class LoteVacunasDAO<E> extends AgenteBD {
 
+<<<<<<< HEAD
 	public LoteVacunasDAO() throws SQLException, ClassNotFoundException {
 		super();
 
@@ -14,6 +15,18 @@ public class LoteVacunasDAO<E> extends AgenteBD {
 	//
 
 	public static void insertarLoteVacunas(LoteVacunas aLote) throws SQLException, Exception {
+=======
+	public LoteVacunasDAO() throws SQLException{
+		super();
+
+	}
+
+
+	public static void insertarLoteVacunas(LoteVacunas aLote) throws SQLException, Exception{
+		
+		if (aLote.get_id() == null || aLote.get_fecha() == null || aLote.get_cantidad() <= 0)
+			throw new Exception ("No se permiten valores nulos, negativos o cantidades de 0");
+>>>>>>> refs/remotes/origin/development
 
 		String consulta = "INSERT INTO lotevacunas (id, fecha, cantidad, farmaceutica) VALUES (" + "'" + aLote.get_id()
 				+ "'" + "," + "'" + aLote.get_fecha() + "'" + "," + +aLote.get_cantidad() + "," + "'"
