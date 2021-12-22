@@ -20,7 +20,7 @@ import persistencia.AgenteBD;
 	public static void altaEntregaVacunas(String aLote, Date aFecha, int aCantidad, int aPrioridad, String Region)
 			throws SQLException, Exception {
 		
-<span class="fc" id="L23">		System.out.println(aCantidad + &quot; &quot; + aLote);</span>
+		
 
 <span class="pc bpc" id="L25" title="2 of 10 branches missed.">		if(aLote == null || aFecha == null || aCantidad &lt;=0 || aPrioridad &lt;0 || aPrioridad &gt;2)</span>
 <span class="fc" id="L26">			throw new Exception(&quot;No se permiten parámetros nulos, negativos o la prioridad &quot;</span>

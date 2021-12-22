@@ -9,39 +9,40 @@ import dominio.entitymodel.Vacunacion;
 
 <span class="nc" id="L10">public class GestorEstadisticas {</span>
 	
-<span class="nc" id="L12">	static List&lt;Vacunacion&gt; listaVacunados = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L12">	static List&lt;Vacunacion&gt; listaVacunados = new ArrayList&lt;&gt;();</span>
+	
 
 	public static List&lt;Vacunacion&gt; consultarTotalVacunados() throws SQLException{
 		
 		
-<span class="nc" id="L17">		listaVacunados = Vacunacion._vacunacionDao.seleccionarVacunaciones();</span>
+<span class="nc" id="L18">		listaVacunados = Vacunacion._vacunacionDao.seleccionarVacunaciones();</span>
 		
-<span class="nc" id="L19">		return listaVacunados;</span>
+<span class="nc" id="L20">		return listaVacunados;</span>
 		
 		
 	}
 
 	public static List&lt;Vacunacion&gt; consultarTotalVacunadosPorRegion(RegionEnum aRegion) throws SQLException, Exception{
 		
-<span class="nc bnc" id="L26" title="All 2 branches missed.">		if(aRegion == null) throw new Exception(&quot;La región no puede ser nula&quot;);</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">		if(aRegion == null) throw new Exception(&quot;La región no puede ser nula&quot;);</span>
 		
-<span class="nc" id="L28">		listaVacunados = Vacunacion._vacunacionDao.seleccionarVacunaciones(aRegion);</span>
+<span class="nc" id="L29">		listaVacunados = Vacunacion._vacunacionDao.seleccionarVacunaciones(aRegion);</span>
 		
-<span class="nc" id="L30">		return listaVacunados;</span>
+<span class="nc" id="L31">		return listaVacunados;</span>
 		
 	}
 	
 
 	public static String consultarPorcentajeVacunadosSobreRecibidas() throws SQLException{
 		
-<span class="nc" id="L37">		return Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidas();</span>
+<span class="nc" id="L38">		return Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidas();</span>
 	}
 
 	public static String consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum aRegion) throws SQLException, Exception {
 		
-<span class="nc bnc" id="L42" title="All 2 branches missed.">		if(aRegion == null) throw new Exception(&quot;La región no puede ser nula&quot;);</span>
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">		if(aRegion == null) throw new Exception(&quot;La región no puede ser nula&quot;);</span>
 		
-<span class="nc" id="L44">		return Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidasEnRegion(aRegion);</span>
+<span class="nc" id="L45">		return Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidasEnRegion(aRegion);</span>
 			
 		
 	}

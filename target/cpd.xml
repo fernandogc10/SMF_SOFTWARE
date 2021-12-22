@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pmd-cpd>
    <duplication lines="31" tokens="213">
-      <file column="39" endcolumn="7" endline="94" line="64"
+      <file column="39" endcolumn="7" endline="96" line="66"
             path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/presentacion/PantallaGestionSistemaRegionalSalud.java"/>
       <file column="39" endcolumn="7" endline="91" line="61"
             path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/presentacion/PantallaGestionSistemaSaludNacional.java"/>
@@ -38,9 +38,9 @@
 		final JLabel lblAltaprimero = new JLabel("¡PRIMERO DEBE DE ESTAR DADO DE ALTA UN NUEVO LOTE!");]]></codefragment>
    </duplication>
    <duplication lines="27" tokens="178">
-      <file column="32" endcolumn="7" endline="92" line="66"
+      <file column="32" endcolumn="7" endline="93" line="67"
             path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/presentacion/PantallaConsultaEstadisticas.java"/>
-      <file column="28" endcolumn="7" endline="94" line="68"
+      <file column="28" endcolumn="7" endline="96" line="70"
             path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/presentacion/PantallaGestionSistemaRegionalSalud.java"/>
       <file column="28" endcolumn="7" endline="91" line="65"
             path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/presentacion/PantallaGestionSistemaSaludNacional.java"/>
@@ -72,12 +72,16 @@
 
 		final JComboBox comboBox_Regiones = new JComboBox();]]></codefragment>
    </duplication>
-   <duplication lines="13" tokens="148">
-      <file column="4" endcolumn="3" endline="69" line="57"
+   <duplication lines="21" tokens="172">
+      <file column="66" endcolumn="14" endline="77" line="57"
             path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/persistencia/VacunacionDAO.java"/>
-      <file column="4" endcolumn="3" endline="98" line="85"
+      <file column="109" endcolumn="14" endline="110" line="87"
             path="/Users/fernando/Desktop/Universidad/TERCER CURSO/ISO II/ISO_II/SMF_SOFTWARE/src/main/java/persistencia/VacunacionDAO.java"/>
-      <codefragment><![CDATA[			vacunacion = new Vacunacion((Date) vector.elementAt(i + 0),
+      <codefragment><![CDATA[		vector = AgenteBD.getAgente().select("Select * from Vacunacion");
+
+		for (int i = 0; i < vector.size(); i += 7) {
+
+			vacunacion = new Vacunacion((Date) vector.elementAt(i + 0),
 					Boolean.parseBoolean((vector.elementAt(i + 1).toString())));
 			paciente = new Paciente(vector.elementAt(i + 2).toString(), vector.elementAt(i + 3).toString(),
 					vector.elementAt(i + 4).toString());
@@ -89,6 +93,10 @@
 
 			listaVacunados.add(vacunacion);
 
-		}]]></codefragment>
+		}
+		return listaVacunados;
+	}
+
+	public static List<Vacunacion> seleccionarVacunaciones(RegionEnum aRegion) throws SQLException, Exception {]]></codefragment>
    </duplication>
 </pmd-cpd>
