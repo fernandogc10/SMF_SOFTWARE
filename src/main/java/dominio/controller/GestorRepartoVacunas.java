@@ -16,7 +16,7 @@ import java.util.Vector;
 import dominio.entitymodel.EntregaVacunas;
 import dominio.entitymodel.LoteVacunas;
 import persistencia.AgenteBD;
-
+//
 public class GestorRepartoVacunas {
 
 	static List<EntregaVacunas> listaentregas = new ArrayList<>();
