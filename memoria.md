@@ -185,6 +185,11 @@ Una vez terminada la ejecución del análisis, nos muestra los siguientes result
 	COVERAGE
 	
 	DUPLICATIONS
+	
+A continiación, se muestra una captura de los resultados obtenidos:
+
+![ImagenResultadosSonar-Development.JPG](./Imagenes/resultadosSonar-Development.JPG)
+	
 
 Por un lado, SonarCloud nos genera por defecto una QualityGate, por ejemplo el Coverage por defecto viene definido a un 80% y Security Hotspots Reviewed viene fijado a un 100%. 
 	
