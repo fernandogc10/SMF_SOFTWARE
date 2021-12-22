@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="dominio.controller.GestorEstadisticasTest" time="0.013" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="dominio.controller.GestorEstadisticasTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="12.0.2+10"/>
@@ -23,7 +23,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf14810915231525007297.tmp"/>
+    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf2138970761648579867.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/fernando/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="jdk.debug" value="release"/>
@@ -40,7 +40,7 @@
     <property name="java.class.path" value="/Applications/Eclipse JEE.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.16.0.20200610-1735/jars/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="12"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B clean jacoco:prepare-agent install jacoco:report site:site"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B install"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -58,8 +58,8 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="dominio.controller.GestorEstadisticasTest" name="testConsultarTotalVacunadosPorRegion" time="0.012"/>
+  <testcase classname="dominio.controller.GestorEstadisticasTest" name="testConsultarTotalVacunadosPorRegion" time="0"/>
   <testcase classname="dominio.controller.GestorEstadisticasTest" name="testConsultarPorcentajeVacunadosSobreRecibidasEnRegion" time="0"/>
   <testcase classname="dominio.controller.GestorEstadisticasTest" name="testConsultarTotalVacunados" time="0"/>
-  <testcase classname="dominio.controller.GestorEstadisticasTest" name="testConsultarPorcentajeVacunadosSobreRecibidas" time="0.001"/>
+  <testcase classname="dominio.controller.GestorEstadisticasTest" name="testConsultarPorcentajeVacunadosSobreRecibidas" time="0"/>
 </testsuite>
