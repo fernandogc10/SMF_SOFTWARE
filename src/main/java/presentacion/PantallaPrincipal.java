@@ -27,19 +27,7 @@ import java.awt.event.MouseEvent;
 public class PantallaPrincipal extends JFrame {
 
 	private JPanel contentPane;
-<<<<<<< HEAD
-//////
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PantallaPrincipal frame = new PantallaPrincipal();
-					AgenteBD agente = new AgenteBD();
-=======
-////
+
 	/**
 	 * Launch the application.
 	 */
@@ -49,7 +37,6 @@ public class PantallaPrincipal extends JFrame {
 				try {
 					PantallaPrincipal frame = new PantallaPrincipal();
 					AgenteBD.getAgente();
->>>>>>> refs/remotes/origin/development
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
