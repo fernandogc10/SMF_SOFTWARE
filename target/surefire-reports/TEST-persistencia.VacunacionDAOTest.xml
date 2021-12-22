@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="persistencia.VacunacionDAOTest" time="1.472" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="persistencia.VacunacionDAOTest" time="1.546" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="12.0.2+10"/>
@@ -23,7 +23,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf17326120533012661688.tmp"/>
+    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf9515100284616818242.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/fernando/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="jdk.debug" value="release"/>
@@ -58,14 +58,14 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="persistencia.VacunacionDAOTest" name="testSeleccionarVacunaciones" time="0.559"/>
+  <testcase classname="persistencia.VacunacionDAOTest" name="testSeleccionarVacunaciones" time="0.508"/>
   <testcase classname="persistencia.VacunacionDAOTest" name="testSeleccionarVacunacionesRegionEnum1" time="0.001"/>
-  <testcase classname="persistencia.VacunacionDAOTest" name="testSeleccionarVacunacionesRegionEnum2" time="0.065"/>
-  <testcase classname="persistencia.VacunacionDAOTest" name="testSeleccionarVacunacionesRegionEnum3" time="0.015"/>
-  <testcase classname="persistencia.VacunacionDAOTest" name="testSeleccionarVacunacionesRegionEnum4" time="0.022"/>
-  <testcase classname="persistencia.VacunacionDAOTest" name="testInsertarVacunacion1" time="0.15"/>
-  <testcase classname="persistencia.VacunacionDAOTest" name="testInsertarVacunacion2" time="0.247"/>
-  <testcase classname="persistencia.VacunacionDAOTest" name="testInsertarVacunacion3" time="0.265"/>
-  <testcase classname="persistencia.VacunacionDAOTest" name="testInsertarVacunacion4" time="0.146"/>
-  <testcase classname="persistencia.VacunacionDAOTest" name="testConsultarPorcentajeVacunadosSobreRecibidasEnRegion1" time="0.002"/>
+  <testcase classname="persistencia.VacunacionDAOTest" name="testSeleccionarVacunacionesRegionEnum2" time="0.137"/>
+  <testcase classname="persistencia.VacunacionDAOTest" name="testSeleccionarVacunacionesRegionEnum3" time="0.016"/>
+  <testcase classname="persistencia.VacunacionDAOTest" name="testSeleccionarVacunacionesRegionEnum4" time="0.017"/>
+  <testcase classname="persistencia.VacunacionDAOTest" name="testInsertarVacunacion1" time="0.214"/>
+  <testcase classname="persistencia.VacunacionDAOTest" name="testInsertarVacunacion2" time="0.215"/>
+  <testcase classname="persistencia.VacunacionDAOTest" name="testInsertarVacunacion3" time="0.323"/>
+  <testcase classname="persistencia.VacunacionDAOTest" name="testInsertarVacunacion4" time="0.112"/>
+  <testcase classname="persistencia.VacunacionDAOTest" name="testConsultarPorcentajeVacunadosSobreRecibidasEnRegion1" time="0.003"/>
 </testsuite>

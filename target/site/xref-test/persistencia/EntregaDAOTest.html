@@ -97,12 +97,12 @@
 <a name="87" href="#87">87</a>  
 <a name="88" href="#88">88</a>  		EntregaDAO.insertarEntrega(nuevaEntrega);
 <a name="89" href="#89">89</a>  		
-<a name="90" href="#90">90</a>  		System.out.println(nuevaEntrega.get_lote().get_id());
+<a name="90" href="#90">90</a>  		
 <a name="91" href="#91">91</a>  
 <a name="92" href="#92">92</a>  		vector = AgenteBD.getAgente().select(<span class="jxr_string">"Select loteVacunas from Entregas"</span> +
 <a name="93" href="#93">93</a>  		<span class="jxr_string">" where loteVacunas= '"</span> + nuevaEntrega.get_lote().get_id() + <span class="jxr_string">"'"</span>);
 <a name="94" href="#94">94</a>  		
-<a name="95" href="#95">95</a>  		System.out.println(vector.size());
+<a name="95" href="#95">95</a>  		
 <a name="96" href="#96">96</a>  		
 <a name="97" href="#97">97</a>  		assertEquals(<span class="jxr_string">"lote_1"</span>, vector.get(0).toString());
 <a name="98" href="#98">98</a>  

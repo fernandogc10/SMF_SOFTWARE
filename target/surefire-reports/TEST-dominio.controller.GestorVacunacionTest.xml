@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="0" name="dominio.controller.GestorVacunacionTest" time="0.95" errors="0" skipped="0">
+<testsuite tests="15" failures="0" name="dominio.controller.GestorVacunacionTest" time="0.879" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="12.0.2+10"/>
@@ -23,7 +23,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf17326120533012661688.tmp"/>
+    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf9515100284616818242.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/fernando/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="jdk.debug" value="release"/>
@@ -59,18 +59,18 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
   <testcase classname="dominio.controller.GestorVacunacionTest" name="testSeleccionarPrioridad1" time="0"/>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testSeleccionarPrioridad2" time="0.001"/>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testSeleccionarPrioridad3" time="0.003"/>
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testSeleccionarPrioridad2" time="0"/>
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testSeleccionarPrioridad3" time="0"/>
   <testcase classname="dominio.controller.GestorVacunacionTest" name="testSeleccionarPrioridad4" time="0"/>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testSeleccionarPrioridad5" time="0.001"/>
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testSeleccionarPrioridad5" time="0"/>
   <testcase classname="dominio.controller.GestorVacunacionTest" name="testSeleccionarPrioridad6" time="0"/>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testAltaEntregaVacunas1" time="0.001"/>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testAltaEntregaVacunas2" time="0.001"/>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testAltaEntregaVacunas3" time="0.001"/>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testAltaEntregaVacunas4" time="0.668"/>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testAltaEntregaVacunas5" time="0"/>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testRegistrarVacunacion1" time="0.002"/>
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testAltaEntregaVacunas1" time="0"/>
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testAltaEntregaVacunas2" time="0"/>
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testAltaEntregaVacunas3" time="0"/>
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testAltaEntregaVacunas4" time="0.582"/>
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testAltaEntregaVacunas5" time="0.001"/>
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testRegistrarVacunacion1" time="0"/>
   <testcase classname="dominio.controller.GestorVacunacionTest" name="testRegistrarVacunacion2" time="0.001"/>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testRegistrarVacunacion3" time="0.271"/>
-  <testcase classname="dominio.controller.GestorVacunacionTest" name="testRegistrarVacunacion4" time="0"/>
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testRegistrarVacunacion3" time="0.294"/>
+  <testcase classname="dominio.controller.GestorVacunacionTest" name="testRegistrarVacunacion4" time="0.001"/>
 </testsuite>
