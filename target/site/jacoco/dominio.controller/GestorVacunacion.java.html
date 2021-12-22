@@ -19,86 +19,98 @@ import persistencia.AgenteBD;
 
 	public static void altaEntregaVacunas(String aLote, Date aFecha, int aCantidad, int aPrioridad, String Region)
 			throws SQLException, Exception {
+		
+<span class="fc" id="L23">		System.out.println(aCantidad + &quot; &quot; + aLote);</span>
 
-<span class="fc" id="L23">		Vector&lt;Object&gt; vector = new Vector&lt;&gt;();</span>
-<span class="fc" id="L24">		EntregaVacunas nuevaEntrega = new EntregaVacunas(aFecha, aCantidad);</span>
+<span class="pc bpc" id="L25" title="2 of 10 branches missed.">		if(aLote == null || aFecha == null || aCantidad &lt;=0 || aPrioridad &lt;0 || aPrioridad &gt;2)</span>
+<span class="fc" id="L26">			throw new Exception(&quot;No se permiten parámetros nulos, negativos o la prioridad &quot;</span>
+					+ &quot;fuera de su rango (0&lt;prioridad&lt;2&quot;);
+		
+<span class="fc" id="L29">		Vector&lt;Object&gt; vector = new Vector&lt;&gt;();</span>
+<span class="fc" id="L30">		EntregaVacunas nuevaEntrega = new EntregaVacunas(aFecha, aCantidad);</span>
 
-<span class="fc" id="L26">		java.util.Date date = new java.util.Date();</span>
-<span class="fc" id="L27">		java.sql.Date sqlDate = new java.sql.Date(date.getTime());</span>
+<span class="fc" id="L32">		java.util.Date date = new java.util.Date();</span>
+<span class="fc" id="L33">		java.sql.Date sqlDate = new java.sql.Date(date.getTime());</span>
 
-<span class="fc" id="L29">		nuevaEntrega.set_grupoPrioridad(seleccionarPrioridad(aPrioridad));</span>
+<span class="fc" id="L35">		nuevaEntrega.set_grupoPrioridad(seleccionarPrioridad(aPrioridad));</span>
 
-<span class="fc" id="L31">		LoteVacunas lote = new LoteVacunas(aLote,sqlDate, &quot;covid&quot;, 100);</span>
+<span class="fc" id="L37">		LoteVacunas lote = new LoteVacunas(aLote,sqlDate, &quot;covid&quot;, 100);</span>
+		
+<span class="fc" id="L39">		nuevaEntrega.setLoteVacunas(lote);</span>
 
 
-<span class="fc" id="L34">		nuevaEntrega.setTipoVacuna(lote.get_TipoVacunas());</span>
+<span class="fc" id="L42">		nuevaEntrega.setTipoVacuna(lote.get_TipoVacunas());</span>
 
-<span class="fc" id="L36">		nuevaEntrega.setRegion(Region);</span>
+<span class="fc" id="L44">		nuevaEntrega.setRegion(Region.toUpperCase());</span>
 
-<span class="fc" id="L38">		nuevaEntrega._entregaDao.insertarEntrega(&quot;Insert into Entregas (fecha, cantidad, loteVacunas, region, tipoVacuna, GrupoPrioridad) values&quot;</span>
-<span class="fc" id="L39">						+ &quot; ('&quot; + nuevaEntrega.get_fecha().toString() + &quot;',&quot; + nuevaEntrega.get_cantidad() + &quot;,'&quot;</span>
-<span class="fc" id="L40">						+ lote.get_id() + &quot;', '&quot; + Region + &quot;','&quot; + nuevaEntrega.get_tipo().get_Nombre() + &quot;',&quot;</span>
-<span class="fc" id="L41">						+ nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() + &quot;)&quot;);</span>
 
-<span class="fc" id="L43">	}</span>
+<span class="fc" id="L47">		nuevaEntrega._entregaDao.insertarEntrega(nuevaEntrega);</span>
+
+<span class="fc" id="L49">	}</span>
 
 	public static void registrarVacunacion(Date aFecha, String aNombre, String aApellidos, String aNif,
-			TipoVacuna aTipo) throws SQLException, Exception {
+			TipoVacuna aTipo) throws SQLException, Exception{
 		
-<span class="fc" id="L48">		Random r = new Random();</span>
-<span class="fc" id="L49">		int num = r.nextInt(4);</span>
+<span class="pc bpc" id="L54" title="3 of 10 branches missed.">		if (aFecha == null || aNombre == null || aApellidos == null || aNif == null || aTipo.get_Nombre() == &quot;&quot;</span>
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">				|| aTipo.get_Nombre() == null) throw new Exception(&quot;No se permiten valores nulos o vacíos.&quot;);</span>
+		
+<span class="fc" id="L57">		Random r = new Random();</span>
+<span class="fc" id="L58">		int num = r.nextInt(10);</span>
 
-<span class="fc" id="L51">		RegionEnum region = RegionEnum.values()[num];</span>
+<span class="fc" id="L60">		RegionEnum region = RegionEnum.values()[num];</span>
 
-<span class="fc" id="L53">		Paciente paciente = new Paciente(aNif, aNombre, aApellidos);</span>
-<span class="fc" id="L54">		paciente.set_Region(region);</span>
+<span class="fc" id="L62">		Paciente paciente = new Paciente(aNif, aNombre, aApellidos);</span>
+<span class="fc" id="L63">		paciente.set_Region(region);</span>
 
-<span class="fc" id="L56">		Boolean isSegundaDosis = null;</span>
+<span class="fc" id="L65">		Boolean isSegundaDosis = null;</span>
 
-<span class="fc" id="L58">		Vector&lt;Object&gt; vector = new Vector&lt;&gt;();</span>
+<span class="fc" id="L67">		Vector&lt;Object&gt; vector = new Vector&lt;&gt;();</span>
 
-<span class="fc" id="L60">		vector = AgenteBD.getAgente()</span>
-<span class="fc" id="L61">				.select(&quot;Select * from Vacunacion where dni_paciente ='&quot; + paciente.get_dni() + &quot;'&quot;);</span>
+<span class="fc" id="L69">		vector = AgenteBD.getAgente()</span>
+<span class="fc" id="L70">				.select(&quot;Select * from Vacunacion where dni_paciente ='&quot; + paciente.get_dni() + &quot;'&quot;);</span>
 
-<span class="pc bpc" id="L63" title="1 of 2 branches missed.">		if (vector.size() == 1) {</span>
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">		if (vector.size() == 1) {</span>
 
-<span class="nc" id="L65">			isSegundaDosis = true;</span>
+<span class="nc" id="L74">			isSegundaDosis = true;</span>
 
-<span class="pc bpc" id="L67" title="1 of 2 branches missed.">		} else if (vector.size() == 0) {</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">		} else if (vector.size() == 0) {</span>
 
-<span class="fc" id="L69">			isSegundaDosis = false;</span>
+<span class="fc" id="L78">			isSegundaDosis = false;</span>
 		} else {
 
-<span class="nc" id="L72">			return;</span>
+<span class="nc" id="L81">			return;</span>
 		}
 
-<span class="fc" id="L75">		Vacunacion nuevaVacunacion = new Vacunacion(aFecha, isSegundaDosis);</span>
+<span class="fc" id="L84">		Vacunacion nuevaVacunacion = new Vacunacion(aFecha, isSegundaDosis);</span>
 
-<span class="fc" id="L77">		nuevaVacunacion.set_Paciente(paciente);</span>
+<span class="fc" id="L86">		nuevaVacunacion.set_Paciente(paciente);</span>
 
-<span class="fc" id="L79">		nuevaVacunacion.set_TipoVacuna(aTipo);</span>
+<span class="fc" id="L88">		nuevaVacunacion.set_TipoVacuna(aTipo);</span>
 
-<span class="fc" id="L81">		nuevaVacunacion._vacunacionDao.insertarVacunacion(nuevaVacunacion);</span>
+<span class="fc" id="L90">		nuevaVacunacion._vacunacionDao.insertarVacunacion(nuevaVacunacion);</span>
 
-<span class="fc" id="L83">	}</span>
+<span class="fc" id="L92">	}</span>
 
-	public static GrupoPrioridad seleccionarPrioridad(int prioridad) {
+	public static GrupoPrioridad seleccionarPrioridad(int prioridad) throws Exception{
+		
+<span class="fc bfc" id="L96" title="All 4 branches covered.">		if (prioridad &lt; 0 || prioridad &gt; 2) throw new Exception (&quot;No se permiten a valores &quot;</span>
+				+ &quot;menores de 0 o mayores de 2 para prioridad&quot;);
 
-<span class="fc" id="L87">		GrupoPrioridad grupo = null;</span>
+<span class="fc" id="L99">		GrupoPrioridad grupo = null;</span>
 
-<span class="pc bpc" id="L89" title="1 of 2 branches missed.">		if (prioridad == 0) {</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">		if (prioridad == 0) {</span>
 
-<span class="nc" id="L91">			grupo = GrupoPrioridad.BAJA;</span>
+<span class="fc" id="L103">			grupo = GrupoPrioridad.BAJA;</span>
 
-<span class="pc bpc" id="L93" title="1 of 2 branches missed.">		} else if (prioridad == 1) {</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">		} else if (prioridad == 1) {</span>
 
-<span class="fc" id="L95">			grupo = GrupoPrioridad.MEDIA;</span>
-<span class="nc bnc" id="L96" title="All 2 branches missed.">		} else if (prioridad == 2) {</span>
+<span class="fc" id="L107">			grupo = GrupoPrioridad.MEDIA;</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">		} else if (prioridad == 2) {</span>
 
-<span class="nc" id="L98">			grupo = GrupoPrioridad.ALTA;</span>
+<span class="fc" id="L110">			grupo = GrupoPrioridad.ALTA;</span>
 		}
-
-<span class="fc" id="L101">		return grupo;</span>
+		
+<span class="fc" id="L113">		return grupo;</span>
 
 	}
 

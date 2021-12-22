@@ -19,6 +19,8 @@ public class GestorVacunacion {
 
 	public static void altaEntregaVacunas(String aLote, Date aFecha, int aCantidad, int aPrioridad, String Region)
 			throws SQLException, Exception {
+		
+		System.out.println(aCantidad + " " + aLote);
 
 		if(aLote == null || aFecha == null || aCantidad <=0 || aPrioridad <0 || aPrioridad >2)
 			throw new Exception("No se permiten parámetros nulos, negativos o la prioridad "
@@ -39,10 +41,8 @@ public class GestorVacunacion {
 
 		nuevaEntrega.setTipoVacuna(lote.get_TipoVacunas());
 
-		nuevaEntrega.setRegion(Region);
-		
-		System.out.println(nuevaEntrega.get_lote().get_id());
-		System.out.println(nuevaEntrega.get_region().toString());
+		nuevaEntrega.setRegion(Region.toUpperCase());
+
 
 		nuevaEntrega._entregaDao.insertarEntrega(nuevaEntrega);
 
@@ -109,7 +109,7 @@ public class GestorVacunacion {
 
 			grupo = GrupoPrioridad.ALTA;
 		}
-
+		
 		return grupo;
 
 	}

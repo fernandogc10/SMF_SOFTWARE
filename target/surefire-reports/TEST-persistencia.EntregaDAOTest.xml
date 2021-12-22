@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="persistencia.EntregaDAOTest" time="3.257" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="persistencia.EntregaDAOTest" time="2.868" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="12.0.2+10"/>
@@ -23,7 +23,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf13590361840743971701.tmp"/>
+    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf9292991303520731433.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/fernando/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="jdk.debug" value="release"/>
@@ -58,6 +58,6 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="persistencia.EntregaDAOTest" name="testSeleccionarEntregas" time="3.06"/>
-  <testcase classname="persistencia.EntregaDAOTest" name="testInsertarEntrega" time="0.197"/>
+  <testcase classname="persistencia.EntregaDAOTest" name="testSeleccionarEntregas" time="2.736"/>
+  <testcase classname="persistencia.EntregaDAOTest" name="testInsertarEntrega" time="0.132"/>
 </testsuite>

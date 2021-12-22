@@ -23,7 +23,7 @@ public class LoteVacunas {
 <span class="fc" id="L23">	public Vector&lt;EntregaVacunas&gt; _entregas = new Vector&lt;EntregaVacunas&gt;();</span>
 <span class="fc" id="L24">	static Vector&lt;LoteVacunas&gt; listalotes = new Vector&lt;&gt;();</span>
 
-<span class="fc" id="L26">	public LoteVacunas(String id, Date _fecha, String tipo, int _cantidad) throws ClassNotFoundException, SQLException {</span>
+<span class="fc" id="L26">	public LoteVacunas(String id, Date _fecha, String tipo, int _cantidad) throws SQLException{</span>
 <span class="fc" id="L27">		this._fecha = _fecha;</span>
 
 <span class="fc" id="L29">		this._cantidad = _cantidad;</span>
@@ -45,62 +45,55 @@ public class LoteVacunas {
 
 <span class="fc" id="L46">	}</span>
 
-	public static void altaNuevoLoteVacunas(LoteVacunas lote) throws Exception {
-
-<span class="fc" id="L50">		LoteVacunasDAO.insertarLoteVacunas(lote);</span>
-
-<span class="fc" id="L52">		listalotes.add(lote);</span>
-
-<span class="fc" id="L54">	}</span>
 
 	public static int calculoLotes() {
 
-<span class="fc" id="L58">		return listalotes.size();</span>
+<span class="nc" id="L51">		return listalotes.size();</span>
 
 	}
 
 	public int get_Count() {
-<span class="nc" id="L63">		return this.cont;</span>
+<span class="nc" id="L56">		return this.cont;</span>
 	}
 
 	public static Vector&lt;LoteVacunas&gt; get_ListaLoteVacunas() {
-<span class="nc" id="L67">		return listalotes;</span>
+<span class="nc" id="L60">		return listalotes;</span>
 	}
 
 	public String get_id() {
-<span class="fc" id="L71">		return _id;</span>
+<span class="fc" id="L64">		return _id;</span>
 	}
 
 	public void set_id(String _id) {
-<span class="nc" id="L75">		this._id = _id;</span>
-<span class="nc" id="L76">	}</span>
+<span class="nc" id="L68">		this._id = _id;</span>
+<span class="nc" id="L69">	}</span>
 
 	public Date get_fecha() {
-<span class="fc" id="L79">		return _fecha;</span>
+<span class="fc" id="L72">		return _fecha;</span>
 	}
 
 	public void set_fecha(Date _fecha) {
-<span class="nc" id="L83">		this._fecha = _fecha;</span>
-<span class="nc" id="L84">	}</span>
+<span class="nc" id="L76">		this._fecha = _fecha;</span>
+<span class="nc" id="L77">	}</span>
 
 	public int get_cantidad() {
-<span class="fc" id="L87">		return _cantidad;</span>
+<span class="fc" id="L80">		return _cantidad;</span>
 	}
 
 	public TipoVacuna get_TipoVacunas() {
-<span class="fc" id="L91">		return _tipo;</span>
+<span class="fc" id="L84">		return _tipo;</span>
 	}
 
 	public void set_cantidad(int _cantidad) {
-<span class="nc" id="L95">		this._cantidad = _cantidad;</span>
-<span class="nc" id="L96">	}</span>
+<span class="nc" id="L88">		this._cantidad = _cantidad;</span>
+<span class="nc" id="L89">	}</span>
 
 	public String get_farmaceutica() {
-<span class="fc" id="L99">		return _farmaceutica;</span>
+<span class="fc" id="L92">		return _farmaceutica;</span>
 	}
 
 	public void set_farmaceutica(String _farmaceutica) {
-<span class="nc" id="L103">		this._farmaceutica = _farmaceutica;</span>
-<span class="nc" id="L104">	}</span>
+<span class="nc" id="L96">		this._farmaceutica = _farmaceutica;</span>
+<span class="nc" id="L97">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

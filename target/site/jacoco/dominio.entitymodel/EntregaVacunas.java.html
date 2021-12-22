@@ -14,7 +14,7 @@ public class EntregaVacunas {
 	public LoteVacunas _lote;
 	public EntregaDAO _entregaDao;
 
-<span class="fc" id="L17">	public EntregaVacunas(Date fecha, int cantidad) throws ClassNotFoundException, SQLException {</span>
+<span class="fc" id="L17">	public EntregaVacunas(Date fecha, int cantidad) throws SQLException{</span>
 
 <span class="fc" id="L19">		this._fecha = fecha;</span>
 <span class="fc" id="L20">		this._cantidad = cantidad;</span>
@@ -22,14 +22,14 @@ public class EntregaVacunas {
 <span class="fc" id="L22">		_entregaDao = new EntregaDAO();</span>
 <span class="fc" id="L23">	}</span>
 
-<span class="fc" id="L25">	public EntregaVacunas(RegionEnum region) throws ClassNotFoundException, SQLException {</span>
+<span class="fc" id="L25">	public EntregaVacunas(RegionEnum region) throws SQLException{</span>
 
 <span class="fc" id="L27">		this._region = region;</span>
 
 <span class="fc" id="L29">		_entregaDao = new EntregaDAO();</span>
 <span class="fc" id="L30">	}</span>
 
-<span class="nc" id="L32">	public EntregaVacunas() throws ClassNotFoundException, SQLException {</span>
+<span class="nc" id="L32">	public EntregaVacunas() throws SQLException{</span>
 
 <span class="nc" id="L34">		_entregaDao = new EntregaDAO();</span>
 <span class="nc" id="L35">	}</span>
@@ -60,7 +60,7 @@ public class EntregaVacunas {
 <span class="nc" id="L60">	}</span>
 
 	public RegionEnum get_region() {
-<span class="nc" id="L63">		return _region;</span>
+<span class="fc" id="L63">		return _region;</span>
 	}
 
 	public void set_region(RegionEnum _region) {
@@ -76,7 +76,7 @@ public class EntregaVacunas {
 <span class="fc" id="L76">	}</span>
 
 	public LoteVacunas get_lote() {
-<span class="nc" id="L79">		return _lote;</span>
+<span class="fc" id="L79">		return _lote;</span>
 	}
 
 	public void set_lote(LoteVacunas _lote) {
@@ -93,9 +93,9 @@ public class EntregaVacunas {
 
 	public void setLoteVacunas(LoteVacunas lote) {
 
-<span class="nc" id="L96">		this._lote = lote;</span>
+<span class="fc" id="L96">		this._lote = lote;</span>
 
-<span class="nc" id="L98">	}</span>
+<span class="fc" id="L98">	}</span>
 
 	public void setTipoVacuna(TipoVacuna tipo) {
 

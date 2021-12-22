@@ -4,6 +4,7 @@ package presentacion;
 import java.io.*;
 import java.sql.SQLException;
 import java.util.Random;
+import java.util.Vector;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -15,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import dominio.controller.GestorVacunacion;
 import dominio.entitymodel.LoteVacunas;
 import dominio.entitymodel.TipoVacuna;
+import persistencia.AgenteBD;
 
 import java.awt.Toolkit;
 import java.awt.Color;
@@ -44,348 +46,353 @@ public class PantallaGestionSistemaRegionalSalud extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-<span class="nc" id="L47">		EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L49">		EventQueue.invokeLater(new Runnable() {</span>
 			public void run() {
 				try {
-<span class="nc" id="L50">					PantallaGestionSistemaRegionalSalud regional = new PantallaGestionSistemaRegionalSalud();</span>
-<span class="nc" id="L51">					regional.setVisible(true);</span>
-<span class="nc" id="L52">				} catch (Exception e) {</span>
-<span class="nc" id="L53">					e.printStackTrace();</span>
-<span class="nc" id="L54">				}</span>
-<span class="nc" id="L55">			}</span>
+<span class="nc" id="L52">					PantallaGestionSistemaRegionalSalud regional = new PantallaGestionSistemaRegionalSalud();</span>
+<span class="nc" id="L53">					regional.setVisible(true);</span>
+<span class="nc" id="L54">				} catch (Exception e) {</span>
+<span class="nc" id="L55">					e.printStackTrace();</span>
+<span class="nc" id="L56">				}</span>
+<span class="nc" id="L57">			}</span>
 		});
-<span class="nc" id="L57">	}</span>
+<span class="nc" id="L59">	}</span>
 
 	/**
 	 * Create the frame.
 	 */
-<span class="nc" id="L62">	public PantallaGestionSistemaRegionalSalud() {</span>
-<span class="nc" id="L63">		setResizable(false);</span>
-<span class="nc" id="L64">		setTitle(&quot;Sistema Regional de Salud&quot;);</span>
-<span class="nc" id="L65">		setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;.\\src\\main\\resources\\LogoAPP.png&quot;));</span>
-<span class="nc" id="L66">		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
-<span class="nc" id="L67">		setBounds(100, 100, 795, 473);</span>
-<span class="nc" id="L68">		contentPane = new JPanel();</span>
-<span class="nc" id="L69">		contentPane.setForeground(new Color(64, 224, 208));</span>
-<span class="nc" id="L70">		contentPane.setBackground(new Color(240, 255, 255));</span>
-<span class="nc" id="L71">		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
-<span class="nc" id="L72">		setContentPane(contentPane);</span>
-<span class="nc" id="L73">		contentPane.setLayout(null);</span>
+<span class="nc" id="L64">	public PantallaGestionSistemaRegionalSalud() {</span>
+<span class="nc" id="L65">		setResizable(false);</span>
+<span class="nc" id="L66">		setTitle(&quot;Sistema Regional de Salud&quot;);</span>
+<span class="nc" id="L67">		setIconImage(Toolkit.getDefaultToolkit().getImage(&quot;.\\src\\main\\resources\\LogoAPP.png&quot;));</span>
+<span class="nc" id="L68">		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L69">		setBounds(100, 100, 795, 473);</span>
+<span class="nc" id="L70">		contentPane = new JPanel();</span>
+<span class="nc" id="L71">		contentPane.setForeground(new Color(64, 224, 208));</span>
+<span class="nc" id="L72">		contentPane.setBackground(new Color(240, 255, 255));</span>
+<span class="nc" id="L73">		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="nc" id="L74">		setContentPane(contentPane);</span>
+<span class="nc" id="L75">		contentPane.setLayout(null);</span>
 
-<span class="nc" id="L75">		JButton btnPrincipal = new JButton(&quot;Principal&quot;);</span>
-<span class="nc" id="L76">		btnPrincipal.addMouseListener(new MouseAdapter() {</span>
+<span class="nc" id="L77">		JButton btnPrincipal = new JButton(&quot;Principal&quot;);</span>
+<span class="nc" id="L78">		btnPrincipal.addMouseListener(new MouseAdapter() {</span>
 			@Override
 			public void mouseClicked(MouseEvent e) {
-<span class="nc" id="L79">				PantallaPrincipal principal = new PantallaPrincipal();</span>
-<span class="nc" id="L80">				principal.setVisible(true);</span>
-<span class="nc" id="L81">				dispose();</span>
-<span class="nc" id="L82">			}</span>
+<span class="nc" id="L81">				PantallaPrincipal principal = new PantallaPrincipal();</span>
+<span class="nc" id="L82">				principal.setVisible(true);</span>
+<span class="nc" id="L83">				dispose();</span>
+<span class="nc" id="L84">			}</span>
 		});
-<span class="nc" id="L84">		btnPrincipal.setBackground(new Color(19, 98, 143));</span>
-<span class="nc" id="L85">		btnPrincipal.setForeground(Color.WHITE);</span>
-<span class="nc" id="L86">		btnPrincipal.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
-<span class="nc" id="L87">		btnPrincipal.addActionListener(new ActionListener() {</span>
+<span class="nc" id="L86">		btnPrincipal.setBackground(new Color(19, 98, 143));</span>
+<span class="nc" id="L87">		btnPrincipal.setForeground(Color.WHITE);</span>
+<span class="nc" id="L88">		btnPrincipal.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
+<span class="nc" id="L89">		btnPrincipal.addActionListener(new ActionListener() {</span>
 			public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L89">			}</span>
+<span class="nc" id="L91">			}</span>
 		});
-<span class="nc" id="L91">		btnPrincipal.setBounds(672, 398, 97, 25);</span>
-<span class="nc" id="L92">		contentPane.add(btnPrincipal);</span>
+<span class="nc" id="L93">		btnPrincipal.setBounds(672, 398, 97, 25);</span>
+<span class="nc" id="L94">		contentPane.add(btnPrincipal);</span>
 
-<span class="nc" id="L94">		final JLabel lblAltaprimero = new JLabel(&quot;¡PRIMERO DEBE DE ESTAR DADO DE ALTA UN NUEVO LOTE!&quot;);</span>
-<span class="nc" id="L95">		lblAltaprimero.setFont(new Font(&quot;Lucida Grande&quot;, Font.PLAIN, 11));</span>
-<span class="nc" id="L96">		lblAltaprimero.setBounds(54, 365, 326, 47);</span>
-<span class="nc" id="L97">		contentPane.add(lblAltaprimero);</span>
+<span class="nc" id="L96">		final JLabel lblAltaprimero = new JLabel(&quot;¡PRIMERO DEBE DE ESTAR DADO DE ALTA UN NUEVO LOTE!&quot;);</span>
+<span class="nc" id="L97">		lblAltaprimero.setFont(new Font(&quot;Lucida Grande&quot;, Font.PLAIN, 11));</span>
+<span class="nc" id="L98">		lblAltaprimero.setBounds(54, 365, 326, 47);</span>
+<span class="nc" id="L99">		contentPane.add(lblAltaprimero);</span>
 
-<span class="nc" id="L99">		final JButton btnDarDeAlta = new JButton(&quot;Dar de alta&quot;);</span>
-<span class="nc" id="L100">		btnDarDeAlta.addMouseListener(new MouseAdapter() {</span>
+<span class="nc" id="L101">		final JButton btnDarDeAlta = new JButton(&quot;Dar de alta&quot;);</span>
+<span class="nc" id="L102">		btnDarDeAlta.addMouseListener(new MouseAdapter() {</span>
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent e){
+				
+<span class="nc" id="L106">				Vector&lt;Object&gt; vector = new Vector &lt;&gt; ();</span>
+				try {
+<span class="nc" id="L108">					vector = AgenteBD.getAgente().select(&quot;Select * from LoteVacunas&quot;);</span>
+<span class="nc" id="L109">				} catch (SQLException e2) {</span>
+<span class="nc" id="L110">					e2.printStackTrace();</span>
+<span class="nc" id="L111">				}</span>
 
-<span class="nc bnc" id="L104" title="All 2 branches missed.">				if (LoteVacunas.get_ListaLoteVacunas().isEmpty()) {</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">				if (vector.isEmpty()) {</span>
 
-<span class="nc" id="L106">					lblAltaprimero.setVisible(true);</span>
-<span class="nc" id="L107">					return;</span>
-				}
-
-<span class="nc bnc" id="L110" title="All 2 branches missed.">				if (!textFieldLote.getText().equals(LoteVacunas.get_ListaLoteVacunas().elementAt(0).get_id().toString())) {</span>
-					
+<span class="nc" id="L115">					lblAltaprimero.setVisible(true);</span>
+<span class="nc" id="L116">					return;</span>
 				} else {
-<span class="nc" id="L113">					java.util.Date date = new java.util.Date();</span>
-<span class="nc" id="L114">					java.sql.Date sqlDate = new java.sql.Date(date.getTime());</span>
+<span class="nc" id="L118">					java.util.Date date = new java.util.Date();</span>
+<span class="nc" id="L119">					java.sql.Date sqlDate = new java.sql.Date(date.getTime());</span>
 
 					try {
-<span class="nc" id="L117">						GestorVacunacion.altaEntregaVacunas(textFieldLote.getText(), sqlDate,</span>
-<span class="nc" id="L118">								Integer.parseInt(textFieldCantidad.getText()),</span>
-<span class="nc" id="L119">								Integer.parseInt(textFieldPrioridad.getText()),</span>
-<span class="nc" id="L120">								textFieldRegion.getText().toString().toUpperCase());</span>
-<span class="nc" id="L121">					} catch (NumberFormatException e1) {</span>
+						
+<span class="nc" id="L123">						System.out.println(textFieldLote.getText());</span>
+<span class="nc" id="L124">						GestorVacunacion.altaEntregaVacunas(textFieldLote.getText(), sqlDate,</span>
+<span class="nc" id="L125">								Integer.parseInt(textFieldCantidad.getText()),</span>
+<span class="nc" id="L126">								Integer.parseInt(textFieldPrioridad.getText()),</span>
+<span class="nc" id="L127">								textFieldRegion.getText().toString().toUpperCase());</span>
+<span class="nc" id="L128">					} catch (NumberFormatException e1) {</span>
 
-<span class="nc" id="L123">						e1.printStackTrace();</span>
-<span class="nc" id="L124">					} catch (SQLException e1) {</span>
+<span class="nc" id="L130">						e1.printStackTrace();</span>
+<span class="nc" id="L131">					} catch (SQLException e1) {</span>
 
-<span class="nc" id="L126">						e1.printStackTrace();</span>
-<span class="nc" id="L127">					} catch (Exception e1) {</span>
+<span class="nc" id="L133">						e1.printStackTrace();</span>
+<span class="nc" id="L134">					} catch (Exception e1) {</span>
 
-<span class="nc" id="L129">						e1.printStackTrace();</span>
-<span class="nc" id="L130">					}</span>
+<span class="nc" id="L136">						e1.printStackTrace();</span>
+<span class="nc" id="L137">					}</span>
 				}
 
-<span class="nc" id="L133">				textFieldRegion.setText(null);</span>
-<span class="nc" id="L134">				textFieldLote.setText(null);</span>
-<span class="nc" id="L135">				textFieldPrioridad.setText(null);</span>
-<span class="nc" id="L136">				textFieldCantidad.setText(null);</span>
-<span class="nc" id="L137">			}</span>
+<span class="nc" id="L140">				textFieldRegion.setText(null);</span>
+<span class="nc" id="L141">				textFieldLote.setText(null);</span>
+<span class="nc" id="L142">				textFieldPrioridad.setText(null);</span>
+<span class="nc" id="L143">				textFieldCantidad.setText(null);</span>
+<span class="nc" id="L144">			}</span>
 		});
-<span class="nc" id="L139">		btnDarDeAlta.addActionListener(new ActionListener() {</span>
+<span class="nc" id="L146">		btnDarDeAlta.addActionListener(new ActionListener() {</span>
 			public void actionPerformed(ActionEvent e) {
-<span class="nc" id="L141">			}</span>
+<span class="nc" id="L148">			}</span>
 		});
-<span class="nc" id="L143">		btnDarDeAlta.setBackground(new Color(19, 98, 143));</span>
-<span class="nc" id="L144">		btnDarDeAlta.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 14));</span>
-<span class="nc" id="L145">		btnDarDeAlta.setForeground(Color.WHITE);</span>
-<span class="nc" id="L146">		btnDarDeAlta.setBounds(257, 334, 111, 35);</span>
-<span class="nc" id="L147">		contentPane.add(btnDarDeAlta);</span>
+<span class="nc" id="L150">		btnDarDeAlta.setBackground(new Color(19, 98, 143));</span>
+<span class="nc" id="L151">		btnDarDeAlta.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 14));</span>
+<span class="nc" id="L152">		btnDarDeAlta.setForeground(Color.WHITE);</span>
+<span class="nc" id="L153">		btnDarDeAlta.setBounds(257, 334, 111, 35);</span>
+<span class="nc" id="L154">		contentPane.add(btnDarDeAlta);</span>
 
-<span class="nc" id="L149">		final JLabel lblVacunacion = new JLabel(&quot;Se ha registrado la vacunación correctamente.&quot;);</span>
-<span class="nc" id="L150">		lblVacunacion.setFont(new Font(&quot;Lucida Grande&quot;, Font.PLAIN, 12));</span>
-<span class="nc" id="L151">		lblVacunacion.setBounds(392, 379, 318, 16);</span>
-<span class="nc" id="L152">		contentPane.add(lblVacunacion);</span>
+<span class="nc" id="L156">		final JLabel lblVacunacion = new JLabel(&quot;Se ha registrado la vacunación correctamente.&quot;);</span>
+<span class="nc" id="L157">		lblVacunacion.setFont(new Font(&quot;Lucida Grande&quot;, Font.PLAIN, 12));</span>
+<span class="nc" id="L158">		lblVacunacion.setBounds(392, 379, 318, 16);</span>
+<span class="nc" id="L159">		contentPane.add(lblVacunacion);</span>
 
-<span class="nc" id="L154">		final JButton btnRegistrar = new JButton(&quot;Registrar&quot;);</span>
-<span class="nc" id="L155">		btnRegistrar.addMouseListener(new MouseAdapter() {</span>
+<span class="nc" id="L161">		final JButton btnRegistrar = new JButton(&quot;Registrar&quot;);</span>
+<span class="nc" id="L162">		btnRegistrar.addMouseListener(new MouseAdapter() {</span>
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-<span class="nc" id="L159">				java.util.Date date = new java.util.Date();</span>
-<span class="nc" id="L160">				java.sql.Date sqlDate = new java.sql.Date(date.getTime());</span>
+<span class="nc" id="L166">				java.util.Date date = new java.util.Date();</span>
+<span class="nc" id="L167">				java.sql.Date sqlDate = new java.sql.Date(date.getTime());</span>
 
-<span class="nc" id="L162">				Random r = new Random();</span>
-<span class="nc" id="L163">				int num = r.nextInt(4);</span>
+<span class="nc" id="L169">				Random r = new Random();</span>
+<span class="nc" id="L170">				int num = r.nextInt(4);</span>
 
-<span class="nc" id="L165">				String farmaceutica = TipoVacuna.Farmaceuticas.values()[num].toString();</span>
+<span class="nc" id="L172">				String farmaceutica = TipoVacuna.Farmaceuticas.values()[num].toString();</span>
 
-<span class="nc" id="L167">				TipoVacuna nuevoTipoVacuna = new TipoVacuna(textFieldTipo.getText().toString(), farmaceutica,</span>
-<span class="nc" id="L168">						sqlDate.toString());</span>
+<span class="nc" id="L174">				TipoVacuna nuevoTipoVacuna = new TipoVacuna(textFieldTipo.getText().toString(), farmaceutica,</span>
+<span class="nc" id="L175">						sqlDate.toString());</span>
 
 				try {
 
-<span class="nc" id="L172">					GestorVacunacion.registrarVacunacion(sqlDate, textFieldNombre.getText().toString(),</span>
-<span class="nc" id="L173">							textFieldApellidos.getText().toString(), textFieldNIF.getText().toString(),</span>
+<span class="nc" id="L179">					GestorVacunacion.registrarVacunacion(sqlDate, textFieldNombre.getText().toString(),</span>
+<span class="nc" id="L180">							textFieldApellidos.getText().toString(), textFieldNIF.getText().toString(),</span>
 							nuevoTipoVacuna);
 
-<span class="nc" id="L176">					lblVacunacion.setVisible(true);</span>
-<span class="nc" id="L177">				} catch (SQLException e1) {</span>
+<span class="nc" id="L183">					lblVacunacion.setVisible(true);</span>
+<span class="nc" id="L184">				} catch (SQLException e1) {</span>
 
-<span class="nc" id="L179">					e1.printStackTrace();</span>
-<span class="nc" id="L180">				} catch (Exception e1) {</span>
+<span class="nc" id="L186">					e1.printStackTrace();</span>
+<span class="nc" id="L187">				} catch (Exception e1) {</span>
 
-<span class="nc" id="L182">					e1.printStackTrace();</span>
-<span class="nc" id="L183">				}</span>
+<span class="nc" id="L189">					e1.printStackTrace();</span>
+<span class="nc" id="L190">				}</span>
 
-<span class="nc" id="L185">				textFieldRegion.setText(null);</span>
-<span class="nc" id="L186">				textFieldNombre.setText(null);</span>
-<span class="nc" id="L187">				textFieldApellidos.setText(null);</span>
-<span class="nc" id="L188">				textFieldNIF.setText(null);</span>
-<span class="nc" id="L189">				textFieldTipo.setText(null);</span>
-<span class="nc" id="L190">			}</span>
+<span class="nc" id="L192">				textFieldRegion.setText(null);</span>
+<span class="nc" id="L193">				textFieldNombre.setText(null);</span>
+<span class="nc" id="L194">				textFieldApellidos.setText(null);</span>
+<span class="nc" id="L195">				textFieldNIF.setText(null);</span>
+<span class="nc" id="L196">				textFieldTipo.setText(null);</span>
+<span class="nc" id="L197">			}</span>
 		});
-<span class="nc" id="L192">		btnRegistrar.setBackground(new Color(19, 98, 143));</span>
-<span class="nc" id="L193">		btnRegistrar.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 14));</span>
-<span class="nc" id="L194">		btnRegistrar.setForeground(Color.WHITE);</span>
-<span class="nc" id="L195">		btnRegistrar.setBounds(546, 334, 91, 35);</span>
-<span class="nc" id="L196">		contentPane.add(btnRegistrar);</span>
+<span class="nc" id="L199">		btnRegistrar.setBackground(new Color(19, 98, 143));</span>
+<span class="nc" id="L200">		btnRegistrar.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 14));</span>
+<span class="nc" id="L201">		btnRegistrar.setForeground(Color.WHITE);</span>
+<span class="nc" id="L202">		btnRegistrar.setBounds(546, 334, 91, 35);</span>
+<span class="nc" id="L203">		contentPane.add(btnRegistrar);</span>
 
-<span class="nc" id="L198">		final JLabel lblSeleccioneLaOpcion = new JLabel(&quot;Seleccione la opcion que desee realizar&quot;);</span>
-<span class="nc" id="L199">		lblSeleccioneLaOpcion.setHorizontalAlignment(SwingConstants.CENTER);</span>
-<span class="nc" id="L200">		lblSeleccioneLaOpcion.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 17));</span>
-<span class="nc" id="L201">		lblSeleccioneLaOpcion.setBounds(206, 49, 286, 43);</span>
-<span class="nc" id="L202">		contentPane.add(lblSeleccioneLaOpcion);</span>
+<span class="nc" id="L205">		final JLabel lblSeleccioneLaOpcion = new JLabel(&quot;Seleccione la opcion que desee realizar&quot;);</span>
+<span class="nc" id="L206">		lblSeleccioneLaOpcion.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L207">		lblSeleccioneLaOpcion.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 17));</span>
+<span class="nc" id="L208">		lblSeleccioneLaOpcion.setBounds(206, 49, 286, 43);</span>
+<span class="nc" id="L209">		contentPane.add(lblSeleccioneLaOpcion);</span>
 
-<span class="nc" id="L204">		final JLabel lblCantidad = new JLabel(&quot;Cantidad:&quot;);</span>
-<span class="nc" id="L205">		lblCantidad.setHorizontalAlignment(SwingConstants.CENTER);</span>
-<span class="nc" id="L206">		lblCantidad.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
-<span class="nc" id="L207">		lblCantidad.setBounds(89, 195, 91, 35);</span>
-<span class="nc" id="L208">		contentPane.add(lblCantidad);</span>
+<span class="nc" id="L211">		final JLabel lblCantidad = new JLabel(&quot;Cantidad:&quot;);</span>
+<span class="nc" id="L212">		lblCantidad.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L213">		lblCantidad.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
+<span class="nc" id="L214">		lblCantidad.setBounds(89, 195, 91, 35);</span>
+<span class="nc" id="L215">		contentPane.add(lblCantidad);</span>
 
-<span class="nc" id="L210">		final JLabel lblPrioridad = new JLabel(&quot;Prioridad:&quot;);</span>
-<span class="nc" id="L211">		lblPrioridad.setHorizontalAlignment(SwingConstants.CENTER);</span>
-<span class="nc" id="L212">		lblPrioridad.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
-<span class="nc" id="L213">		lblPrioridad.setBounds(89, 241, 91, 35);</span>
-<span class="nc" id="L214">		contentPane.add(lblPrioridad);</span>
+<span class="nc" id="L217">		final JLabel lblPrioridad = new JLabel(&quot;Prioridad:&quot;);</span>
+<span class="nc" id="L218">		lblPrioridad.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L219">		lblPrioridad.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
+<span class="nc" id="L220">		lblPrioridad.setBounds(89, 241, 91, 35);</span>
+<span class="nc" id="L221">		contentPane.add(lblPrioridad);</span>
 
-<span class="nc" id="L216">		final JLabel lblRegion = new JLabel(&quot;Región:&quot;);</span>
-<span class="nc" id="L217">		lblRegion.setHorizontalAlignment(SwingConstants.CENTER);</span>
-<span class="nc" id="L218">		lblRegion.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
-<span class="nc" id="L219">		lblRegion.setBounds(89, 288, 91, 35);</span>
-<span class="nc" id="L220">		contentPane.add(lblRegion);</span>
+<span class="nc" id="L223">		final JLabel lblRegion = new JLabel(&quot;Región:&quot;);</span>
+<span class="nc" id="L224">		lblRegion.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L225">		lblRegion.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
+<span class="nc" id="L226">		lblRegion.setBounds(89, 288, 91, 35);</span>
+<span class="nc" id="L227">		contentPane.add(lblRegion);</span>
 
-<span class="nc" id="L222">		final JLabel lblLote = new JLabel(&quot;Lote:&quot;);</span>
-<span class="nc" id="L223">		lblLote.setHorizontalAlignment(SwingConstants.CENTER);</span>
-<span class="nc" id="L224">		lblLote.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
-<span class="nc" id="L225">		lblLote.setBounds(106, 150, 91, 35);</span>
-<span class="nc" id="L226">		contentPane.add(lblLote);</span>
+<span class="nc" id="L229">		final JLabel lblLote = new JLabel(&quot;Lote:&quot;);</span>
+<span class="nc" id="L230">		lblLote.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L231">		lblLote.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
+<span class="nc" id="L232">		lblLote.setBounds(106, 150, 91, 35);</span>
+<span class="nc" id="L233">		contentPane.add(lblLote);</span>
 
-<span class="nc" id="L228">		final JLabel lblNombre = new JLabel(&quot;Nombre:&quot;);</span>
-<span class="nc" id="L229">		lblNombre.setHorizontalAlignment(SwingConstants.CENTER);</span>
-<span class="nc" id="L230">		lblNombre.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
-<span class="nc" id="L231">		lblNombre.setBounds(378, 150, 69, 35);</span>
-<span class="nc" id="L232">		contentPane.add(lblNombre);</span>
+<span class="nc" id="L235">		final JLabel lblNombre = new JLabel(&quot;Nombre:&quot;);</span>
+<span class="nc" id="L236">		lblNombre.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L237">		lblNombre.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
+<span class="nc" id="L238">		lblNombre.setBounds(378, 150, 69, 35);</span>
+<span class="nc" id="L239">		contentPane.add(lblNombre);</span>
 
-<span class="nc" id="L234">		final JLabel lblApellidos = new JLabel(&quot;Apellidos:&quot;);</span>
-<span class="nc" id="L235">		lblApellidos.setHorizontalAlignment(SwingConstants.CENTER);</span>
-<span class="nc" id="L236">		lblApellidos.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
-<span class="nc" id="L237">		lblApellidos.setBounds(378, 195, 69, 35);</span>
-<span class="nc" id="L238">		contentPane.add(lblApellidos);</span>
+<span class="nc" id="L241">		final JLabel lblApellidos = new JLabel(&quot;Apellidos:&quot;);</span>
+<span class="nc" id="L242">		lblApellidos.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L243">		lblApellidos.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
+<span class="nc" id="L244">		lblApellidos.setBounds(378, 195, 69, 35);</span>
+<span class="nc" id="L245">		contentPane.add(lblApellidos);</span>
 
-<span class="nc" id="L240">		final JLabel lblNIF = new JLabel(&quot;NIF:&quot;);</span>
-<span class="nc" id="L241">		lblNIF.setHorizontalAlignment(SwingConstants.CENTER);</span>
-<span class="nc" id="L242">		lblNIF.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
-<span class="nc" id="L243">		lblNIF.setBounds(378, 241, 69, 35);</span>
-<span class="nc" id="L244">		contentPane.add(lblNIF);</span>
+<span class="nc" id="L247">		final JLabel lblNIF = new JLabel(&quot;NIF:&quot;);</span>
+<span class="nc" id="L248">		lblNIF.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L249">		lblNIF.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
+<span class="nc" id="L250">		lblNIF.setBounds(378, 241, 69, 35);</span>
+<span class="nc" id="L251">		contentPane.add(lblNIF);</span>
 
-<span class="nc" id="L246">		final JLabel lblTipo = new JLabel(&quot;Tipo:&quot;);</span>
-<span class="nc" id="L247">		lblTipo.setHorizontalAlignment(SwingConstants.CENTER);</span>
-<span class="nc" id="L248">		lblTipo.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
-<span class="nc" id="L249">		lblTipo.setBounds(378, 288, 69, 35);</span>
-<span class="nc" id="L250">		contentPane.add(lblTipo);</span>
+<span class="nc" id="L253">		final JLabel lblTipo = new JLabel(&quot;Tipo:&quot;);</span>
+<span class="nc" id="L254">		lblTipo.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="nc" id="L255">		lblTipo.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 16));</span>
+<span class="nc" id="L256">		lblTipo.setBounds(378, 288, 69, 35);</span>
+<span class="nc" id="L257">		contentPane.add(lblTipo);</span>
 
-<span class="nc" id="L252">		final JButton btnRegistrarVacunacion = new JButton(&quot;Registrar Vacunación&quot;);</span>
-<span class="nc" id="L253">		btnRegistrarVacunacion.setForeground(Color.WHITE);</span>
-<span class="nc" id="L254">		btnRegistrarVacunacion.setBackground(new Color(19, 98, 143));</span>
-<span class="nc" id="L255">		btnRegistrarVacunacion.addMouseListener(new MouseAdapter() {</span>
+<span class="nc" id="L259">		final JButton btnRegistrarVacunacion = new JButton(&quot;Registrar Vacunación&quot;);</span>
+<span class="nc" id="L260">		btnRegistrarVacunacion.setForeground(Color.WHITE);</span>
+<span class="nc" id="L261">		btnRegistrarVacunacion.setBackground(new Color(19, 98, 143));</span>
+<span class="nc" id="L262">		btnRegistrarVacunacion.addMouseListener(new MouseAdapter() {</span>
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-<span class="nc" id="L259">				textFieldNombre.setVisible(true);</span>
-<span class="nc" id="L260">				lblNombre.setVisible(true);</span>
-<span class="nc" id="L261">				textFieldApellidos.setVisible(true);</span>
-<span class="nc" id="L262">				lblApellidos.setVisible(true);</span>
-<span class="nc" id="L263">				textFieldNIF.setVisible(true);</span>
-<span class="nc" id="L264">				lblNIF.setVisible(true);</span>
-<span class="nc" id="L265">				textFieldTipo.setVisible(true);</span>
-<span class="nc" id="L266">				lblTipo.setVisible(true);</span>
-<span class="nc" id="L267">				lblVacunacion.setVisible(false);</span>
+<span class="nc" id="L266">				textFieldNombre.setVisible(true);</span>
+<span class="nc" id="L267">				lblNombre.setVisible(true);</span>
+<span class="nc" id="L268">				textFieldApellidos.setVisible(true);</span>
+<span class="nc" id="L269">				lblApellidos.setVisible(true);</span>
+<span class="nc" id="L270">				textFieldNIF.setVisible(true);</span>
+<span class="nc" id="L271">				lblNIF.setVisible(true);</span>
+<span class="nc" id="L272">				textFieldTipo.setVisible(true);</span>
+<span class="nc" id="L273">				lblTipo.setVisible(true);</span>
+<span class="nc" id="L274">				lblVacunacion.setVisible(false);</span>
 
-<span class="nc" id="L269">				textFieldRegion.setVisible(false);</span>
-<span class="nc" id="L270">				lblRegion.setVisible(false);</span>
-<span class="nc" id="L271">				textFieldLote.setVisible(false);</span>
-<span class="nc" id="L272">				lblLote.setVisible(false);</span>
-<span class="nc" id="L273">				lblCantidad.setVisible(false);</span>
-<span class="nc" id="L274">				textFieldCantidad.setVisible(false);</span>
-<span class="nc" id="L275">				lblPrioridad.setVisible(false);</span>
-<span class="nc" id="L276">				textFieldPrioridad.setVisible(false);</span>
-<span class="nc" id="L277">				lblCantidad.setVisible(false);</span>
-<span class="nc" id="L278">				btnDarDeAlta.setVisible(false);</span>
-<span class="nc" id="L279">				lblAltaprimero.setVisible(false);</span>
-<span class="nc" id="L280">				btnRegistrar.setVisible(true);</span>
+<span class="nc" id="L276">				textFieldRegion.setVisible(false);</span>
+<span class="nc" id="L277">				lblRegion.setVisible(false);</span>
+<span class="nc" id="L278">				textFieldLote.setVisible(false);</span>
+<span class="nc" id="L279">				lblLote.setVisible(false);</span>
+<span class="nc" id="L280">				lblCantidad.setVisible(false);</span>
+<span class="nc" id="L281">				textFieldCantidad.setVisible(false);</span>
+<span class="nc" id="L282">				lblPrioridad.setVisible(false);</span>
+<span class="nc" id="L283">				textFieldPrioridad.setVisible(false);</span>
+<span class="nc" id="L284">				lblCantidad.setVisible(false);</span>
+<span class="nc" id="L285">				btnDarDeAlta.setVisible(false);</span>
+<span class="nc" id="L286">				lblAltaprimero.setVisible(false);</span>
+<span class="nc" id="L287">				btnRegistrar.setVisible(true);</span>
 
-<span class="nc" id="L282">			}</span>
+<span class="nc" id="L289">			}</span>
 		});
-<span class="nc" id="L284">		btnRegistrarVacunacion.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 15));</span>
-<span class="nc" id="L285">		btnRegistrarVacunacion.setBounds(378, 104, 262, 35);</span>
-<span class="nc" id="L286">		contentPane.add(btnRegistrarVacunacion);</span>
+<span class="nc" id="L291">		btnRegistrarVacunacion.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 15));</span>
+<span class="nc" id="L292">		btnRegistrarVacunacion.setBounds(378, 104, 262, 35);</span>
+<span class="nc" id="L293">		contentPane.add(btnRegistrarVacunacion);</span>
 
-<span class="nc" id="L288">		JButton btnDarDeAltaEntregaVacunas = new JButton(&quot;Dar de alta entrega vacunas\r\n&quot;);</span>
-<span class="nc" id="L289">		btnDarDeAltaEntregaVacunas.setForeground(Color.WHITE);</span>
-<span class="nc" id="L290">		btnDarDeAltaEntregaVacunas.setBackground(new Color(19, 98, 143));</span>
-<span class="nc" id="L291">		btnDarDeAltaEntregaVacunas.addMouseListener(new MouseAdapter() {</span>
+<span class="nc" id="L295">		JButton btnDarDeAltaEntregaVacunas = new JButton(&quot;Dar de alta entrega vacunas\r\n&quot;);</span>
+<span class="nc" id="L296">		btnDarDeAltaEntregaVacunas.setForeground(Color.WHITE);</span>
+<span class="nc" id="L297">		btnDarDeAltaEntregaVacunas.setBackground(new Color(19, 98, 143));</span>
+<span class="nc" id="L298">		btnDarDeAltaEntregaVacunas.addMouseListener(new MouseAdapter() {</span>
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-<span class="nc" id="L295">				textFieldLote.setText(&quot;Ejemplo: lote_0, lote_1...&quot;);</span>
-<span class="nc" id="L296">				textFieldLote.setVisible(true);</span>
-<span class="nc" id="L297">				lblLote.setVisible(true);</span>
-<span class="nc" id="L298">				lblCantidad.setVisible(true);</span>
-<span class="nc" id="L299">				textFieldCantidad.setVisible(true);</span>
-<span class="nc" id="L300">				lblPrioridad.setVisible(true);</span>
-<span class="nc" id="L301">				textFieldPrioridad.setVisible(true);</span>
+<span class="nc" id="L302">				textFieldLote.setText(&quot;Ejemplo: lote_0, lote_1...&quot;);</span>
+<span class="nc" id="L303">				textFieldLote.setVisible(true);</span>
+<span class="nc" id="L304">				lblLote.setVisible(true);</span>
+<span class="nc" id="L305">				lblCantidad.setVisible(true);</span>
+<span class="nc" id="L306">				textFieldCantidad.setVisible(true);</span>
+<span class="nc" id="L307">				lblPrioridad.setVisible(true);</span>
+<span class="nc" id="L308">				textFieldPrioridad.setVisible(true);</span>
 
-<span class="nc" id="L303">				lblRegion.setVisible(true);</span>
-<span class="nc" id="L304">				textFieldRegion.setVisible(true);</span>
+<span class="nc" id="L310">				lblRegion.setVisible(true);</span>
+<span class="nc" id="L311">				textFieldRegion.setVisible(true);</span>
 
-<span class="nc" id="L306">				lblCantidad.setVisible(true);</span>
-<span class="nc" id="L307">				btnDarDeAlta.setVisible(true);</span>
-<span class="nc" id="L308">				btnRegistrar.setVisible(false);</span>
+<span class="nc" id="L313">				lblCantidad.setVisible(true);</span>
+<span class="nc" id="L314">				btnDarDeAlta.setVisible(true);</span>
+<span class="nc" id="L315">				btnRegistrar.setVisible(false);</span>
 
-<span class="nc" id="L310">				textFieldNombre.setVisible(false);</span>
-<span class="nc" id="L311">				lblNombre.setVisible(false);</span>
-<span class="nc" id="L312">				textFieldApellidos.setVisible(false);</span>
-<span class="nc" id="L313">				lblApellidos.setVisible(false);</span>
-<span class="nc" id="L314">				textFieldNIF.setVisible(false);</span>
-<span class="nc" id="L315">				lblNIF.setVisible(false);</span>
-<span class="nc" id="L316">				textFieldTipo.setVisible(false);</span>
-<span class="nc" id="L317">				lblTipo.setVisible(false);</span>
-<span class="nc" id="L318">				lblAltaprimero.setVisible(false);</span>
-<span class="nc" id="L319">				lblVacunacion.setVisible(false);</span>
+<span class="nc" id="L317">				textFieldNombre.setVisible(false);</span>
+<span class="nc" id="L318">				lblNombre.setVisible(false);</span>
+<span class="nc" id="L319">				textFieldApellidos.setVisible(false);</span>
+<span class="nc" id="L320">				lblApellidos.setVisible(false);</span>
+<span class="nc" id="L321">				textFieldNIF.setVisible(false);</span>
+<span class="nc" id="L322">				lblNIF.setVisible(false);</span>
+<span class="nc" id="L323">				textFieldTipo.setVisible(false);</span>
+<span class="nc" id="L324">				lblTipo.setVisible(false);</span>
+<span class="nc" id="L325">				lblAltaprimero.setVisible(false);</span>
+<span class="nc" id="L326">				lblVacunacion.setVisible(false);</span>
 
-<span class="nc" id="L321">			}</span>
+<span class="nc" id="L328">			}</span>
 		});
-<span class="nc" id="L323">		btnDarDeAltaEntregaVacunas.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 15));</span>
-<span class="nc" id="L324">		btnDarDeAltaEntregaVacunas.setBounds(106, 103, 262, 36);</span>
-<span class="nc" id="L325">		contentPane.add(btnDarDeAltaEntregaVacunas);</span>
+<span class="nc" id="L330">		btnDarDeAltaEntregaVacunas.setFont(new Font(&quot;Tw Cen MT&quot;, Font.BOLD, 15));</span>
+<span class="nc" id="L331">		btnDarDeAltaEntregaVacunas.setBounds(106, 103, 262, 36);</span>
+<span class="nc" id="L332">		contentPane.add(btnDarDeAltaEntregaVacunas);</span>
 
-<span class="nc" id="L327">		textFieldLote = new JTextField();</span>
-<span class="nc" id="L328">		textFieldLote.setBounds(182, 150, 186, 35);</span>
-<span class="nc" id="L329">		contentPane.add(textFieldLote);</span>
-<span class="nc" id="L330">		textFieldLote.setColumns(10);</span>
+<span class="nc" id="L334">		textFieldLote = new JTextField();</span>
+<span class="nc" id="L335">		textFieldLote.setBounds(182, 150, 186, 35);</span>
+<span class="nc" id="L336">		contentPane.add(textFieldLote);</span>
+<span class="nc" id="L337">		textFieldLote.setColumns(10);</span>
 
-<span class="nc" id="L332">		textFieldCantidad = new JTextField();</span>
-<span class="nc" id="L333">		textFieldCantidad.setBounds(182, 196, 186, 35);</span>
-<span class="nc" id="L334">		contentPane.add(textFieldCantidad);</span>
-<span class="nc" id="L335">		textFieldCantidad.setColumns(10);</span>
+<span class="nc" id="L339">		textFieldCantidad = new JTextField();</span>
+<span class="nc" id="L340">		textFieldCantidad.setBounds(182, 196, 186, 35);</span>
+<span class="nc" id="L341">		contentPane.add(textFieldCantidad);</span>
+<span class="nc" id="L342">		textFieldCantidad.setColumns(10);</span>
 
-<span class="nc" id="L337">		textFieldPrioridad = new JTextField();</span>
-<span class="nc" id="L338">		textFieldPrioridad.setBounds(182, 242, 186, 35);</span>
-<span class="nc" id="L339">		contentPane.add(textFieldPrioridad);</span>
-<span class="nc" id="L340">		textFieldPrioridad.setColumns(10);</span>
+<span class="nc" id="L344">		textFieldPrioridad = new JTextField();</span>
+<span class="nc" id="L345">		textFieldPrioridad.setBounds(182, 242, 186, 35);</span>
+<span class="nc" id="L346">		contentPane.add(textFieldPrioridad);</span>
+<span class="nc" id="L347">		textFieldPrioridad.setColumns(10);</span>
 
-<span class="nc" id="L342">		textFieldRegion = new JTextField();</span>
-<span class="nc" id="L343">		textFieldRegion.setBounds(182, 288, 186, 35);</span>
-<span class="nc" id="L344">		contentPane.add(textFieldRegion);</span>
-<span class="nc" id="L345">		textFieldRegion.setColumns(10);</span>
+<span class="nc" id="L349">		textFieldRegion = new JTextField();</span>
+<span class="nc" id="L350">		textFieldRegion.setBounds(182, 288, 186, 35);</span>
+<span class="nc" id="L351">		contentPane.add(textFieldRegion);</span>
+<span class="nc" id="L352">		textFieldRegion.setColumns(10);</span>
 
-<span class="nc" id="L347">		textFieldNombre = new JTextField();</span>
-<span class="nc" id="L348">		textFieldNombre.setBounds(457, 151, 183, 35);</span>
-<span class="nc" id="L349">		contentPane.add(textFieldNombre);</span>
-<span class="nc" id="L350">		textFieldNombre.setColumns(10);</span>
+<span class="nc" id="L354">		textFieldNombre = new JTextField();</span>
+<span class="nc" id="L355">		textFieldNombre.setBounds(457, 151, 183, 35);</span>
+<span class="nc" id="L356">		contentPane.add(textFieldNombre);</span>
+<span class="nc" id="L357">		textFieldNombre.setColumns(10);</span>
 
-<span class="nc" id="L352">		textFieldApellidos = new JTextField();</span>
-<span class="nc" id="L353">		textFieldApellidos.setBounds(457, 196, 183, 35);</span>
-<span class="nc" id="L354">		contentPane.add(textFieldApellidos);</span>
-<span class="nc" id="L355">		textFieldApellidos.setColumns(10);</span>
+<span class="nc" id="L359">		textFieldApellidos = new JTextField();</span>
+<span class="nc" id="L360">		textFieldApellidos.setBounds(457, 196, 183, 35);</span>
+<span class="nc" id="L361">		contentPane.add(textFieldApellidos);</span>
+<span class="nc" id="L362">		textFieldApellidos.setColumns(10);</span>
 
-<span class="nc" id="L357">		textFieldNIF = new JTextField();</span>
-<span class="nc" id="L358">		textFieldNIF.setBounds(457, 242, 183, 35);</span>
-<span class="nc" id="L359">		contentPane.add(textFieldNIF);</span>
-<span class="nc" id="L360">		textFieldNIF.setColumns(10);</span>
+<span class="nc" id="L364">		textFieldNIF = new JTextField();</span>
+<span class="nc" id="L365">		textFieldNIF.setBounds(457, 242, 183, 35);</span>
+<span class="nc" id="L366">		contentPane.add(textFieldNIF);</span>
+<span class="nc" id="L367">		textFieldNIF.setColumns(10);</span>
 
-<span class="nc" id="L362">		textFieldTipo = new JTextField();</span>
-<span class="nc" id="L363">		textFieldTipo.setBounds(457, 289, 183, 35);</span>
-<span class="nc" id="L364">		contentPane.add(textFieldTipo);</span>
-<span class="nc" id="L365">		textFieldTipo.setColumns(10);</span>
+<span class="nc" id="L369">		textFieldTipo = new JTextField();</span>
+<span class="nc" id="L370">		textFieldTipo.setBounds(457, 289, 183, 35);</span>
+<span class="nc" id="L371">		contentPane.add(textFieldTipo);</span>
+<span class="nc" id="L372">		textFieldTipo.setColumns(10);</span>
 
-<span class="nc" id="L367">		textFieldLote.setVisible(false);</span>
-<span class="nc" id="L368">		lblLote.setVisible(false);</span>
-<span class="nc" id="L369">		lblCantidad.setVisible(false);</span>
-<span class="nc" id="L370">		textFieldCantidad.setVisible(false);</span>
-<span class="nc" id="L371">		lblPrioridad.setVisible(false);</span>
-<span class="nc" id="L372">		textFieldPrioridad.setVisible(false);</span>
-<span class="nc" id="L373">		textFieldRegion.setVisible(false);</span>
-<span class="nc" id="L374">		lblRegion.setVisible(false);</span>
-<span class="nc" id="L375">		lblCantidad.setVisible(false);</span>
-<span class="nc" id="L376">		btnDarDeAlta.setVisible(false);</span>
-<span class="nc" id="L377">		textFieldNombre.setVisible(false);</span>
-<span class="nc" id="L378">		lblNombre.setVisible(false);</span>
-<span class="nc" id="L379">		textFieldApellidos.setVisible(false);</span>
-<span class="nc" id="L380">		lblApellidos.setVisible(false);</span>
-<span class="nc" id="L381">		textFieldNIF.setVisible(false);</span>
-<span class="nc" id="L382">		lblNIF.setVisible(false);</span>
-<span class="nc" id="L383">		textFieldTipo.setVisible(false);</span>
-<span class="nc" id="L384">		lblTipo.setVisible(false);</span>
-<span class="nc" id="L385">		btnRegistrar.setVisible(false);</span>
-<span class="nc" id="L386">		lblAltaprimero.setVisible(false);</span>
-<span class="nc" id="L387">		lblVacunacion.setVisible(false);</span>
+<span class="nc" id="L374">		textFieldLote.setVisible(false);</span>
+<span class="nc" id="L375">		lblLote.setVisible(false);</span>
+<span class="nc" id="L376">		lblCantidad.setVisible(false);</span>
+<span class="nc" id="L377">		textFieldCantidad.setVisible(false);</span>
+<span class="nc" id="L378">		lblPrioridad.setVisible(false);</span>
+<span class="nc" id="L379">		textFieldPrioridad.setVisible(false);</span>
+<span class="nc" id="L380">		textFieldRegion.setVisible(false);</span>
+<span class="nc" id="L381">		lblRegion.setVisible(false);</span>
+<span class="nc" id="L382">		lblCantidad.setVisible(false);</span>
+<span class="nc" id="L383">		btnDarDeAlta.setVisible(false);</span>
+<span class="nc" id="L384">		textFieldNombre.setVisible(false);</span>
+<span class="nc" id="L385">		lblNombre.setVisible(false);</span>
+<span class="nc" id="L386">		textFieldApellidos.setVisible(false);</span>
+<span class="nc" id="L387">		lblApellidos.setVisible(false);</span>
+<span class="nc" id="L388">		textFieldNIF.setVisible(false);</span>
+<span class="nc" id="L389">		lblNIF.setVisible(false);</span>
+<span class="nc" id="L390">		textFieldTipo.setVisible(false);</span>
+<span class="nc" id="L391">		lblTipo.setVisible(false);</span>
+<span class="nc" id="L392">		btnRegistrar.setVisible(false);</span>
+<span class="nc" id="L393">		lblAltaprimero.setVisible(false);</span>
+<span class="nc" id="L394">		lblVacunacion.setVisible(false);</span>
 
-<span class="nc" id="L389">	}</span>
+<span class="nc" id="L396">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

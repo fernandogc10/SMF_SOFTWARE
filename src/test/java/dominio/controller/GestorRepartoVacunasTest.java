@@ -17,43 +17,75 @@ import persistencia.AgenteBD;
 
 public class GestorRepartoVacunasTest {
 
-	private AgenteBD agenteBD;
-	private Vector <Object> vector;
-
-
+	private Vector<Object> vector_comprobacion;
+	java.util.Date date;
+	java.sql.Date sqlDate;
 
 	@Before
 	public void setUp() throws Exception {
-		agenteBD = new AgenteBD();
-		vector = new Vector <> ();
+		Vector<Object> vector_comprobacion = new Vector<>();
+		date = new java.util.Date();
+		sqlDate = new java.sql.Date(date.getTime());
+	}
+
+
+
+	@Test(expected = Exception.class)
+	public void testAltaNuevoLoteVacunas1() throws Exception {
+		
+		
+		GestorRepartoVacunas.altaNuevoLoteVacunas(null, "covid", -30);
+		
+		this.vector_comprobacion = AgenteBD.getAgente().select("Select * from "
+				+ "LoteVacunas where fecha= '"+this.sqlDate+  "'");
 
 		
 	}
+	
+	@Test(expected = Exception.class)
+	public void testAltaNuevoLoteVacunas2() throws Exception {
+		
+		
+		GestorRepartoVacunas.altaNuevoLoteVacunas(this.sqlDate, null, 0);
+		
+		this.vector_comprobacion = AgenteBD.getAgente().select("Select * from "
+				+ "LoteVacunas where fecha= '"+this.sqlDate+  "'");
 
-	@After
-	public void tearDown() throws Exception {
+		
 	}
-
+	
 	@Test
-	public void testAltaNuevoLoteVacunas() throws Exception {
-		
-		java.util.Date date = new java.util.Date();
-		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-		
-		GestorRepartoVacunas.altaNuevoLoteVacunas(sqlDate, "covid", 100);
-		
-		this.vector = this.agenteBD.select("Select * from LoteVacunas where id= '"+ "'");
+	public void testAltaNuevoLoteVacunas3() throws Exception {
 		
 		
+		GestorRepartoVacunas.altaNuevoLoteVacunas(this.sqlDate, "covid", 5);
+		
+		this.vector_comprobacion = AgenteBD.getAgente().select("Select * from "
+				+ "LoteVacunas where fecha= '"+this.sqlDate+  "'");
+		
+		assertEquals(this.sqlDate.toString(),  this.vector_comprobacion.get(1).toString());
+
+		
+	}
+	
+	@Test(expected = Exception.class)
+	public void testAltaNuevoLoteVacunas4() throws Exception {
+		
+		
+		GestorRepartoVacunas.altaNuevoLoteVacunas(this.sqlDate, null, 1000);
+		
+		this.vector_comprobacion = AgenteBD.getAgente().select("Select * from "
+				+ "LoteVacunas where fecha= '"+this.sqlDate+  "'");
+
 		
 	}
 	
 
-	@Test
+	/*@Test
 	public void testCalcularEntregasRegion() {
 		
 
-	}
+	}*/
 
 
 }

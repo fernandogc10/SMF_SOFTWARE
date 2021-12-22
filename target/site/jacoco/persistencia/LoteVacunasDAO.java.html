@@ -7,21 +7,24 @@ import dominio.entitymodel.LoteVacunas;
 
 public class LoteVacunasDAO&lt;E&gt; extends AgenteBD {
 
-	public LoteVacunasDAO() throws SQLException, ClassNotFoundException {
+	public LoteVacunasDAO() throws SQLException{
 <span class="fc" id="L11">		super();</span>
 
 <span class="fc" id="L13">	}</span>
 
 
-	public static void insertarLoteVacunas(LoteVacunas aLote) throws SQLException, Exception {
+	public static void insertarLoteVacunas(LoteVacunas aLote) throws SQLException, Exception{
+		
+<span class="pc bpc" id="L18" title="3 of 6 branches missed.">		if (aLote.get_id() == null || aLote.get_fecha() == null || aLote.get_cantidad() &lt;= 0)</span>
+<span class="nc" id="L19">			throw new Exception (&quot;No se permiten valores nulos, negativos o cantidades de 0&quot;);</span>
 
-<span class="fc" id="L18">		String consulta = &quot;INSERT INTO lotevacunas (id, fecha, cantidad, farmaceutica) VALUES (&quot; + &quot;'&quot; + aLote.get_id()</span>
-<span class="fc" id="L19">				+ &quot;'&quot; + &quot;,&quot; + &quot;'&quot; + aLote.get_fecha() + &quot;'&quot; + &quot;,&quot; + +aLote.get_cantidad() + &quot;,&quot; + &quot;'&quot;</span>
-<span class="fc" id="L20">				+ aLote.get_farmaceutica() + &quot;')&quot;;</span>
+<span class="fc" id="L21">		String consulta = &quot;INSERT INTO lotevacunas (id, fecha, cantidad, farmaceutica) VALUES (&quot; + &quot;'&quot; + aLote.get_id()</span>
+<span class="fc" id="L22">				+ &quot;'&quot; + &quot;,&quot; + &quot;'&quot; + aLote.get_fecha() + &quot;'&quot; + &quot;,&quot; + +aLote.get_cantidad() + &quot;,&quot; + &quot;'&quot;</span>
+<span class="fc" id="L23">				+ aLote.get_farmaceutica() + &quot;')&quot;;</span>
 
-<span class="fc" id="L22">		AgenteBD.getAgente().insert(consulta);</span>
+<span class="fc" id="L25">		AgenteBD.getAgente().insert(consulta);</span>
 		
 
-<span class="fc" id="L25">	}</span>
+<span class="fc" id="L28">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

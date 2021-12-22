@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: persistencia.VacunacionDAOTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.617 sec
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.841 sec

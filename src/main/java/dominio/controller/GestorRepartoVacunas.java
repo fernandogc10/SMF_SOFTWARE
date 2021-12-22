@@ -16,6 +16,9 @@ import persistencia.AgenteBD;
 public class GestorRepartoVacunas {
 
 	static List<EntregaVacunas> listaentregas = new ArrayList<>();
+	
+	java.util.Date date;
+	java.sql.Date sqlDate;
 
 	public static void altaNuevoLoteVacunas(Date fecha, String tipo, int cantidad) throws SQLException, Exception {
 

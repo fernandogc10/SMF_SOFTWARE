@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="dominio.controller.GestorEstadisticasTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="dominio.controller.GestorEstadisticasTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="12.0.2+10"/>
@@ -23,7 +23,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf13590361840743971701.tmp"/>
+    <property name="classworlds.conf" value="/Users/fernando/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf9292991303520731433.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/fernando/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="jdk.debug" value="release"/>
@@ -61,5 +61,5 @@
   <testcase classname="dominio.controller.GestorEstadisticasTest" name="testConsultarTotalVacunadosPorRegion" time="0"/>
   <testcase classname="dominio.controller.GestorEstadisticasTest" name="testConsultarPorcentajeVacunadosSobreRecibidasEnRegion" time="0"/>
   <testcase classname="dominio.controller.GestorEstadisticasTest" name="testConsultarTotalVacunados" time="0"/>
-  <testcase classname="dominio.controller.GestorEstadisticasTest" name="testConsultarPorcentajeVacunadosSobreRecibidas" time="0.001"/>
+  <testcase classname="dominio.controller.GestorEstadisticasTest" name="testConsultarPorcentajeVacunadosSobreRecibidas" time="0"/>
 </testsuite>

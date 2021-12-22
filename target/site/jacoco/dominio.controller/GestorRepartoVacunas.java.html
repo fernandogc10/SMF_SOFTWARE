@@ -14,25 +14,35 @@ import dominio.entitymodel.LoteVacunas;
 import persistencia.AgenteBD;
 
 <span class="nc" id="L16">public class GestorRepartoVacunas {</span>
-	
+
 <span class="fc" id="L18">	static List&lt;EntregaVacunas&gt; listaentregas = new ArrayList&lt;&gt;();</span>
 
-	public static void altaNuevoLoteVacunas(Date fecha, String tipo, int cantidad) throws Exception {
+	public static void altaNuevoLoteVacunas(Date fecha, String tipo, int cantidad) throws SQLException, Exception {
 
-<span class="fc" id="L22">		LoteVacunas lote = new LoteVacunas(null, fecha, tipo, cantidad);</span>
 
-<span class="fc" id="L24">		LoteVacunas.altaNuevoLoteVacunas(lote);</span>
+		
+<span class="fc bfc" id="L24" title="All 2 branches covered.">			if (cantidad &lt;= 0)</span>
+<span class="fc" id="L25">				throw new Exception(&quot;Parámetro Cantidad con valor no válido&quot;);</span>
+			
+<span class="pc bpc" id="L27" title="1 of 4 branches missed.">			if (fecha == null || tipo == null) throw new Exception(&quot;Los prámetros no pueden ser null&quot;);</span>
+			
 
-<span class="fc" id="L26">	}</span>
+<span class="fc" id="L30">			LoteVacunas lote = new LoteVacunas(null, fecha, tipo, cantidad);</span>
 
-	public static List&lt;EntregaVacunas&gt; calcularEntregasRegion() throws SQLException, Exception { // devuelve una lista
-																									// donde se deberian																					// de entregar
+<span class="fc" id="L32">			lote._loteVacunasDao.insertarLoteVacunas(lote);</span>
+			
 
-<span class="nc" id="L31">		EntregaVacunas entrega = new EntregaVacunas();</span>
+<span class="fc" id="L35">	}</span>
 
-<span class="nc" id="L33">		listaentregas.addAll(entrega._entregaDao.seleccionarEntregas());</span>
+	public static List&lt;EntregaVacunas&gt; calcularEntregasRegion() throws SQLException { // devuelve una lista
+																						// donde se deberian // de
+																						// entregar
 
-<span class="nc" id="L35">		return listaentregas;</span>
+<span class="nc" id="L41">		EntregaVacunas entrega = new EntregaVacunas();</span>
+
+<span class="nc" id="L43">		listaentregas.addAll(entrega._entregaDao.seleccionarEntregas());</span>
+
+<span class="nc" id="L45">		return listaentregas;</span>
 
 	}
 

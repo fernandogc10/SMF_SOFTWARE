@@ -1,44 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GestorEstadisticas.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SMF_SOFTWARE</a> &gt; <a href="index.source.html" class="el_package">dominio.controller</a> &gt; <span class="el_source">GestorEstadisticas.java</span></div><h1>GestorEstadisticas.java</h1><pre class="source lang-java linenums">package dominio.controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import dominio.entitymodel.RegionEnum;
 import dominio.entitymodel.Vacunacion;
 
-<span class="nc" id="L9">public class GestorEstadisticas {</span>
+<span class="nc" id="L10">public class GestorEstadisticas {</span>
 	
-<span class="nc" id="L11">	static List&lt;Vacunacion&gt; listaVacunados = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L12">	static List&lt;Vacunacion&gt; listaVacunados = new ArrayList&lt;&gt;();</span>
 
-	public static List&lt;Vacunacion&gt; consultarTotalVacunados() throws Exception {
+	public static List&lt;Vacunacion&gt; consultarTotalVacunados() throws SQLException{
 		
 		
-<span class="nc" id="L16">		listaVacunados = Vacunacion._vacunacionDao.seleccionarVacunaciones();</span>
+<span class="nc" id="L17">		listaVacunados = Vacunacion._vacunacionDao.seleccionarVacunaciones();</span>
 		
-<span class="nc" id="L18">		return listaVacunados;</span>
+<span class="nc" id="L19">		return listaVacunados;</span>
 		
 		
 	}
 
-	public static List&lt;Vacunacion&gt; consultarTotalVacunadosPorRegion(RegionEnum aRegion) throws Exception {
+	public static List&lt;Vacunacion&gt; consultarTotalVacunadosPorRegion(RegionEnum aRegion) throws SQLException, Exception{
 		
-<span class="nc" id="L25">		listaVacunados = Vacunacion._vacunacionDao.seleccionarVacunaciones(aRegion);</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">		if(aRegion == null) throw new Exception(&quot;La región no puede ser nula&quot;);</span>
 		
-<span class="nc" id="L27">		return listaVacunados;</span>
+<span class="nc" id="L28">		listaVacunados = Vacunacion._vacunacionDao.seleccionarVacunaciones(aRegion);</span>
+		
+<span class="nc" id="L30">		return listaVacunados;</span>
 		
 	}
 	
 
-	public void consultarPorcentajeVacunadosSobreRecibidas() throws Exception {
+	public static String consultarPorcentajeVacunadosSobreRecibidas() throws SQLException{
 		
-<span class="nc" id="L34">		Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidas();</span>
-<span class="nc" id="L35">	}</span>
+<span class="nc" id="L37">		return Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidas();</span>
+	}
 
-	public void consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum aRegion) throws Exception {
+	public static String consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum aRegion) throws SQLException, Exception {
 		
-<span class="nc" id="L39">		Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidasEnRegion(aRegion);</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">		if(aRegion == null) throw new Exception(&quot;La región no puede ser nula&quot;);</span>
+		
+<span class="nc" id="L44">		return Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidasEnRegion(aRegion);</span>
 			
 		
-<span class="nc" id="L42">	}</span>
+	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

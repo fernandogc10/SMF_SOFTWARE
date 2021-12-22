@@ -14,45 +14,52 @@ public class EntregaDAO&lt;E&gt; extends AgenteBD {
 
 <span class="fc" id="L15">	static List&lt;EntregaVacunas&gt; listaEntregaVacunas = new ArrayList&lt;&gt;();</span>
 
-	public EntregaDAO() throws SQLException, ClassNotFoundException {
-<span class="fc" id="L18">		super();</span>
+<span class="fc" id="L17">	public EntregaDAO() throws SQLException{</span>
+		
 
 <span class="fc" id="L20">	}</span>
 
-	public static void insertarEntrega(String consulta) throws SQLException, Exception {
+	public static void insertarEntrega(EntregaVacunas nuevaEntrega) throws SQLException,Exception{
+		
+<span class="pc bpc" id="L24" title="3 of 6 branches missed.">		if(nuevaEntrega.get_fecha() == null || nuevaEntrega.get_cantidad() &lt;=0 || nuevaEntrega.get_region() == null</span>
+<span class="pc bpc" id="L25" title="3 of 6 branches missed.">				|| nuevaEntrega.get_tipo() == null || nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() &lt; 0 || nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() &gt; 2)</span>
+<span class="nc" id="L26">			throw new Exception (&quot;No se permiten parámetros nulos, negativos o la prioridad fuera de su rango (0&lt;prioridad&lt;2&quot;);</span>
 
-<span class="fc" id="L24">		AgenteBD.getAgente().insert(consulta);</span>
+<span class="fc" id="L28">		AgenteBD.getAgente().insert((&quot;Insert into Entregas (fecha, cantidad, loteVacunas, region, tipoVacuna, GrupoPrioridad) values&quot;</span>
+<span class="fc" id="L29">				+ &quot; ('&quot; + nuevaEntrega.get_fecha().toString() + &quot;',&quot; + nuevaEntrega.get_cantidad() + &quot;,'&quot;</span>
+<span class="fc" id="L30">				+ nuevaEntrega.get_lote().get_id() + &quot;', '&quot; + nuevaEntrega.get_region().toString() + &quot;','&quot; + nuevaEntrega.get_tipo().get_Nombre() + &quot;',&quot;</span>
+<span class="fc" id="L31">				+ nuevaEntrega.get_grupoPrioridad().get_grupoPrioridad() + &quot;)&quot;));</span>
 
-<span class="fc" id="L26">	}</span>
+<span class="fc" id="L33">	}</span>
 
-	public static List&lt;EntregaVacunas&gt; seleccionarEntregas() throws SQLException, Exception {
+	public static List&lt;EntregaVacunas&gt; seleccionarEntregas() throws SQLException{
 
-<span class="fc" id="L30">		Vector&lt;Object&gt; vector = new Vector&lt;&gt;();</span>
+<span class="fc" id="L37">		Vector&lt;Object&gt; vector = new Vector&lt;&gt;();</span>
 
 		EntregaVacunas entrega;
 
-<span class="fc" id="L34">		vector = AgenteBD.getAgente().select(&quot;Select region from Entregas&quot;);</span>
+<span class="fc" id="L41">		vector = AgenteBD.getAgente().select(&quot;Select region from Entregas&quot;);</span>
 
-<span class="fc bfc" id="L36" title="All 2 branches covered.">		for (RegionEnum region : RegionEnum.values()) {</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">		for (RegionEnum region : RegionEnum.values()) {</span>
 
-<span class="pc bpc" id="L38" title="1 of 2 branches missed.">			for (int i = 0; i &lt; vector.size(); i++) {</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">			for (int i = 0; i &lt; vector.size(); i++) {</span>
 
-<span class="nc bnc" id="L40" title="All 2 branches missed.">				if (!region.toString().equalsIgnoreCase(vector.elementAt(i).toString())) {</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">				if (!region.toString().equalsIgnoreCase(vector.elementAt(i).toString())) {</span>
 
-<span class="nc" id="L42">					entrega = new EntregaVacunas(region);</span>
+<span class="nc" id="L49">					entrega = new EntregaVacunas(region);</span>
 
-<span class="nc" id="L44">					listaEntregaVacunas.add(entrega);</span>
+<span class="nc" id="L51">					listaEntregaVacunas.add(entrega);</span>
 				}
 			}
-<span class="pc bpc" id="L47" title="1 of 2 branches missed.">			if (vector.isEmpty()) {</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">			if (vector.isEmpty()) {</span>
 
-<span class="fc" id="L49">				entrega = new EntregaVacunas(region);</span>
+<span class="fc" id="L56">				entrega = new EntregaVacunas(region);</span>
 
-<span class="fc" id="L51">				listaEntregaVacunas.add(entrega);</span>
+<span class="fc" id="L58">				listaEntregaVacunas.add(entrega);</span>
 			}
 
 		}
-<span class="fc" id="L55">		return listaEntregaVacunas;</span>
+<span class="fc" id="L62">		return listaEntregaVacunas;</span>
 
 	}
 }
