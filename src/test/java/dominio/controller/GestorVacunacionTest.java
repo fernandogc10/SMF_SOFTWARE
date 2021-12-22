@@ -1,6 +1,5 @@
 package dominio.controller;
 
-<<<<<<< HEAD
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
@@ -267,7 +266,6 @@ public class GestorVacunacionTest {
 		
 		GestorVacunacion.seleccionarPrioridad(40);
 		
->>>>>>> refs/remotes/origin/development
 	}
 
 }
