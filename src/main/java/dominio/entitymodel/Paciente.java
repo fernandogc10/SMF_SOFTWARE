@@ -18,10 +18,6 @@ public class Paciente {
 	}
 
 	public String get_dni() {
-<<<<<<< HEAD
-
-		return _dni;
-=======
 		
 		return _dni;
 	}
@@ -40,6 +36,6 @@ public class Paciente {
 
 	public String get_Apellidos() {
 		return _apellidos;
->>>>>>> refs/remotes/origin/development
+
 	}
 }

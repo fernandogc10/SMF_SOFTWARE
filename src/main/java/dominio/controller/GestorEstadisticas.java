@@ -1,26 +1,8 @@
 package dominio.controller;
 
-<<<<<<< HEAD
+
 import dominio.entitymodel.RegionEnum;
 
-public class GestorEstadisticas {
-
-	public void consultarTotalVacunados() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void consultarTotalVacunadosPorRegion(RegionEnum aRegion) {
-		throw new UnsupportedOperationException();
-	}
-	//fernando
-
-	public void consultarPorcentajeVacunadosSobreRecibidas() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum aRegion) {
-		throw new UnsupportedOperationException();
-=======
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +48,6 @@ public class GestorEstadisticas {
 		return Vacunacion._vacunacionDao.consultarPorcentajeVacunadosSobreRecibidasEnRegion(aRegion);
 			
 		
->>>>>>> refs/remotes/origin/development
+
 	}
 }

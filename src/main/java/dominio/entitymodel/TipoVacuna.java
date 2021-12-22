@@ -10,11 +10,7 @@ public class TipoVacuna {
 	public Vector<Vacunacion> _unnamed_Vacunacion_ = new Vector<Vacunacion>();
 	public EntregaVacunas _unnamed_EntregaVacunas_;
 	public LoteVacunas _unnamed_LoteVacunas_;
-<<<<<<< HEAD
-	
-=======
-	//
->>>>>>> refs/remotes/origin/development
+
 	
 	public enum Farmaceuticas {
 		PFIZER, ASTRAZENECA, MODERNA, JANSSEN;
