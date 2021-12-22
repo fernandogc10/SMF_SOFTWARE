@@ -72,7 +72,7 @@ public class VacunacionDAOTest {
 
 		vacunacion.set_TipoVacuna(tipovacuna);
 		
-		System.out.println("TIPOOO "+ vacunacion.get_tipoVacuna().get_Nombre());
+		
 		
 
 		VacunacionDAO.insertarVacunacion(vacunacion);

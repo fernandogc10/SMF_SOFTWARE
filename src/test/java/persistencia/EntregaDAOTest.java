@@ -87,12 +87,12 @@ public class EntregaDAOTest {
 
 		EntregaDAO.insertarEntrega(nuevaEntrega);
 		
-		System.out.println(nuevaEntrega.get_lote().get_id());
+		
 
 		vector = AgenteBD.getAgente().select("Select loteVacunas from Entregas" +
 		" where loteVacunas= '" + nuevaEntrega.get_lote().get_id() + "'");
 		
-		System.out.println(vector.size());
+		
 		
 		assertEquals("lote_1", vector.get(0).toString());
 
