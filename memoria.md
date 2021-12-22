@@ -227,17 +227,13 @@ En cuanto a la integración del análisis en SonarCloud con cada uno de los comm
 	
 Para realizar el diseño de los casos de prueba hemos creado diferentes tablas con los Valores de Prueba para cada uno de los métodos. 
 	
-Para cada uno de estos Valores de Prueba hemos creado unas nuevas tablas con los Casos de Prueba usando laestrategia Cada uso (each use), la cuál consiste en que cada valor interesante debe utilizarse, al menos, en un caso de prueba. 
+Para cada uno de estos Valores de Prueba hemos creado unas nuevas tablas con los Casos de Prueba usando la estrategia Cada uso (each use), la cuál consiste en que cada valor interesante debe utilizarse, al menos, en un caso de prueba. 
 	
 Además, en este apartado hemos realizado la Cobertura de decisiones, donde una decisión es una secuencia de condiciones, una condición se satisface cuando cada decisión se evalúa a true y a false al menos una vez.
 	
-A continuación, se muestran las diferentes tablas que hemos realizado para el diseño de los casos de prueba:
+A continuación, se muestra el enlace a un archivo .pdf donde se encuentran las diferentes tablas que hemos realizado para el diseño de los casos de prueba:
 	
-### Valores de Prueba
-	
-	
-
-	
+[GestionTesting_SMF-Software.pdf](./GestionTesting_SMF-Software.pdf)
 	
 ---
 
