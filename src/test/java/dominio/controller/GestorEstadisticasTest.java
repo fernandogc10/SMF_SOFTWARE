@@ -2,15 +2,30 @@ package dominio.controller;
 
 import static org.junit.Assert.*;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class GestorEstadisticasTest {
+import dominio.entitymodel.RegionEnum;
+import dominio.entitymodel.Vacunacion;
 
-	@Before
+public class GestorEstadisticasTest {
+	
+	List<Vacunacion> listaVacunados;
+	RegionEnum region;
+
+	/*@Before
 	public void setUp() throws Exception {
-	}
+		listaVacunados = new ArrayList<>();
+		
+		GestorVacunacion.registrarVacunacion(sqlDate, null, null, null, null);
+		
+		region =GestorVacunacion.get;
+	}*/
 
 	@After
 	public void tearDown() throws Exception {
@@ -22,7 +37,10 @@ public class GestorEstadisticasTest {
 	}
 
 	@Test
-	public void testConsultarTotalVacunadosPorRegion() {
+	public void testConsultarTotalVacunadosPorRegion() throws SQLException, Exception {
+		
+		
+		
 	
 	}
 

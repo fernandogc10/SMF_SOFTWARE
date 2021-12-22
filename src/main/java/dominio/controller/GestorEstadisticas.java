@@ -10,6 +10,7 @@ import dominio.entitymodel.Vacunacion;
 public class GestorEstadisticas {
 	
 	static List<Vacunacion> listaVacunados = new ArrayList<>();
+	
 
 	public static List<Vacunacion> consultarTotalVacunados() throws SQLException{
 		

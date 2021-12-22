@@ -20,7 +20,7 @@ public class GestorVacunacion {
 	public static void altaEntregaVacunas(String aLote, Date aFecha, int aCantidad, int aPrioridad, String Region)
 			throws SQLException, Exception {
 		
-		System.out.println(aCantidad + " " + aLote);
+		
 
 		if(aLote == null || aFecha == null || aCantidad <=0 || aPrioridad <0 || aPrioridad >2)
 			throw new Exception("No se permiten parámetros nulos, negativos o la prioridad "

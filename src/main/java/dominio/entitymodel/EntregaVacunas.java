@@ -86,7 +86,7 @@ public class EntregaVacunas {
 	public void setRegion(String region) {
 		
 
-		this._region = RegionEnum.valueOf(region);
+		this._region = RegionEnum.valueOf(region.toUpperCase());
 	}
 
 

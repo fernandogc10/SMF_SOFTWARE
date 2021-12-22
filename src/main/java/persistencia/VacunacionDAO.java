@@ -26,10 +26,12 @@ public class VacunacionDAO<E> extends AgenteBD {
 	}
 
 	public static void insertarVacunacion(Vacunacion nuevaVacunacion) throws SQLException, Exception {
-		
-		if (nuevaVacunacion.get_fechaVacunacion() == null || nuevaVacunacion.get_paciente().get_dni() == null || nuevaVacunacion.get_paciente().get_Nombre() == null
-				|| nuevaVacunacion.get_paciente().get_Apellidos() == null || nuevaVacunacion.get_tipoVacuna() == null || nuevaVacunacion.get_paciente().get_Region() == null)
-			throw new Exception ("No se permiten valores nulos de parámetros");
+
+		if (nuevaVacunacion.get_fechaVacunacion() == null || nuevaVacunacion.get_paciente().get_dni() == null
+				|| nuevaVacunacion.get_paciente().get_Nombre() == null
+				|| nuevaVacunacion.get_paciente().get_Apellidos() == null || nuevaVacunacion.get_tipoVacuna().get_Nombre() == null
+				|| nuevaVacunacion.get_paciente().get_Region() == null)
+			throw new Exception("No se permiten valores nulos de parámetros");
 
 		AgenteBD.getAgente().insert(
 				"Insert into Vacunacion (fecha, Dosis, dni_paciente, nombre_paciente, apellidos_paciente, tipoVacuna, Region) values"
@@ -42,7 +44,7 @@ public class VacunacionDAO<E> extends AgenteBD {
 
 		Vector<Object> vector = new Vector<>();
 		vector = AgenteBD.getAgente().select("Select * from Vacunacion");
-		
+
 	}
 
 	public static List<Vacunacion> seleccionarVacunaciones() throws SQLException {
@@ -53,11 +55,8 @@ public class VacunacionDAO<E> extends AgenteBD {
 		TipoVacuna tipoVacuna;
 
 		vector = AgenteBD.getAgente().select("Select * from Vacunacion");
-		
-
 
 		for (int i = 0; i < vector.size(); i += 7) {
-
 
 			vacunacion = new Vacunacion((Date) vector.elementAt(i + 0),
 					Boolean.parseBoolean((vector.elementAt(i + 1).toString())));
@@ -75,14 +74,15 @@ public class VacunacionDAO<E> extends AgenteBD {
 		return listaVacunados;
 	}
 
-	public static List<Vacunacion> seleccionarVacunaciones(RegionEnum aRegion) throws SQLException {
+	public static List<Vacunacion> seleccionarVacunaciones(RegionEnum aRegion) throws SQLException, Exception {
 
+		
+		if (aRegion == null) throw new Exception ("El parámetro aRegion no puede ser null");
+		
 		Vector<Object> vector = new Vector<>();
 		Vacunacion vacunacion;
 		Paciente paciente;
 		TipoVacuna tipoVacuna;
-		
-		System.out.println(aRegion.toString());
 
 		vector = AgenteBD.getAgente().select("Select * from Vacunacion where Region= '" + aRegion.toString() + "'");
 
@@ -114,14 +114,12 @@ public class VacunacionDAO<E> extends AgenteBD {
 		int suma = 0;
 
 		num_vacunados = AgenteBD.getAgente().select("Select dni_paciente from Vacunacion");
-		
+
 		num_dosis_recibidas = AgenteBD.getAgente().select("Select cantidad from LoteVacunas");
-		
+
 		System.out.println("TAMAÑO " + num_dosis_recibidas.size());
-		
+
 		System.out.println(num_dosis_recibidas.get(0).toString());
-		
-		
 
 		if (num_vacunados == null || num_dosis_recibidas == null) {
 			return null;
@@ -131,7 +129,7 @@ public class VacunacionDAO<E> extends AgenteBD {
 
 				suma += (int) num_dosis_recibidas.get(i);
 			}
-			
+
 			System.out.println(suma);
 
 			DecimalFormat df = new DecimalFormat("#.##");
@@ -139,20 +137,21 @@ public class VacunacionDAO<E> extends AgenteBD {
 			double total = (((int) num_vacunados.get(0)) / suma) * 100;
 
 			return ("El porcentaje de Vacunados sobre dosis Recibidas es: " + df.format(total) + "%");
-			
-		}
 
-	
+		}
 
 	}
 
-	public static String consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum region) throws SQLException {
+	public static String consultarPorcentajeVacunadosSobreRecibidasEnRegion(RegionEnum region) throws SQLException, Exception {
 
+		
+		if (region == null) throw new Exception ("El parámetro region no puede ser null");
 		Vector<Object> num_vacunados = new Vector<>();
 		Vector<Object> num_dosis_recibidas = new Vector<>();
 		int suma = 0;
 
-		num_vacunados = AgenteBD.getAgente().select("Select dni_paciente from Vacunacion where Region= '" + region.toString() + "'");
+		num_vacunados = AgenteBD.getAgente()
+				.select("Select dni_paciente from Vacunacion where Region= '" + region.toString() + "'");
 		num_dosis_recibidas = AgenteBD.getAgente().select("Select cantidad from LoteVacunas");
 
 		if (num_vacunados == null || num_dosis_recibidas == null) {
@@ -168,11 +167,10 @@ public class VacunacionDAO<E> extends AgenteBD {
 
 			double total = (((int) num_vacunados.get(0)) / suma) * 100;
 
-			return ("El porcentaje de Vacunados sobre dosis Recibidas en " + region.toString() + " es: " + df.format(total) + "%");
-			
-		}
+			return ("El porcentaje de Vacunados sobre dosis Recibidas en " + region.toString() + " es: "
+					+ df.format(total) + "%");
 
-	
+		}
 
 	}
 }
